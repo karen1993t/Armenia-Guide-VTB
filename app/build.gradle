@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "31.0.0"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.armenia_guide"
@@ -65,10 +65,10 @@ dependencies {
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
 
-    // Koin
-    implementation 'org.koin:koin-android:2.2.2'
-    implementation 'org.koin:koin-androidx-viewmodel:2.2.2'
-    implementation 'org.koin:koin-androidx-scope:2.2.2'
+//    // Koin
+//    implementation 'org.koin:koin-android:2.1.6'
+//    implementation 'org.koin:koin-androidx-viewmodel:2.1.6'
+//    implementation 'org.koin:koin-androidx-scope:2.1.6'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -97,6 +97,7 @@ dependencies {
 
     // CameraX View class
     implementation 'androidx.camera:camera-view:1.0.0-alpha27'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
