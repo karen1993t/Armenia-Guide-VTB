@@ -1,0 +1,2 @@
+rootProject.name = "Armenia Guide Vtb"
+include ':app'
