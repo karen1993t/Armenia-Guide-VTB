@@ -2,4 +2,6 @@
     <string name="app_name">Armenia Guide Vtb</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description_btn_close">description_btn_close</string>
+    <string name="title_authorization_text">Authorization</string>
 </resources>
