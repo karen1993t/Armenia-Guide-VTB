@@ -66,9 +66,14 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
 
     // Koin
-    implementation 'org.koin:koin-android:2.2.2'
-    implementation 'org.koin:koin-androidx-viewmodel:2.2.2'
-    implementation 'org.koin:koin-androidx-scope:2.2.2'
+    // Koin AndroidX Scope features
+    implementation 'io.insert-koin:koin-androidx-scope:2.2.3'
+// Koin AndroidX ViewModel features
+    implementation 'io.insert-koin:koin-androidx-viewmodel:2.2.3'
+// Koin AndroidX Fragment features
+    implementation 'io.insert-koin:koin-androidx-fragment:2.2.3'
+// Koin AndroidX Experimental features
+    implementation 'io.insert-koin:koin-androidx-ext:2.2.3'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
