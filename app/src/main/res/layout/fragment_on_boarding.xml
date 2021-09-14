@@ -23,6 +23,8 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
+        android:background="@drawable/background_container_on_boarding"
+        android:elevation="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_get_started"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +61,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_on_boarding"
+        android:layout_width="61dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_get_started"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

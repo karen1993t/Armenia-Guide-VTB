@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/background_button.xml" value="0.16203703703703703" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/background_container_on_boarding.xml" value="0.20462962962962963" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/default_dot.xml" value="0.20462962962962963" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/selected_dot.xml" value="0.20462962962962963" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/tab_selector.xml" value="0.20462962962962963" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding.xml" value="0.22" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_1.xml" value="0.17962962962962964" />
