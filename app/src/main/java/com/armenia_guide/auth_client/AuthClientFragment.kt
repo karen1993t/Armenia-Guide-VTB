@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.armenia_guide.databinding.FragmentAuthClientBinding
 
+
 class AuthClientFragment : Fragment() {
     private var showBindingAuthClient : FragmentAuthClientBinding? = null
     override fun onCreateView(
@@ -16,6 +17,10 @@ class AuthClientFragment : Fragment() {
     ): View? {
         showBindingAuthClient = FragmentAuthClientBinding.inflate(inflater,container,false)
         return showBindingAuthClient?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
 
