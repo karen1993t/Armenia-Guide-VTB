@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="top_margin" tools:ignore="MissingDefaultResource">255dp</dimen>
-    <dimen name="start_margin_fragments" tools:ignore="MissingDefaultResource">100dp</dimen>
-</resources>

@@ -13,8 +13,7 @@ class ViewPagerAdapterOnBoarding(fragmentManager: FragmentManager, lifecycle: Li
         OnBoardingFragment2(),
         OnBoardingFragment3(),
         OnBoardingFragment4(),
-        OnBoardingFragment5(),
-        OnBoardingFragment6()
+        OnBoardingFragment5()
     )
 
     override fun getItemCount(): Int {
