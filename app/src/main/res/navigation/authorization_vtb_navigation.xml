@@ -5,16 +5,7 @@
     android:id="@+id/authorization_vtb"
     app:startDestination="@id/confirmEmailFragment">
 
-    <fragment
-        android:id="@+id/onBoardingFragment"
-        android:name="com.armenia_guide.on_boarding.OnBoardingFragment"
-        android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding" />
-    <fragment
-        android:id="@+id/authClientFragment"
-        android:name="com.armenia_guide.auth_client.AuthClientFragment"
-        android:label="AuthClientFragment"
-        tools:layout="@layout/fragment_auth_client" />
+
     <fragment
         android:id="@+id/signInToEmailFragment"
         android:name="com.armenia_guide.auth_client.SignInToEmailFragment"

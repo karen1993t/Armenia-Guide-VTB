@@ -27,12 +27,12 @@ class OnBoardingFragment : Fragment() {
     ): View? {
         bindingOnBoardingFragment = FragmentOnBoardingBinding.inflate(inflater)
 
-        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
-            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_onBoardingFragment_to_authClientFragment) }
-        }
-        bindingOnBoardingFragment?.btnClose?.setOnClickListener {
-            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_onBoardingFragment_to_authClientFragment) }
-        }
+//        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
+//            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_onBoardingFragment_to_authClientFragment) }
+//        }
+//        bindingOnBoardingFragment?.btnClose?.setOnClickListener {
+//            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_onBoardingFragment_to_authClientFragment) }
+//        }
         return bindingOnBoardingFragment?.root
     }
 
