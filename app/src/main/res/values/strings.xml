@@ -20,4 +20,5 @@
     <string name="text_or">или</string>
     <string name="text_info_sign_in_email">Создавая профиль, вы соглашайтесь с правилами обработки персональных данных</string>
     <string name="text_hint_input_email_1">Ваша почта</string>
+    <string name="text_btn_start">Начать</string>
 </resources>
