@@ -30,4 +30,33 @@
         android:name="com.armenia_guide.auth_client.ConfirmEmailFragment"
         android:label="ConfirmEmailFragment"
         tools:layout="@layout/fragment_confirm_email" />
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.armenia_guide.on_boarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding"/>
+    <fragment
+        android:id="@+id/authClientFragment"
+        android:name="com.armenia_guide.auth_client.AuthClientFragment"
+        android:label="AuthClientFragment"
+        tools:layout="@layout/fragment_auth_client" />
+    <fragment
+        android:id="@+id/authorizationEnterPinFragment"
+        android:name="com.armenia_guide.authorization.AuthorizationEnterPinFragment"
+        android:label="fragment_authorization_enter_pin"
+        tools:layout="@layout/fragment_authorization_enter_pin">
+        <action
+            android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
+            app:destination="@id/authorizationRepeatPinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorizationRepeatPinFragment"
+        android:name="com.armenia_guide.authorization.AuthorizationRepeatPinFragment"
+        android:label="AuthorizationRepeatPinFragment"
+        tools:layout="@layout/fragment_authorization_repeat_pin" />
+    <fragment
+        android:id="@+id/authorizationEmailFragment"
+        android:name="com.armenia_guide.authorization.AuthorizationEmailFragment"
+        android:label="fragment_authorization_email"
+        tools:layout="@layout/fragment_authorization_email"/>
 </navigation>
