@@ -11,4 +11,5 @@
     <color name="background_facebook">#3B5998</color>
     <color name="background_vkontakte">#4C6C91</color>
     <color name="red_selector_dot">#C79093</color>
+    <color name="color_grey_pin_view">#BFBFBF</color>
 </resources>

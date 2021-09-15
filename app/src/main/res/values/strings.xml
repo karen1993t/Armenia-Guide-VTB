@@ -15,4 +15,14 @@
     <string name="title_on_boarding_fragment_4_2">Управление банковской активностью в онлайн-режиме</string>
     <string name="title_on_boarding_fragment_5_1">Удобная оплата</string>
     <string name="title_on_boarding_fragment_5_2">Оплата онлайн и офлайн покупок через приложение Armenia Guide</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="icon_close_black">icon_close_black</string>
+    <string name="title_enter_pin_1">Авторизация</string>
+    <string name="title_enter_pin_2">Придумайте 5-значный цифровой код</string>
+    <string name="circle">circle</string>
+    <string name="enter_pin">enter_pin</string>
+    <string name="title_repeat_pin_1">Повторите 5-значный цифровой код</string>
+    <string name="title_email">Email</string>
+    <string name="next">Далее</string>
 </resources>
