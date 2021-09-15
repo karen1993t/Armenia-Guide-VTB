@@ -21,4 +21,8 @@
     <string name="text_info_sign_in_email">Создавая профиль, вы соглашайтесь с правилами обработки персональных данных</string>
     <string name="text_hint_input_email_1">Ваша почта</string>
     <string name="text_btn_start">Начать</string>
+    <string name="description_logo_vtb">description_logo_vtb</string>
+    <string name="description_icon_mc">description_icon_mc</string>
+    <string name="text_title_email_confirm">Откройте свою виртуальную карту за 5 минут</string>
+    <string name="description_icon_email">description_icon_email</string>
 </resources>

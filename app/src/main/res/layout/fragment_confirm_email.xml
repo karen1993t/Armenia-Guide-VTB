@@ -28,6 +28,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_close">
 
+        <ImageView
+            android:id="@+id/img_logo_vtb"
+            android:layout_width="57dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="21.66dp"
+            android:contentDescription="@string/description_logo_vtb"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon_master_card"
+            android:layout_width="50dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/description_icon_mc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/text_title_confirm_email"
+            android:layout_width="0dp"
+            android:layout_height="91dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:textFontWeight="700"
+            android:lineHeight="30sp"
+            android:fontFamily="@font/gotham_pro"
+            android:lineSpacingExtra="6sp"
+            android:gravity="center_vertical"
+            android:textSize="25sp"
+            android:textColor="@color/color_red"
+            android:textStyle="normal"
+            android:text="@string/text_title_email_confirm"
+            app:layout_constraintTop_toBottomOf="@id/icon_master_card"
+            tools:targetApi="p" />
+        <ImageView
+            android:id="@+id/icon_confirm_email"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_title_confirm_email"
+            android:contentDescription="@string/description_icon_email" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            app:layout_constraintStart_toEndOf="@id/icon_confirm_email"
+            app:layout_constraintTop_toBottomOf="@id/text_title_confirm_email"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -42,8 +95,8 @@
         android:gravity="center_vertical|center_horizontal"
         android:lineHeight="20sp"
         android:lineSpacingExtra="5sp"
-        android:textAllCaps="false"
         android:text="@string/text_btn_start"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textFontWeight="400"
         android:textStyle="normal"
