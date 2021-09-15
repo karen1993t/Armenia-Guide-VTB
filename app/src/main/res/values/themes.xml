@@ -14,7 +14,7 @@
             @color/black
 
         </item>
-
+        <item name="android:colorControlActivated">@color/color_red</item>
 
     </style>
 
@@ -22,6 +22,36 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="fontFamily">@font/gotham_pro</item>
+        <item name="android:textStyle">normal</item>
+        <item name="lineHeight">20dp</item>
+        <item name="android:lineSpacingExtra">5sp</item>
     </style>
+
+    <style name="some_id">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/gotham_pro</item>
+        <item name="android:textColor">@color/color_red</item>
+        <item name="android:translationY">-1.7sp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="lineHeight">16.8dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="box_input_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="hintTextColor">@color/black</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="mock_labelBackgroundColor">@color/black</item>
+        <item name="selectableItemBackground">@color/black</item>
+        <item name="boxStrokeColor">@color/gray</item>
+    </style>
+
+    <style name="box_input_style_1" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/black</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="mock_labelBackgroundColor">@color/gray</item>
+        <item name="selectableItemBackground">@color/gray</item>
+        <item name="boxStrokeColor">@color/gray</item>
+    </style>
+
 
 </resources>

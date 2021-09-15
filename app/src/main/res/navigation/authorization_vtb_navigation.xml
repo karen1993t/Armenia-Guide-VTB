@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authorization_vtb"
+    app:startDestination="@id/confirmEmailFragment">
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.armenia_guide.on_boarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/authClientFragment"
+        android:name="com.armenia_guide.auth_client.AuthClientFragment"
+        android:label="AuthClientFragment"
+        tools:layout="@layout/fragment_auth_client" />
+    <fragment
+        android:id="@+id/signInToEmailFragment"
+        android:name="com.armenia_guide.auth_client.SignInToEmailFragment"
+        android:label="SignInToEmailFragment"
+        tools:layout="@layout/fragment_sign_in_to_email" />
+    <fragment
+        android:id="@+id/signInToEmailTwoFragment"
+        android:name="com.armenia_guide.auth_client.SignInToEmailTwoFragment"
+        android:label="SignInToEmailTwoFragment"
+        tools:layout="@layout/fragment_sign_in_to_email_two" />
+    <fragment
+        android:id="@+id/confirmEmailFragment"
+        android:name="com.armenia_guide.auth_client.ConfirmEmailFragment"
+        android:label="ConfirmEmailFragment"
+        tools:layout="@layout/fragment_confirm_email" />
+</navigation>
