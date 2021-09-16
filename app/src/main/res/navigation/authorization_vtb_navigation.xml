@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/confirmEmailFragment">
+    app:startDestination="@id/authorizationEnterPinFragment">
 
 
     <fragment
@@ -44,10 +44,19 @@
         android:id="@+id/authorizationRepeatPinFragment"
         android:name="com.armenia_guide.authorization.AuthorizationRepeatPinFragment"
         android:label="AuthorizationRepeatPinFragment"
-        tools:layout="@layout/fragment_authorization_repeat_pin" />
+        tools:layout="@layout/fragment_authorization_repeat_pin" >
+        <action
+            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
+            app:destination="@id/authorizationPersonalAreaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/authorizationEmailFragment"
         android:name="com.armenia_guide.authorization.AuthorizationEmailFragment"
         android:label="fragment_authorization_email"
         tools:layout="@layout/fragment_authorization_email"/>
+    <fragment
+        android:id="@+id/authorizationPersonalAreaFragment"
+        android:name="com.armenia_guide.personal_area.AuthorizationPersonalAreaFragment"
+        android:label="fragment_authorization_personal_area"
+        tools:layout="@layout/fragment_authorization_personal_area" />
 </navigation>

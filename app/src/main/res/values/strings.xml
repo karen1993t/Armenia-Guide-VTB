@@ -45,4 +45,6 @@
     <string name="title_repeat_pin_1">Повторите 5-значный цифровой код</string>
     <string name="title_email">Email</string>
     <string name="next">Далее</string>
+    <string name="title_auth_personal_area">Привет, Анастасия!</string>
+    <string name="enter_with_face_id">Войти через FaceID</string>
 </resources>
