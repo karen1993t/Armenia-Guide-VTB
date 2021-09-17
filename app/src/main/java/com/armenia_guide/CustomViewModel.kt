@@ -21,7 +21,7 @@ class CustomViewModel : ViewModel() {
     val getPin2LiveData: LiveData<String> = _getPin2LiveData
 
     fun sendPin2(string: String){
-        _getPinLiveData.postValue(string)
+        _getPin2LiveData.postValue(string)
     }
 
 

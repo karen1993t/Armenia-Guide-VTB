@@ -11,13 +11,7 @@ class CustomApplication : Application() {
         super.onCreate()
 
         val customModule = module {
-//           single {
-//               AuthorizationRepeatPinFragment(viewModel = get())
-//           }
-//            single<CustomViewModel> {
-//                CustomViewModel()
-//
-//            }
+
         }
         startKoin {
             androidContext(applicationContext)

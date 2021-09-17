@@ -53,5 +53,42 @@
         <item name="boxStrokeColor">@color/gray</item>
     </style>
 
+    // Alert Dialog Personal Area
+    <style name="CutShapeTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral</item>
+
+    </style>
+
+    <style name="CutShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Alert.Button.Neutral" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    // Alert Dialog Reset password
+    <style name="ResetTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance_1</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral_1</item>
+
+    </style>
+
+    <style name="CutShapeAppearance_1" parent="ShapeAppearance.MaterialComponents.MediumComponent" tools:ignore="DuplicateDefinition">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Alert.Button.Neutral_1" parent="Widget.MaterialComponents.Button.TextButton" >
+        <item name="android:textColor">@color/color_red</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+
+
 
 </resources>

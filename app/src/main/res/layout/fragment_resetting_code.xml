@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".personal_area.ResettingCodeFragment">
+
+    <TextView
+        android:id="@+id/title_email_reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="20dp"
+        android:lineSpacingExtra="5sp"
+        android:text="Сброс кода"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        tools:targetApi="p" />
+
+    <ImageView
+        android:id="@+id/icon_close_reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="5dp"
+        android:clickable="true"
+        android:contentDescription="@string/icon_close_black"
+        android:src="@drawable/ic_btn_close_black" />
+
+    <ImageView
+        android:id="@+id/logo_vtb_auth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_email_reset"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="26dp"
+        android:contentDescription="@string/description_icon_logo"
+        android:src="@drawable/ic_vtb_eng_blue" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_email_reset"
+        app:boxStrokeColor="@color/black"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_vtb_auth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="19dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/title_email"
+            android:inputType="textEmailAddress"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_email_reset"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_button"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="20dp"
+        android:text="Сбросить код"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_email_reset"
+        tools:targetApi="p" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

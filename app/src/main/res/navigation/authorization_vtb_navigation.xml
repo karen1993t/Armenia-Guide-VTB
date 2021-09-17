@@ -58,5 +58,22 @@
         android:id="@+id/authorizationPersonalAreaFragment"
         android:name="com.armenia_guide.personal_area.AuthorizationPersonalAreaFragment"
         android:label="fragment_authorization_personal_area"
-        tools:layout="@layout/fragment_authorization_personal_area" />
+        tools:layout="@layout/fragment_authorization_personal_area" >
+        <action
+            android:id="@+id/action_authorizationPersonalAreaFragment_to_resettingCodeFragment"
+            app:destination="@id/resettingCodeFragment" />
+        <action
+            android:id="@+id/action_authorizationPersonalAreaFragment_to_personalAreaFragment"
+            app:destination="@id/personalAreaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resettingCodeFragment"
+        android:name="com.armenia_guide.personal_area.ResettingCodeFragment"
+        android:label="fragment_resetting_code"
+        tools:layout="@layout/fragment_resetting_code" />
+    <fragment
+        android:id="@+id/personalAreaFragment"
+        android:name="com.armenia_guide.personal_area.PersonalAreaFragment"
+        android:label="fragment_personal_area"
+        tools:layout="@layout/fragment_personal_area" />
 </navigation>

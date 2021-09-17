@@ -47,4 +47,10 @@
     <string name="next">Далее</string>
     <string name="title_auth_personal_area">Привет, Анастасия!</string>
     <string name="enter_with_face_id">Войти через FaceID</string>
+    <string name="attempts_left_5">Осталось 5 попыток</string>
+    <string name="attempts_left_4">Осталось 4 попыток</string>
+    <string name="attempts_left_3">Осталось 3 попыток</string>
+    <string name="attempts_left_2">Осталось 2 попыток</string>
+    <string name="attempts_left_1">Осталось 1 попыток</string>
+    <string name="attempts_left_0">Осталось 0 попыток</string>
 </resources>
