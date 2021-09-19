@@ -3,7 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".on_boarding.OnBoardingFragment3">
+
+    <ImageView
+        android:id="@+id/ic_on_boarding_fragment_3_1"
+        android:layout_width="57dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        android:contentDescription="@string/card_vtb"
+        android:src="@drawable/ic_vtb_rus_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_on_boarding_fragment_3_2"
+        android:layout_width="50dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/card_vtb"
+        android:src="@drawable/ic_master_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_on_boarding_fragment_3_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="82dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="30dp"
+        android:text="@string/title_on_boarding_fragment_3_1"
+        android:textColor="@color/color_red"
+        android:textFontWeight="700"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p" />
+
+    <TextView
+        android:id="@+id/title_on_boarding_fragment_3_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="18dp"
+        android:text="@string/title_on_boarding_fragment_3_2"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_on_boarding_fragment_3_1"
+        tools:targetApi="p" />
+
+    <ImageView
+        android:id="@+id/ic_on_boarding_fragment_3_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/card_vtb"
+        android:src="@drawable/ic_on_boarding_fragment_3"
+        app:layout_constraintTop_toBottomOf="@id/title_on_boarding_fragment_3_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

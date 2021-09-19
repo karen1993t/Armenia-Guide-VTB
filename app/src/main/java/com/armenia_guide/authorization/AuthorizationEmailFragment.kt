@@ -1,4 +1,4 @@
-package com.armenia_guide.on_boarding
+package com.armenia_guide.authorization
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.armenia_guide.R
 
-class OnBoardingFragment6 : Fragment() {
+class AuthorizationEmailFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_on_boarding_6, container, false)
+        return inflater.inflate(R.layout.fragment_authorization_email, container, false)
     }
+
 
 }

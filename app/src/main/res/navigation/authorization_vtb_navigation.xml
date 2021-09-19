@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/confirmEmailFragment">
+    app:startDestination="@id/personalInformationFragment">
 
     <fragment
         android:id="@+id/onBoardingFragment"
@@ -30,4 +30,88 @@
         android:name="com.armenia_guide.auth_client.ConfirmEmailFragment"
         android:label="ConfirmEmailFragment"
         tools:layout="@layout/fragment_confirm_email" />
+
+    <fragment
+        android:id="@+id/authorizationEnterPinFragment"
+        android:name="com.armenia_guide.authorization.AuthorizationEnterPinFragment"
+        android:label="fragment_authorization_enter_pin"
+        tools:layout="@layout/fragment_authorization_enter_pin">
+        <action
+            android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
+            app:destination="@id/authorizationRepeatPinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorizationRepeatPinFragment"
+        android:name="com.armenia_guide.authorization.AuthorizationRepeatPinFragment"
+        android:label="AuthorizationRepeatPinFragment"
+        tools:layout="@layout/fragment_authorization_repeat_pin" />
+    <fragment
+        android:id="@+id/authorizationEmailFragment"
+        android:name="com.armenia_guide.authorization.AuthorizationEmailFragment"
+        android:label="fragment_authorization_email"
+        tools:layout="@layout/fragment_authorization_email" />
+    <fragment
+        android:id="@+id/checkEmailFragment"
+        android:name="com.armenia_guide.auth_client.CheckEmailFragment"
+        android:label="CheckEmailFragment"
+        tools:layout="@layout/fragment_check_email" />
+    <fragment
+        android:id="@+id/biometryAccessFragment"
+        android:name="com.armenia_guide.biometry_access.BiometryAccessFragment"
+        android:label="BiometryAccessFragment"
+        tools:layout="@layout/fragment_biometry_access" >
+        <action
+            android:id="@+id/action_biometryAccessFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.armenia_guide.biometry_access.PersonalInformationFragment"
+        android:label="PersonalInformationFragment"
+        tools:layout="@layout/fragment_personal_information">
+        <action
+            android:id="@+id/action_personalInformationFragment_to_phoneNumberFragment"
+            app:destination="@id/phoneNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.armenia_guide.biometry_access.PhoneNumberFragment"
+        android:label="PhoneNumberFragment"
+        tools:layout="@layout/fragment_phone_number">
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment"
+            app:destination="@id/legalAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/legalAddressFragment"
+        android:name="com.armenia_guide.biometry_access.LegalAddressFragment"
+        android:label="LegalAddressFragment"
+        tools:layout="@layout/fragment_legal_address">
+        <action
+            android:id="@+id/action_legalAddressFragment_to_passportFragment"
+            app:destination="@id/passportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passportFragment"
+        android:name="com.armenia_guide.biometry_access.PassportFragment"
+        android:label="PassportFragment"
+        tools:layout="@layout/fragment_passport">
+        <action
+            android:id="@+id/action_passportFragment_to_communicationFragment"
+            app:destination="@id/communicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/communicationFragment"
+        android:name="com.armenia_guide.biometry_access.CommunicationFragment"
+        android:label="CommunicationFragment"
+        tools:layout="@layout/fragment_communication" >
+        <action
+            android:id="@+id/action_communicationFragment_to_biometrySuccessFragment"
+            app:destination="@id/biometrySuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometrySuccessFragment"
+        android:name="com.armenia_guide.biometry_access.BiometrySuccessFragment"
+        android:label="BiometrySuccessFragment"
+        tools:layout="@layout/fragment_biometry_success"/>
 </navigation>

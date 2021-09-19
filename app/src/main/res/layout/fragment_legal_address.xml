@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_legal_address"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="15.5dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="24dp"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/title_legal_address"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/btn_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_close"
+        tools:targetApi="p" />
+
+    <ProgressBar
+        android:id="@+id/progress_biometry"
+        style="@style/CustomProgressBar"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:max="100"
+        android:progress="40"
+        android:secondaryProgress="60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_legal_address" />
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/ic_btn_close_grey"
+        android:clickable="true"
+        android:contentDescription="@string/description_btn_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/text_info"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/gotham_pro"
+        android:gravity="center_vertical"
+        android:lineHeight="18sp"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/text_info_legal_address"
+        android:textColor="@color/gray"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_biometry"
+        tools:ignore="TextContrastCheck"
+        tools:targetApi="p" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_country"
+        style="@style/box_drop_down_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="14.5dp"
+        android:hint="@string/hint_text_country"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/gray"
+        app:boxStrokeErrorColor="@color/design_default_color_error"
+        app:endIconDrawable="@drawable/ic_next_gray"
+        app:endIconMode="custom"
+        app:errorTextColor="@color/design_default_color_error"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_info">
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_user_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:inputType="none"
+            android:lineSpacingExtra="4sp"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            tools:ignore="LabelFor,TextContrastCheck"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_city"
+        style="@style/box_drop_down_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="14.5dp"
+        android:hint="@string/hin_text_city"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/gray"
+        app:boxStrokeErrorColor="@color/design_default_color_error"
+        app:endIconDrawable="@drawable/ic_next_gray"
+        app:endIconMode="custom"
+        app:errorTextColor="@color/design_default_color_error"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_country">
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_user_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:inputType="none"
+            android:lineSpacingExtra="4sp"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            tools:ignore="LabelFor,TextContrastCheck"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_street_name"
+        style="@style/box_drop_down_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="14.5dp"
+        android:hint="@string/hint_text_street"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/gray"
+        app:boxStrokeErrorColor="@color/design_default_color_error"
+        app:endIconDrawable="@drawable/ic_next_gray"
+        app:endIconMode="custom"
+        app:errorTextColor="@color/design_default_color_error"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_city">
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_user_street_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:inputType="none"
+            android:lineSpacingExtra="4sp"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            tools:ignore="LabelFor,TextContrastCheck"
+            tools:targetApi="p" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_apartment_number"
+        style="@style/box_input_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="14.5dp"
+        android:hint="@string/hint_text_apartment_number"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/gray"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_house_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_user_apartment_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:inputType="textPersonName"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:errorEnabled="true"
+            tools:ignore="TextContrastCheck"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_house_number"
+        style="@style/box_input_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="14.5dp"
+        android:hint="@string/hint_text_house_number"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/gray"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_street_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_user_house_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:inputType="textPersonName"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:errorEnabled="true"
+            tools:ignore="TextContrastCheck"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/background_button"
+        android:fontFamily="@font/gotham_pro"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:targetApi="p" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
