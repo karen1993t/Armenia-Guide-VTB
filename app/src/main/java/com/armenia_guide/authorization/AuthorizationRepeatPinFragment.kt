@@ -107,5 +107,10 @@ class AuthorizationRepeatPinFragment : Fragment() {
             WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE); }
         super.onResume()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingAuthorizationRepeatPinFragment = null
+    }
 }
 

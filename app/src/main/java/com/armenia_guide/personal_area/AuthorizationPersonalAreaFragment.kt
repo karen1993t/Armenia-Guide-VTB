@@ -3,7 +3,6 @@ package com.armenia_guide.personal_area
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,16 +29,13 @@ class AuthorizationPersonalAreaFragment : Fragment() {
     private var pin2: String = ""
     private var counter: Int = 0
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         bindingAuthorizationPersonalAreaBinding =
             FragmentAuthorizationPersonalAreaBinding.inflate(inflater)
-
         return bindingAuthorizationPersonalAreaBinding?.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,20 +43,15 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
         viewModelPersonalArea.getPin2LiveData.observe(viewLifecycleOwner, {
             pin2 = it
-            Log.d("pin7", "pin2 = $it")
         })
-
 
         bindingAuthorizationPersonalAreaBinding?.editTextPersonalArea?.addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 pinPersonalArea = p0.toString()
-                Log.d("pin7", "pin = $pinPersonalArea")
             }
-
             override fun afterTextChanged(p0: Editable?) {
                 when (p0?.length) {
                     5 -> {
@@ -106,14 +97,11 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                         R.style.CutShapeTheme
                                     )
                                         .setTitle("Вход в личный кабинет ВТБ & Armenia Guide заблокирован")
-
                                         .setMessage("Сбросте код и повторите попитьку")
-                                        .setNeutralButton("Сбросить") { dialog, which ->
+                                        .setNeutralButton("Сбросить") { _, _ ->
                                             Navigation.findNavController(view)
                                                 .navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
                                         }
-
-
                                         .show()
                                 }
                             }
@@ -124,14 +112,12 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                 .navigate(R.id.action_authorizationPersonalAreaFragment_to_personalAreaFragment)
                         }
                     }
-
                     4 -> {
                         bindingAuthorizationPersonalAreaBinding?.circle5?.setImageResource(R.drawable.circle_pin_view_grey)
                         bindingAuthorizationPersonalAreaBinding?.circle4?.setImageResource(R.drawable.circle_pin_view_black)
                         bindingAuthorizationPersonalAreaBinding?.circle3?.setImageResource(R.drawable.circle_pin_view_black)
                         bindingAuthorizationPersonalAreaBinding?.circle2?.setImageResource(R.drawable.circle_pin_view_black)
                         bindingAuthorizationPersonalAreaBinding?.circle1?.setImageResource(R.drawable.circle_pin_view_black)
-
                     }
                     3 -> {
                         bindingAuthorizationPersonalAreaBinding?.circle4?.setImageResource(R.drawable.circle_pin_view_grey)
@@ -174,8 +160,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                             Navigation.findNavController(view)
                                 .navigate(R.id.action_authorizationPersonalAreaFragment_to_personalAreaFragment)
                         }
-
-
+                        
                         override fun onAuthenticationError(
                             errorCode: Int, errString: CharSequence
                         ) {
@@ -186,12 +171,8 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-
                     })
-
-
                 biometricPrompt.authenticate(promptInfo)
-
             }
 
             when (biometricManager.canAuthenticate()) {
@@ -217,8 +198,6 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                     ).show()
             }
         }
-
-
     }
 
     override fun onResume() {
@@ -230,5 +209,8 @@ class AuthorizationPersonalAreaFragment : Fragment() {
         super.onResume()
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingAuthorizationPersonalAreaBinding = null
+    }
 }

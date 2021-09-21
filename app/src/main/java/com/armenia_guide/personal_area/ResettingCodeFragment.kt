@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentResettingCodeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -30,9 +29,10 @@ private var bindingResettingCodeFragment:FragmentResettingCodeBinding?=null
                 requireContext(),
                 R.style.ResetTheme
             )
+
                 .setIcon(R.drawable.ic_send_email)
                 .setMessage("Мы отправили вам письмо  с ссылкой для сброса кода")
-                .setNeutralButton("Продолжить") { dialog, which ->
+                .setNeutralButton("Продолжить") { _, _ ->
 //                    Navigation.findNavController(view)
 //                        .navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
                 }
@@ -42,6 +42,11 @@ private var bindingResettingCodeFragment:FragmentResettingCodeBinding?=null
         }
 
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingResettingCodeFragment=null
     }
 
 }

@@ -84,5 +84,10 @@ class AuthorizationEnterPinFragment : Fragment() {
         super.onResume()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingAuthorizationEnterPinFragment = null
+    }
+
 
 }

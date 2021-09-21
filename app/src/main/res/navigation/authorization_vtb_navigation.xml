@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/authorizationEnterPinFragment">
+    app:startDestination="@id/onBoardingFragment">
 
 
     <fragment
@@ -25,7 +25,11 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.armenia_guide.on_boarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding"/>
+        tools:layout="@layout/fragment_on_boarding">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_authorizationEmailFragment"
+            app:destination="@id/authorizationEmailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/authClientFragment"
         android:name="com.armenia_guide.auth_client.AuthClientFragment"
@@ -38,7 +42,11 @@
         tools:layout="@layout/fragment_authorization_enter_pin">
         <action
             android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
-            app:destination="@id/authorizationRepeatPinFragment" />
+            app:destination="@id/authorizationRepeatPinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/authorizationRepeatPinFragment"
@@ -47,13 +55,25 @@
         tools:layout="@layout/fragment_authorization_repeat_pin" >
         <action
             android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
-            app:destination="@id/authorizationPersonalAreaFragment" />
+            app:destination="@id/authorizationPersonalAreaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/authorizationEmailFragment"
         android:name="com.armenia_guide.authorization.AuthorizationEmailFragment"
         android:label="fragment_authorization_email"
-        tools:layout="@layout/fragment_authorization_email"/>
+        tools:layout="@layout/fragment_authorization_email">
+        <action
+            android:id="@+id/action_authorizationEmailFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/authorizationPersonalAreaFragment"
         android:name="com.armenia_guide.personal_area.AuthorizationPersonalAreaFragment"
@@ -61,10 +81,18 @@
         tools:layout="@layout/fragment_authorization_personal_area" >
         <action
             android:id="@+id/action_authorizationPersonalAreaFragment_to_resettingCodeFragment"
-            app:destination="@id/resettingCodeFragment" />
+            app:destination="@id/resettingCodeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_authorizationPersonalAreaFragment_to_personalAreaFragment"
-            app:destination="@id/personalAreaFragment" />
+            app:destination="@id/personalAreaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/resettingCodeFragment"
