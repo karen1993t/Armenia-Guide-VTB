@@ -6,16 +6,9 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
 
-object CustomTools {
+object RefactorTextColorsTools {
 
-
-
-
-
-
-
-
-     fun refactorColorText(
+    fun refactorColorText(
         context: Context,
         textView: TextView?,
         colorResources: Int,
