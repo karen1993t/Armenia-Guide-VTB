@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentCommunicationBinding
-import com.armenia_guide.tools.CustomTools
+import com.armenia_guide.tools.RefactorTextColorsTools
 
 class CommunicationFragment : Fragment() {
     private var showBindingCommunication: FragmentCommunicationBinding? = null
@@ -35,7 +35,7 @@ class CommunicationFragment : Fragment() {
     private fun changeTextColorByIndex() {
         val textViewPrivacyPolicy = showBindingCommunication?.textPrivacyPolicy
 
-        var textChangeColor = CustomTools.refactorColorText(
+        var textChangeColor = RefactorTextColorsTools.refactorColorText(
             requireContext(),
             textViewPrivacyPolicy,
             R.color.color_red,
@@ -43,7 +43,7 @@ class CommunicationFragment : Fragment() {
             26
         )
         textViewPrivacyPolicy?.text = textChangeColor
-        textChangeColor = CustomTools.refactorColorText(
+        textChangeColor = RefactorTextColorsTools.refactorColorText(
             requireContext(),
             textViewPrivacyPolicy,
             R.color.color_red,

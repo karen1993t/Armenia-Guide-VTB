@@ -60,6 +60,9 @@
         <item name="android:textStyle">bold|italic</item>
     </style>
 
+
+
+
     <style name="HelperTextAppearance" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textSize">12sp</item>
         <item name="lineHeight">14.4sp</item>
@@ -73,7 +76,7 @@
 
     </style>
     <style name="box_drop_down_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
-        <item name="hintTextColor">@color/gray</item>
+
         <item name="backgroundTint">@color/white</item>
         <item name="mock_labelBackgroundColor">@color/black</item>
         <item name="selectableItemBackground">@color/white</item>

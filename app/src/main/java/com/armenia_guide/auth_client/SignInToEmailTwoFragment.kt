@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentSignInToEmailTwoBinding
-import com.armenia_guide.tools.CustomTools
+import com.armenia_guide.tools.RefactorTextColorsTools
 
 
 class SignInToEmailTwoFragment : Fragment() {
@@ -28,7 +28,7 @@ class SignInToEmailTwoFragment : Fragment() {
         val textViewInfo = showBindingSignInEmail?.textInfoSignInEmail
         if (textViewInfo?.text != null)
             textViewInfo.text =
-                CustomTools.refactorColorText(
+                RefactorTextColorsTools.refactorColorText(
                     requireContext(),
                     textViewInfo,
                     R.color.color_red,

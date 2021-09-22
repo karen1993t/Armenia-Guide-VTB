@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/personalInformationFragment">
+    app:startDestination="@id/biometryAccessFragment">
 
     <fragment
         android:id="@+id/onBoardingFragment"
@@ -14,7 +14,11 @@
         android:id="@+id/authClientFragment"
         android:name="com.armenia_guide.auth_client.AuthClientFragment"
         android:label="AuthClientFragment"
-        tools:layout="@layout/fragment_auth_client" />
+        tools:layout="@layout/fragment_auth_client" >
+        <action
+            android:id="@+id/action_authClientFragment_to_confirmEmailFragment"
+            app:destination="@id/confirmEmailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signInToEmailFragment"
         android:name="com.armenia_guide.auth_client.SignInToEmailFragment"
@@ -59,10 +63,14 @@
         android:id="@+id/biometryAccessFragment"
         android:name="com.armenia_guide.biometry_access.BiometryAccessFragment"
         android:label="BiometryAccessFragment"
-        tools:layout="@layout/fragment_biometry_access" >
+        tools:layout="@layout/fragment_biometry_access">
         <action
             android:id="@+id/action_biometryAccessFragment_to_personalInformationFragment"
-            app:destination="@id/personalInformationFragment" />
+            app:destination="@id/personalInformationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/personalInformationFragment"
@@ -104,14 +112,48 @@
         android:id="@+id/communicationFragment"
         android:name="com.armenia_guide.biometry_access.CommunicationFragment"
         android:label="CommunicationFragment"
-        tools:layout="@layout/fragment_communication" >
+        tools:layout="@layout/fragment_communication">
         <action
             android:id="@+id/action_communicationFragment_to_biometrySuccessFragment"
             app:destination="@id/biometrySuccessFragment" />
+        <action
+            android:id="@+id/action_communicationFragment_to_biometryInvalidFragment"
+            app:destination="@id/biometryInvalidFragment" />
+        <action
+            android:id="@+id/action_communicationFragment_to_biometryRejectedFragment"
+            app:destination="@id/biometryRejectedFragment" />
     </fragment>
     <fragment
         android:id="@+id/biometrySuccessFragment"
         android:name="com.armenia_guide.biometry_access.BiometrySuccessFragment"
         android:label="BiometrySuccessFragment"
-        tools:layout="@layout/fragment_biometry_success"/>
+        tools:layout="@layout/fragment_biometry_success" >
+        <action
+            android:id="@+id/action_biometrySuccessFragment_to_biometryAccessVideoFragment"
+            app:destination="@id/biometryAccessVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometryInvalidFragment"
+        android:name="com.armenia_guide.biometry_access.BiometryInvalidFragment"
+        android:label="BiometryInvalidFragment"
+        tools:layout="@layout/fragment_biometry_invalid" />
+    <fragment
+        android:id="@+id/biometryRejectedFragment"
+        android:name="com.armenia_guide.biometry_access.BiometryRejectedFragment"
+        android:label="BiometryRejectedFragment"
+        tools:layout="@layout/fragment_biometry_rejected" />
+    <fragment
+        android:id="@+id/biometryAccessVideoFragment"
+        android:name="com.armenia_guide.biometry_access.BiometryAccessVideoFragment"
+        android:label="BiometryAccessVideoFragment"
+        tools:layout="@layout/fragment_biometry_access_video" >
+        <action
+            android:id="@+id/action_biometryAccessVideoFragment_to_biometryVideoFragment"
+            app:destination="@id/biometryVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometryVideoFragment"
+        android:name="com.armenia_guide.biometry_access.BiometryVideoFragment"
+        android:label="BiometryVideoFragment"
+        tools:layout="@layout/fragment_biometry_video"/>
 </navigation>

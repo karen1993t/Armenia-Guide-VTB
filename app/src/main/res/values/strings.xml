@@ -94,4 +94,20 @@
     <string name="description_ic_biometry_success">description_ic_biometry_success</string>
     <string name="text_title_biometry_success">Анкета успешно заполнена</string>
     <string name="text_description_biometry_success">Следующий шаг: Биометрия</string>
+    <string name="description_ic_biometry_invalid">description_ic_biometry_invalid</string>
+    <string name="title_text_biometry_invalid">Вы ввели неверные данные</string>
+    <string name="text_title_biometry_rejected">Сожелеем,\nбанк отклонил вашу заяавку</string>
+    <string name="text_button_support">Поддержка</string>
+    <string name="text_button_to_home">На главную</string>
+    <string name="text_description_biometry_rejected"><u>Правила отказа</u></string>
+    <string name="description_icon_video_biometry">description_icon_video_biometry</string>
+    <string name="text_title_video_biometry">Снимите видео</string>
+    <string name="text_description_video_biometry">Найдите освещенное место</string>
+    <string name="text_btn_go_to_biometry">Перейти к биометрии</string>
+    <string name="text_toast_error_privacy_policy">предоставить Согласие на обработку персональных данных !!</string>
+    <string name="text_error_input_edit_text">Поле ввода не должно быть пустым</string>
+    <string-array name="gender">
+        <item>Женский</item>
+        <item>Мужской</item>
+    </string-array>
 </resources>
