@@ -27,6 +27,12 @@ class OnBoardingFragment : Fragment() {
     ): View? {
         bindingOnBoardingFragment = FragmentOnBoardingBinding.inflate(inflater)
 
+//        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
+//            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_onBoardingFragment_to_authClientFragment) }
+//        }
+//        bindingOnBoardingFragment?.btnClose?.setOnClickListener {
+//            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_onBoardingFragment_to_authClientFragment) }
+//        }
         return bindingOnBoardingFragment?.root
     }
 
@@ -34,14 +40,14 @@ class OnBoardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val requestPermission =
-            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { _ ->
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { isGrantedMap ->
             }
 
         requestPermission.launch(
             arrayOf(
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-            )
+                )
         )
 
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout_on_boarding)
@@ -52,19 +58,6 @@ class OnBoardingFragment : Fragment() {
         TabLayoutMediator(tabLayout, viewPager2) { _, _ ->
         }.attach()
         viewPager2.setPageTransformer(MarginPageTransformer(100))
-
-
-        // temporary
-        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_onBoardingFragment_to_authorizationEmailFragment)
-        }
-
-        bindingOnBoardingFragment?.btnClose?.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_onBoardingFragment_to_authorizationEmailFragment)
-        }
-
     }
 
     override fun onDestroyView() {

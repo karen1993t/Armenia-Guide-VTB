@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:fontFamily="@font/gotham_pro"
-            android:hint="@string/text_hint_input_email"
+            android:hint="@string/hint_text_input_email"
             android:textSize="15sp"
             android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
