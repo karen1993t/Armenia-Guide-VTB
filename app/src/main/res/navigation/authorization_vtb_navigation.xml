@@ -5,78 +5,41 @@
     android:id="@+id/authorization_vtb"
     app:startDestination="@id/confirmEmailFragment">
 
-    <fragment
-        android:id="@+id/onBoardingFragment"
-        android:name="com.armenia_guide.on_boarding.OnBoardingFragment"
-        android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding" />
-    <fragment
-        android:id="@+id/authClientFragment"
-        android:name="com.armenia_guide.auth_client.AuthClientFragment"
-        android:label="AuthClientFragment"
-        tools:layout="@layout/fragment_auth_client" >
-        <action
-            android:id="@+id/action_authClientFragment_to_confirmEmailFragment"
-            app:destination="@id/confirmEmailFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/signInToEmailFragment"
-        android:name="com.armenia_guide.auth_client.SignInToEmailFragment"
+        android:name="com.armenia_guide.ui.auth_client.SignInToEmailFragment"
         android:label="SignInToEmailFragment"
         tools:layout="@layout/fragment_sign_in_to_email" />
     <fragment
         android:id="@+id/signInToEmailTwoFragment"
-        android:name="com.armenia_guide.auth_client.SignInToEmailTwoFragment"
+        android:name="com.armenia_guide.ui.auth_client.SignInToEmailTwoFragment"
         android:label="SignInToEmailTwoFragment"
         tools:layout="@layout/fragment_sign_in_to_email_two" />
     <fragment
         android:id="@+id/confirmEmailFragment"
-        android:name="com.armenia_guide.auth_client.ConfirmEmailFragment"
+        android:name="com.armenia_guide.ui.auth_client.ConfirmEmailFragment"
         android:label="ConfirmEmailFragment"
         tools:layout="@layout/fragment_confirm_email" />
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.armenia_guide.on_boarding.OnBoardingFragment"
+        android:name="com.armenia_guide.ui.on_boarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding">
         <action
-            android:id="@+id/action_onBoardingFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment" />
+            android:id="@+id/action_onBoardingFragment_to_authClientFragment"
+            app:destination="@id/authClientFragment" />
     </fragment>
     <fragment
         android:id="@+id/authClientFragment"
-        android:name="com.armenia_guide.auth_client.AuthClientFragment"
+        android:name="com.armenia_guide.ui.auth_client.AuthClientFragment"
         android:label="AuthClientFragment"
         tools:layout="@layout/fragment_auth_client" />
-    <fragment
-        android:id="@+id/authorizationEnterPinFragment"
-        android:name="com.armenia_guide.authorization.AuthorizationEnterPinFragment"
-        android:label="fragment_authorization_enter_pin"
-        tools:layout="@layout/fragment_authorization_enter_pin">
-        <action
-            android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
-            app:destination="@id/authorizationRepeatPinFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
-    <fragment
-        android:id="@+id/authorizationRepeatPinFragment"
-        android:name="com.armenia_guide.authorization.AuthorizationRepeatPinFragment"
-        android:label="AuthorizationRepeatPinFragment"
-        tools:layout="@layout/fragment_authorization_repeat_pin" >
-        <action
-            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
-            app:destination="@id/authorizationPersonalAreaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
+
+
     <fragment
         android:id="@+id/authorizationEmailFragment"
-        android:name="com.armenia_guide.authorization.AuthorizationEmailFragment"
+        android:name="com.armenia_guide.ui.authorization.AuthorizationEmailFragment"
         android:label="fragment_authorization_email"
         tools:layout="@layout/fragment_authorization_email">
         <action
@@ -85,42 +48,42 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/authorizationPersonalAreaFragment"
-        android:name="com.armenia_guide.personal_area.AuthorizationPersonalAreaFragment"
+        android:name="com.armenia_guide.ui.personal_area.AuthorizationPersonalAreaFragment"
         android:label="fragment_authorization_personal_area"
-        tools:layout="@layout/fragment_authorization_personal_area" >
+        tools:layout="@layout/fragment_authorization_personal_area">
         <action
             android:id="@+id/action_authorizationPersonalAreaFragment_to_resettingCodeFragment"
             app:destination="@id/resettingCodeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_authorizationPersonalAreaFragment_to_personalAreaFragment"
             app:destination="@id/personalAreaFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/resettingCodeFragment"
-        android:name="com.armenia_guide.personal_area.ResettingCodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.ResettingCodeFragment"
         android:label="fragment_resetting_code"
         tools:layout="@layout/fragment_resetting_code" />
     <fragment
         android:id="@+id/personalAreaFragment"
-        android:name="com.armenia_guide.personal_area.PersonalAreaFragment"
+        android:name="com.armenia_guide.ui.personal_area.PersonalAreaFragment"
         android:label="fragment_personal_area"
         tools:layout="@layout/fragment_personal_area" />
 
     <fragment
         android:id="@+id/authorizationEnterPinFragment"
-        android:name="com.armenia_guide.authorization.AuthorizationEnterPinFragment"
+        android:name="com.armenia_guide.ui.authorization.AuthorizationEnterPinFragment"
         android:label="fragment_authorization_enter_pin"
         tools:layout="@layout/fragment_authorization_enter_pin">
         <action
@@ -129,22 +92,22 @@
     </fragment>
     <fragment
         android:id="@+id/authorizationRepeatPinFragment"
-        android:name="com.armenia_guide.authorization.AuthorizationRepeatPinFragment"
+        android:name="com.armenia_guide.ui.authorization.AuthorizationRepeatPinFragment"
         android:label="AuthorizationRepeatPinFragment"
         tools:layout="@layout/fragment_authorization_repeat_pin" />
-    <fragment
-        android:id="@+id/authorizationEmailFragment"
-        android:name="com.armenia_guide.authorization.AuthorizationEmailFragment"
-        android:label="fragment_authorization_email"
-        tools:layout="@layout/fragment_authorization_email" />
+
     <fragment
         android:id="@+id/checkEmailFragment"
-        android:name="com.armenia_guide.auth_client.CheckEmailFragment"
+        android:name="com.armenia_guide.ui.auth_client.CheckEmailFragment"
         android:label="CheckEmailFragment"
-        tools:layout="@layout/fragment_check_email" />
+        tools:layout="@layout/fragment_check_email" >
+        <action
+            android:id="@+id/action_checkEmailFragment_to_biometryAccessFragment"
+            app:destination="@id/biometryAccessFragment" />
+    </fragment>
     <fragment
         android:id="@+id/biometryAccessFragment"
-        android:name="com.armenia_guide.biometry_access.BiometryAccessFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryAccessFragment"
         android:label="BiometryAccessFragment"
         tools:layout="@layout/fragment_biometry_access">
         <action
@@ -153,11 +116,11 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/personalInformationFragment"
-        android:name="com.armenia_guide.biometry_access.PersonalInformationFragment"
+        android:name="com.armenia_guide.ui.biometry_access.PersonalInformationFragment"
         android:label="PersonalInformationFragment"
         tools:layout="@layout/fragment_personal_information">
         <action
@@ -166,7 +129,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneNumberFragment"
-        android:name="com.armenia_guide.biometry_access.PhoneNumberFragment"
+        android:name="com.armenia_guide.ui.biometry_access.PhoneNumberFragment"
         android:label="PhoneNumberFragment"
         tools:layout="@layout/fragment_phone_number">
         <action
@@ -175,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/legalAddressFragment"
-        android:name="com.armenia_guide.biometry_access.LegalAddressFragment"
+        android:name="com.armenia_guide.ui.biometry_access.LegalAddressFragment"
         android:label="LegalAddressFragment"
         tools:layout="@layout/fragment_legal_address">
         <action
@@ -184,7 +147,7 @@
     </fragment>
     <fragment
         android:id="@+id/passportFragment"
-        android:name="com.armenia_guide.biometry_access.PassportFragment"
+        android:name="com.armenia_guide.ui.biometry_access.PassportFragment"
         android:label="PassportFragment"
         tools:layout="@layout/fragment_passport">
         <action
@@ -193,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/communicationFragment"
-        android:name="com.armenia_guide.biometry_access.CommunicationFragment"
+        android:name="com.armenia_guide.ui.biometry_access.CommunicationFragment"
         android:label="CommunicationFragment"
         tools:layout="@layout/fragment_communication">
         <action
@@ -208,35 +171,35 @@
     </fragment>
     <fragment
         android:id="@+id/biometrySuccessFragment"
-        android:name="com.armenia_guide.biometry_access.BiometrySuccessFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometrySuccessFragment"
         android:label="BiometrySuccessFragment"
-        tools:layout="@layout/fragment_biometry_success" >
+        tools:layout="@layout/fragment_biometry_success">
         <action
             android:id="@+id/action_biometrySuccessFragment_to_biometryAccessVideoFragment"
             app:destination="@id/biometryAccessVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/biometryInvalidFragment"
-        android:name="com.armenia_guide.biometry_access.BiometryInvalidFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryInvalidFragment"
         android:label="BiometryInvalidFragment"
         tools:layout="@layout/fragment_biometry_invalid" />
     <fragment
         android:id="@+id/biometryRejectedFragment"
-        android:name="com.armenia_guide.biometry_access.BiometryRejectedFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryRejectedFragment"
         android:label="BiometryRejectedFragment"
         tools:layout="@layout/fragment_biometry_rejected" />
     <fragment
         android:id="@+id/biometryAccessVideoFragment"
-        android:name="com.armenia_guide.biometry_access.BiometryAccessVideoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryAccessVideoFragment"
         android:label="BiometryAccessVideoFragment"
-        tools:layout="@layout/fragment_biometry_access_video" >
+        tools:layout="@layout/fragment_biometry_access_video">
         <action
             android:id="@+id/action_biometryAccessVideoFragment_to_biometryVideoFragment"
             app:destination="@id/biometryVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/biometryVideoFragment"
-        android:name="com.armenia_guide.biometry_access.BiometryVideoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryVideoFragment"
         android:label="BiometryVideoFragment"
-        tools:layout="@layout/fragment_biometry_video"/>
+        tools:layout="@layout/fragment_biometry_video" />
 </navigation>

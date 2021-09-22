@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".on_boarding.OnBoardingFragment1">
+    tools:context=".ui.on_boarding.OnBoardingFragment1">
 
     <TextView
         android:id="@+id/title_on_boarding_fragment_1"
