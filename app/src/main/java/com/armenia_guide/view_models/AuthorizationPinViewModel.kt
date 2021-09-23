@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CustomViewModel : ViewModel() {
+class AuthorizationPinViewModel : ViewModel() {
 
 
     //Send Pin1 for compare Pin2

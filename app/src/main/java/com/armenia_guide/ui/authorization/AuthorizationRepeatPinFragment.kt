@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.armenia_guide.view_models.CustomViewModel
+import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
 
@@ -17,7 +17,7 @@ import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
 class AuthorizationRepeatPinFragment : Fragment() {
 
     private var bindingAuthorizationRepeatPinFragment: FragmentAuthorizationRepeatPinBinding? = null
-    private val viewModel: CustomViewModel by activityViewModels()
+    private val viewModel: AuthorizationPinViewModel by activityViewModels()
     private var pin1: String = ""
     private var pin2: String = ""
 

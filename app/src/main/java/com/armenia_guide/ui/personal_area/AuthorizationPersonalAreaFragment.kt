@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
-import com.armenia_guide.view_models.CustomViewModel
+import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -24,7 +24,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
     private var bindingAuthorizationPersonalAreaBinding: FragmentAuthorizationPersonalAreaBinding? =
         null
-    private val viewModelPersonalArea: CustomViewModel by activityViewModels()
+    private val viewModelPersonalArea: AuthorizationPinViewModel by activityViewModels()
     private var pinPersonalArea: String = ""
     private var pin2: String = ""
     private var counter: Int = 0

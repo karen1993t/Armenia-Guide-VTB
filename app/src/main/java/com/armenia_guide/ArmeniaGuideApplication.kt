@@ -2,6 +2,7 @@ package com.armenia_guide
 
 import android.app.Application
 import com.armenia_guide.view_models.AuthorizationAndBiometryViewModel
+import com.armenia_guide.view_models.AuthorizationPinViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -17,9 +18,15 @@ class ArmeniaGuideApplication : Application() {
             }
 
         }
-            startKoin {
-               androidContext(applicationContext)
-                modules(moduleAuthorization)
+
+        val moduleAuthorizationPin = module {
+            viewModel {
+                AuthorizationPinViewModel()
             }
         }
+        startKoin {
+            androidContext(applicationContext)
+            modules(moduleAuthorization, moduleAuthorizationPin)
+        }
     }
+}
