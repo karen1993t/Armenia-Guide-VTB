@@ -96,9 +96,9 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                         requireContext(),
                                         R.style.CutShapeTheme
                                     )
-                                        .setTitle("Вход в личный кабинет ВТБ & Armenia Guide заблокирован")
-                                        .setMessage("Сбросте код и повторите попитьку")
-                                        .setNeutralButton("Сбросить") { _, _ ->
+                                        .setTitle(getString(R.string.enter_personal_area_blocked))
+                                        .setMessage(getString(R.string.reset_pin_and_repeat))
+                                        .setNeutralButton(getString(R.string.reset)) { _, _ ->
                                             Navigation.findNavController(view)
                                                 .navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
                                         }

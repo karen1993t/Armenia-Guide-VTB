@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/authorizationEnterPinFragment">
+    app:startDestination="@id/personalAreaFragment">
 
 
     <fragment
@@ -79,7 +79,11 @@
         android:id="@+id/personalAreaFragment"
         android:name="com.armenia_guide.ui.personal_area.PersonalAreaFragment"
         android:label="fragment_personal_area"
-        tools:layout="@layout/fragment_personal_area" />
+        tools:layout="@layout/fragment_personal_area" >
+        <action
+            android:id="@+id/action_personalAreaFragment_to_pieChartFragment"
+            app:destination="@id/pieChartFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/authorizationEnterPinFragment"
@@ -89,12 +93,22 @@
         <action
             android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
             app:destination="@id/authorizationRepeatPinFragment" />
+        <action
+            android:id="@+id/action_authorizationEnterPinFragment_to_authorizationEmailFragment"
+            app:destination="@id/authorizationEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorizationRepeatPinFragment"
         android:name="com.armenia_guide.ui.authorization.AuthorizationRepeatPinFragment"
         android:label="AuthorizationRepeatPinFragment"
-        tools:layout="@layout/fragment_authorization_repeat_pin" />
+        tools:layout="@layout/fragment_authorization_repeat_pin" >
+        <action
+            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
+            app:destination="@id/authorizationPersonalAreaFragment" />
+        <action
+            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/checkEmailFragment"
@@ -202,4 +216,9 @@
         android:name="com.armenia_guide.ui.biometry_access.BiometryVideoFragment"
         android:label="BiometryVideoFragment"
         tools:layout="@layout/fragment_biometry_video" />
+    <fragment
+        android:id="@+id/pieChartFragment"
+        android:name="com.armenia_guide.ui.personal_area.PieChartFragment"
+        android:label="fragment_pie_chart"
+        tools:layout="@layout/fragment_pie_chart" />
 </navigation>

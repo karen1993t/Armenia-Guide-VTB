@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
@@ -65,7 +66,7 @@ class AuthorizationRepeatPinFragment : Fragment() {
                         } else {
                             bindingAuthorizationRepeatPinFragment?.circle5?.setImageResource(R.drawable.circle_pin_view_black)
                             viewModel.sendPin2(pin2)
-                           // Navigation.findNavController(view).navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment)
+                            Navigation.findNavController(view).navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment)
 
 
 
