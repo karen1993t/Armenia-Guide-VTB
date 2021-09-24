@@ -14,4 +14,11 @@
     <color name="red_selector_dot">#C79093</color>
     <color name="color_grey_pin_view">#BFBFBF</color>
     <color name="blue">#007AFF</color>
+
+    <color name="color_1_personal_area">#F57474</color>
+    <color name="color_2_personal_area">#6FA4E3</color>
+    <color name="color_3_personal_area">#7FC5DB</color>
+    <color name="color_4_personal_area">#FFC90A</color>
+    <color name="color_5_personal_area">#FFA21A</color>
+
 </resources>

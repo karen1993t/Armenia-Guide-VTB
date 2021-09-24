@@ -15,6 +15,7 @@
     app:layout_constraintTop_toTopOf="parent"
     android:background="@drawable/background_toolbar_personal_area"
     />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/balance"
         android:layout_width="0dp"
@@ -78,6 +79,44 @@
             app:layout_constraintStart_toEndOf="@id/replenish" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/month"
+        android:layout_width="150dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="326dp"
+        app:endIconMode="custom"
+        app:boxStrokeWidth="0dp"
+        app:endIconDrawable="@drawable/ic_open_list_mounts"
+        app:hintTextColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balance">
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_month"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/background_container_on_boarding"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:dropDownAnchor="@id/month"
+            android:dropDownHeight="200dp"
+            android:focusable="false"
+            android:fontFamily="@font/gotham_pro"
+            android:inputType="none"
+            android:lineHeight="24dp"
+            android:lineSpacingExtra="5sp"
+            android:textColor="@color/black"
+            android:textFontWeight="700"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/title_money_1"
         android:layout_width="wrap_content"
@@ -101,9 +140,10 @@
         android:id="@+id/piechart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balance"
+        app:layout_constraintTop_toBottomOf="@id/month"
         app:layout_constraintBottom_toTopOf="@id/recycler_view"
         />
 

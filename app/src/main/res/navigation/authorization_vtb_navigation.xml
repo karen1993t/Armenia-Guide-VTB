@@ -81,8 +81,8 @@
         android:label="fragment_personal_area"
         tools:layout="@layout/fragment_personal_area" >
         <action
-            android:id="@+id/action_personalAreaFragment_to_pieChartFragment"
-            app:destination="@id/pieChartFragment" />
+            android:id="@+id/action_personalAreaFragment_to_payFragment"
+            app:destination="@id/payFragment" />
     </fragment>
 
     <fragment
@@ -217,8 +217,8 @@
         android:label="BiometryVideoFragment"
         tools:layout="@layout/fragment_biometry_video" />
     <fragment
-        android:id="@+id/pieChartFragment"
-        android:name="com.armenia_guide.ui.personal_area.PieChartFragment"
-        android:label="fragment_pie_chart"
-        tools:layout="@layout/fragment_pie_chart" />
+        android:id="@+id/payFragment"
+        android:name="com.armenia_guide.ui.personal_area.PayFragment"
+        android:label="fragment_pay"
+        tools:layout="@layout/fragment_pay" />
 </navigation>
