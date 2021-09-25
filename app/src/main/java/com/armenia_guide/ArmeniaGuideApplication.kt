@@ -24,6 +24,7 @@ class ArmeniaGuideApplication : Application() {
                 AuthorizationPinViewModel()
             }
         }
+
         startKoin {
             androidContext(applicationContext)
             modules(moduleAuthorization, moduleAuthorizationPin)

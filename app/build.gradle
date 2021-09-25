@@ -111,6 +111,7 @@ dependencies {
     // ViewPager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
+    // Pie Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
     testImplementation 'junit:junit:4.13.2'

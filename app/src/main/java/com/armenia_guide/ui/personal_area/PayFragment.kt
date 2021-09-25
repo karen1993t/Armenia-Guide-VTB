@@ -2,6 +2,7 @@ package com.armenia_guide.ui.personal_area
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +22,8 @@ import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
 
 typealias BarcodeListener = (barcode: String) -> Unit
+typealias BarcodeBox = (rect: Rect) -> Unit
+
 
 class PayFragment : Fragment() {
     private var bindingPayFragment: FragmentPayBinding? = null
@@ -39,7 +42,8 @@ class PayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){}
+        val requestPermissions =
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {}
 
         if (allPermissionsGranted()) {
             startCamera()
@@ -59,6 +63,7 @@ class PayFragment : Fragment() {
 
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
+
             val preview = Preview.Builder().build().also {
                 it.setSurfaceProvider(
                     bindingPayFragment?.fragmentScanBarcodePreviewView?.surfaceProvider
@@ -68,12 +73,27 @@ class PayFragment : Fragment() {
             val imageAnalysis = ImageAnalysis.Builder()
                 .build()
                 .also {
-                    it.setAnalyzer(cameraExecutor, BarcodeAnalyzer { barcode ->
-                        if (processingBarcode.compareAndSet(false, true)) {
 
-                            Toast.makeText(requireContext(),"$barcode",Toast.LENGTH_SHORT).show()
+                    it.setAnalyzer(cameraExecutor, BarcodeAnalyzerBox() { rect ->
+
+                        if (rect.height() <= bindingPayFragment?.surfaceView!!.height &&
+                            rect.width() <= bindingPayFragment?.surfaceView!!.width
+
+                        ) {
+                            it.setAnalyzer(cameraExecutor, BarcodeAnalyzer() { barcode ->
+
+                                if (processingBarcode.compareAndSet(false, true)) {
+
+                                    Toast.makeText(requireContext(), "$barcode", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+                            })
                         }
+
+                        Toast.makeText(requireContext(), "${rect.width()}", Toast.LENGTH_SHORT).show()
+
                     })
+
                 }
 
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
@@ -93,9 +113,6 @@ class PayFragment : Fragment() {
             requireContext(), it
         ) == PackageManager.PERMISSION_GRANTED
     }
-
-
-
 
 
     companion object {

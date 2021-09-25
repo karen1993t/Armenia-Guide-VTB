@@ -1,13 +1,19 @@
 package com.armenia_guide.ui.personal_area
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.armenia_guide.R
+import com.armenia_guide.adapters.PersonalAreaAdapter
 import com.armenia_guide.databinding.FragmentPersonalAreaBinding
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -33,11 +39,12 @@ class PersonalAreaFragment : Fragment() {
         return bindingPersonalAreaFragment?.root
     }
 
+
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindingPersonalAreaFragment?.toolbar?.setNavigationIcon(R.drawable.ic_back_toolbar)
-        // bindingPersonal
-        // AreaFragment?.toolbar?.inflateMenu(R.menu.ic_help_toolbar)
+
+
 
 
         bindingPersonalAreaFragment?.pay?.setOnClickListener {
@@ -63,7 +70,7 @@ class PersonalAreaFragment : Fragment() {
 
 
 
-        val pieChart: PieChart = view.findViewById(R.id.piechart)
+        val pieChart: PieChart = view.findViewById(R.id.pie_chart)
 
         val NoOfEmp = ArrayList<PieEntry>()
         NoOfEmp.add(PieEntry(296288f, 0))
@@ -100,6 +107,48 @@ class PersonalAreaFragment : Fragment() {
         pieChart.data = data
 
         pieChart.animateXY(1000, 1000)
+
+
+
+
+        val recycler = view.findViewById<RecyclerView>(R.id.recycler_view)
+        val listData = listOf(
+            ModelPersonalArea(R.drawable.ic_bank_auth_success, "Moscow→Paris", "21:30", "-296 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple_gray, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_checked, "Income", "21:30", "+2 241 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_unchecked, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.fingerprint_dialog_fp_icon, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_fb, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
+
+
+            ModelPersonalArea(R.drawable.ic_bank_auth_success, "Moscow→Paris", "21:30", "-296 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple_gray, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_checked, "Income", "21:30", "+2 241 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_unchecked, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.fingerprint_dialog_fp_icon, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_fb, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_bank_auth_success, "Moscow→Paris", "21:30", "-296 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple_gray, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_checked, "Income", "21:30", "+2 241 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_unchecked, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.fingerprint_dialog_fp_icon, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_fb, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_bank_auth_success, "Moscow→Paris", "21:30", "-296 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.ic_apple_gray, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_checked, "Income", "21:30", "+2 241 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_checkbox_unchecked, "Hilton Hotel", "20:30", "-196 435 ₽"),
+            ModelPersonalArea(R.drawable.fingerprint_dialog_fp_icon, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
+            ModelPersonalArea(R.drawable.ic_fb, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
+
+
+        )
+        val customAdapter = PersonalAreaAdapter(requireContext(), listData)
+        recycler.adapter = customAdapter
+        recycler.layoutManager = LinearLayoutManager(requireContext())
 
     }
 
