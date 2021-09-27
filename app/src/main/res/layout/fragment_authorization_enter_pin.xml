@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.authorization.AuthorizationEnterPinFragment">
 
     <ImageView
@@ -58,35 +59,6 @@
         app:layout_constraintTop_toBottomOf="@id/title_enter_pin_1"
         tools:targetApi="p" />
 
-    <ImageView
-        android:id="@+id/ic_vtb_enter_pin"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="26dp"
-        android:contentDescription="@string/enter_pin"
-        android:src="@drawable/ic_vtb_eng_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_enter_pin_2" />
-
-    <!--    <com.chaos.view.PinView-->
-    <!--        android:id="@+id/pinView_enter_pin"-->
-    <!--        style="@style/PinWidget.PinView"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="25dp"-->
-    <!--        android:cursorVisible="false"-->
-    <!--        android:inputType="numberPassword"-->
-    <!--        android:itemBackground="@color/color_grey_pin_view"-->
-    <!--        app:itemCount="5"-->
-    <!--        app:itemHeight="20dp"-->
-    <!--        app:itemRadius="10dp"-->
-    <!--        app:itemSpacing="20dp"-->
-    <!--        app:itemWidth="20dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/ic_vtb_enter_pin"-->
-    <!--        app:lineColor="@color/black" />-->
     <LinearLayout
         android:id="@+id/entered_pin"
         android:layout_width="wrap_content"
@@ -96,7 +68,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ic_vtb_enter_pin">
+        app:layout_constraintTop_toBottomOf="@id/title_enter_pin_2">
 
         <ImageView
             android:id="@+id/circle_1"
@@ -143,10 +115,10 @@
         android:id="@+id/entered_pin_1"
         android:layout_width="match_parent"
         android:layout_height="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/entered_pin"
         app:layout_constraintEnd_toEndOf="@id/entered_pin"
         app:layout_constraintStart_toStartOf="@id/entered_pin"
-        app:layout_constraintTop_toTopOf="@id/entered_pin"
-        app:layout_constraintBottom_toBottomOf="@id/entered_pin">
+        app:layout_constraintTop_toTopOf="@id/entered_pin">
 
 
         <EditText
@@ -155,10 +127,10 @@
             android:layout_height="wrap_content"
             android:alpha="0"
             android:cursorVisible="false"
+            android:importantForAutofill="no"
             android:inputType="numberPassword"
             android:maxLength="5"
             android:visibility="visible"
-            android:importantForAutofill="no"
             tools:ignore="LabelFor" />
     </LinearLayout>
 

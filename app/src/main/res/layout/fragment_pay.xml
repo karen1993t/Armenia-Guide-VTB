@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ui.personal_area.PayFragment"
+    tools:ignore="MissingClass">
+
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/fragment_scan_barcode_preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:alpha="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/surfaceView"/>
+
+    <View
+        android:id="@+id/view_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:alpha="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/surfaceView"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/view_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:alpha="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/surfaceView"
+        app:layout_constraintTop_toBottomOf="@id/view_top"
+        app:layout_constraintBottom_toTopOf="@id/view_bottom"/>
+
+    <View
+        android:id="@+id/view_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:alpha="0.7"
+        app:layout_constraintStart_toEndOf="@id/surfaceView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_top"
+        app:layout_constraintBottom_toTopOf="@id/view_bottom"/>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/surfaceView"
+    android:layout_width="250dp"
+    android:layout_height="150dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <SurfaceView android:id="@+id/surfaceViewBarcode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_barcode_scanner"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/top_up_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="14.4dp"
+        android:lineSpacingExtra="3sp"
+        android:text="Поместите QR-код в область квадрата"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="p" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

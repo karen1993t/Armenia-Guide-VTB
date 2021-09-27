@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.armenia_guide.view_models.CustomViewModel
+import androidx.navigation.Navigation
+import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
 
@@ -17,7 +18,7 @@ import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
 class AuthorizationRepeatPinFragment : Fragment() {
 
     private var bindingAuthorizationRepeatPinFragment: FragmentAuthorizationRepeatPinBinding? = null
-    private val viewModel: CustomViewModel by activityViewModels()
+    private val viewModel: AuthorizationPinViewModel by activityViewModels()
     private var pin1: String = ""
     private var pin2: String = ""
 
@@ -65,7 +66,7 @@ class AuthorizationRepeatPinFragment : Fragment() {
                         } else {
                             bindingAuthorizationRepeatPinFragment?.circle5?.setImageResource(R.drawable.circle_pin_view_black)
                             viewModel.sendPin2(pin2)
-                           // Navigation.findNavController(view).navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment)
+                            Navigation.findNavController(view).navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment)
 
 
 
@@ -101,9 +102,10 @@ class AuthorizationRepeatPinFragment : Fragment() {
             }
         })
     }
+
     override fun onResume() {
         if (bindingAuthorizationRepeatPinFragment?.editTextEnterPin?.requestFocus() == true) { activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE); }
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE) }
         super.onResume()
     }
 
@@ -111,5 +113,6 @@ class AuthorizationRepeatPinFragment : Fragment() {
         super.onDestroyView()
         bindingAuthorizationRepeatPinFragment = null
     }
+
 }
 

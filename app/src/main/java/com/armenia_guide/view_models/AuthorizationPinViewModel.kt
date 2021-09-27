@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CustomViewModel : ViewModel() {
+class AuthorizationPinViewModel : ViewModel() {
 
 
     //Send Pin1 for compare Pin2
@@ -23,6 +23,14 @@ class CustomViewModel : ViewModel() {
     fun sendPin2(string: String){
         _getPin2LiveData.postValue(string)
     }
+
+//    //btn close
+//    private val _btnCloseLiveData = MutableLiveData<Boolean>()
+//    val btnCloseLiveData: LiveData<Boolean> = _btnCloseLiveData
+//
+//    fun btnClose(boolean: Boolean){
+//        _btnCloseLiveData.postValue(boolean)
+//    }
 
 
 }

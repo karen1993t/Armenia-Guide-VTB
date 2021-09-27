@@ -123,6 +123,39 @@
     <string name="attempts_left_2">Осталось 2 попиток</string>
     <string name="attempts_left_1">Осталось 1 попиток</string>
     <string name="attempts_left_0">Осталось 0 попиток</string>
+    <string name="enter_personal_area_blocked"><![CDATA[Вход в личный кабинет ВТБ & Armenia Guide заблокирован]]></string>
+    <string name="reset_pin_and_repeat">Сбросте код и повторите попитьку</string>
+    <string name="reset">Сбросить</string>
+    <string name="replenish">Пополнить</string>
+    <string name="pay">Оплатить</string>
+    <string name="personal_area_vtb">Личный кабинет ВТБ</string>
+    <string name="help_img">help_img</string>
+    <string name="balance_up">Пополнение</string>
+    <string name="debit_card">Карта списания</string>
+    <string name="top_up_card">Карта пополнения</string>
+    <string name="top_up_amount">Сумма пополнения</string>
+    <string name="balance_up_button">Пополнить</string>
+    <string name="done_btn">Готово</string>
+    <string name="number_card">Номер карты</string>
+    <string name="expires">Срок действия</string>
+    <string name="save_card">Сохранить карту</string>
+    <string name="cvc">CVC</string>
+    <string name="card_number">Номер карты</string>
+    <string-array name="month">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+
     <string name="description_icon_check">description_icon_check</string>
     <string name="regular_expression">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ</string>
     <string name="text_retake_button">Перснять</string>

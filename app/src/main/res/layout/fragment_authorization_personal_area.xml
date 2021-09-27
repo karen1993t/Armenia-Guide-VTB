@@ -55,19 +55,9 @@
         android:translationY="-2.43sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ic_vtb_enter_pin"
+        app:layout_constraintTop_toBottomOf="@id/title_enter_personal_area"
         tools:targetApi="p" />
 
-    <ImageView
-        android:id="@+id/ic_vtb_enter_pin"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="26dp"
-        android:contentDescription="@string/enter_pin"
-        android:src="@drawable/ic_vtb_eng_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_enter_personal_area" />
 
     <LinearLayout
         android:id="@+id/entered_pin"

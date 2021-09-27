@@ -1,10 +1,8 @@
 package com.armenia_guide
 
 import android.app.Application
-import com.armenia_guide.analyzer.PassportDetectAnalyzer
-
 import com.armenia_guide.view_models.AuthorizationAndBiometryViewModel
-import com.armenia_guide.view_models.BiometryFaceAndPassportDetectViewModel
+import com.armenia_guide.view_models.AuthorizationPinViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -24,9 +22,16 @@ class ArmeniaGuideApplication : Application() {
             }
 
         }
+
+        val moduleAuthorizationPin = module {
+            viewModel {
+                AuthorizationPinViewModel()
+            }
+        }
+
         startKoin {
             androidContext(applicationContext)
-            modules(moduleAuthorizationAndBiometry)
+            modules(moduleAuthorizationAndBiometry, moduleAuthorizationPin)
         }
     }
 }
