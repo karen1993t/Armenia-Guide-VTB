@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/personalAreaFragment">
+    app:startDestination="@id/authorizationEmailFragment">
 
 
     <fragment
@@ -83,6 +83,9 @@
         <action
             android:id="@+id/action_personalAreaFragment_to_payFragment"
             app:destination="@id/payFragment" />
+        <action
+            android:id="@+id/action_personalAreaFragment_to_balanceUpFragment"
+            app:destination="@id/balanceUpFragment" />
     </fragment>
 
     <fragment
@@ -221,4 +224,9 @@
         android:name="com.armenia_guide.ui.personal_area.PayFragment"
         android:label="fragment_pay"
         tools:layout="@layout/fragment_pay" />
+    <fragment
+        android:id="@+id/balanceUpFragment"
+        android:name="com.armenia_guide.ui.personal_area.BalanceUpFragment"
+        android:label="fragment_balance_up"
+        tools:layout="@layout/fragment_balance_up" />
 </navigation>

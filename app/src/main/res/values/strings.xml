@@ -123,6 +123,19 @@
     <string name="reset">Сбросить</string>
     <string name="replenish">Пополнить</string>
     <string name="pay">Оплатить</string>
+    <string name="personal_area_vtb">Личный кабинет ВТБ</string>
+    <string name="help_img">help_img</string>
+    <string name="balance_up">Пополнение</string>
+    <string name="debit_card">Карта списания</string>
+    <string name="top_up_card">Карта пополнения</string>
+    <string name="top_up_amount">Сумма пополнения</string>
+    <string name="balance_up_button">Пополнить</string>
+    <string name="done_btn">Готово</string>
+    <string name="number_card">Номер карты</string>
+    <string name="expires">Срок действия</string>
+    <string name="save_card">Сохранить карту</string>
+    <string name="cvc">CVC</string>
+    <string name="card_number">Номер карты</string>
     <string-array name="month">
         <item>Январь</item>
         <item>Февраль</item>

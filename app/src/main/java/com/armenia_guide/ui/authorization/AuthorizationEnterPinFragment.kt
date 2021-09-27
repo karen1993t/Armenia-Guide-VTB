@@ -79,8 +79,8 @@ class AuthorizationEnterPinFragment : Fragment() {
     }
 
     override fun onResume() {
-        if (bindingAuthorizationEnterPinFragment?.editTextEnterPin?.requestFocus() == true) { activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE); }
+     activity?.window?.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         super.onResume()
     }
 

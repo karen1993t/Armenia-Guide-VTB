@@ -8,7 +8,7 @@
     tools:context=".ui.personal_area.PersonalAreaFragment">
 
     <Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_personal_area"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@drawable/background_toolbar_personal_area"
@@ -18,38 +18,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/const_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-          >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back_toolbar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/title_toolbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/s_f_pro"
-                android:lineHeight="20dp"
-                android:lineSpacingExtra="0sp"
-                android:text="Личный кабинет ВТБ"
-                android:textColor="@color/white"
-                android:textFontWeight="400"
-                android:textSize="16sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:targetApi="p" />
-
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -57,10 +29,30 @@
                 android:src="@drawable/ic_personal_area_help"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/help_img" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </Toolbar>
+
+    <TextView
+        android:id="@+id/title_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/s_f_pro"
+        android:gravity="center"
+        android:lineHeight="20dp"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/personal_area_vtb"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_personal_area"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbar_personal_area"
+        tools:targetApi="p" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/balance"
@@ -72,7 +64,7 @@
         android:elevation="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_personal_area">
 
 
         <TextView
@@ -158,7 +150,9 @@
             android:textColor="@color/black"
             android:textFontWeight="700"
             android:textSize="20sp"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            tools:targetApi="p"
+            tools:ignore="LabelFor" />
 
 
     </com.google.android.material.textfield.TextInputLayout>

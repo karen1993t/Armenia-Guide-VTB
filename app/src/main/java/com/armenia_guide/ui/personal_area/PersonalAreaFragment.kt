@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.armenia_guide.R
@@ -23,20 +25,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class PersonalAreaFragment : Fragment() {
-    private var bindingPersonalAreaFragment: FragmentPersonalAreaBinding? = null
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    private val bindingPersonalAreaFragment by lazy {
+        FragmentPersonalAreaBinding.inflate(layoutInflater)
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        bindingPersonalAreaFragment = FragmentPersonalAreaBinding.inflate(inflater)
-        return bindingPersonalAreaFragment?.root
+    ): View {
+        return bindingPersonalAreaFragment.root
     }
 
 
@@ -44,28 +43,32 @@ class PersonalAreaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bindingPersonalAreaFragment.toolbarPersonalArea.setNavigationIcon(R.drawable.ic_back_toolbar)
 
 
 
-        bindingPersonalAreaFragment?.pay?.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_personalAreaFragment_to_payFragment)
+        bindingPersonalAreaFragment.pay.setOnClickListener {
+            findNavController().navigate(R.id.action_personalAreaFragment_to_payFragment)
+        }
+        bindingPersonalAreaFragment.replenish.setOnClickListener {
+            findNavController().navigate(R.id.action_personalAreaFragment_to_balanceUpFragment)
         }
 
 
         val monthList = resources.getStringArray(R.array.month)
         val adapterMounts = ArrayAdapter(requireContext(), R.layout.drop_down_item_country,
             R.id.text_view_drop_down,monthList)
-        bindingPersonalAreaFragment?.editMonth?.setAdapter(adapterMounts)
+        bindingPersonalAreaFragment.editMonth.setAdapter(adapterMounts)
 
         for (i in 0..Calendar.getInstance().time.month){
-            bindingPersonalAreaFragment?.month?.hint =monthList[i]
+            bindingPersonalAreaFragment.month.hint =monthList[i]
         }
 
 
-        bindingPersonalAreaFragment?.editMonth?.setOnClickListener {
-            bindingPersonalAreaFragment?.month?.hint = ""
+        bindingPersonalAreaFragment.editMonth.setOnClickListener {
+            bindingPersonalAreaFragment.month.hint = ""
 
-            bindingPersonalAreaFragment?.editMonth?.showDropDown()
+            bindingPersonalAreaFragment.editMonth.showDropDown()
         }
 
 
@@ -96,7 +99,6 @@ class PersonalAreaFragment : Fragment() {
         colors.add(resources.getColor(R.color.color_3_personal_area, null))
         colors.add(resources.getColor(R.color.color_4_personal_area, null))
         colors.add(resources.getColor(R.color.color_5_personal_area, null))
-
 
         dataSet.colors = colors
 
@@ -152,8 +154,9 @@ class PersonalAreaFragment : Fragment() {
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bindingPersonalAreaFragment = null
+    override fun onResume() {
+        super.onResume()
+        activity?.window?.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
     }
 }
