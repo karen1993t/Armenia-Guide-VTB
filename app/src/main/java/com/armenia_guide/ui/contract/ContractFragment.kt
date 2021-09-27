@@ -26,7 +26,7 @@ class ContractFragment : Fragment() {
 
         bindingContract.btnAccept.setOnClickListener {
           //  findNavController().navigate(R.id.action_contractFragment_to_authorizationEmailFragment)
-            findNavController().navigate(R.id.action_contractFragment_to_authorizationEnterPinFragment)
+          //  findNavController().navigate(R.id.action_contractFragment_to_authorizationEnterPinFragment)
         }
         bindingContract.btnDecline.setOnClickListener {
 

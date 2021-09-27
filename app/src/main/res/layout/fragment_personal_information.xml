@@ -319,7 +319,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_search_field"
-                android:completionThreshold="2"
+                android:completionThreshold="0"
                 android:dropDownAnchor="@id/drop_down_anchor"
                 android:fontFamily="@font/gotham_pro"
                 android:gravity="center_vertical"

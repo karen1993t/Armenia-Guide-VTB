@@ -435,16 +435,5 @@
         android:id="@+id/contractFragment"
         android:name="com.armenia_guide.ui.contract.ContractFragment"
         android:label="ContractFragment"
-        tools:layout="@layout/fragment_contract">
-        <action
-            android:id="@+id/action_contractFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_contractFragment_to_authorizationEnterPinFragment"
-            app:destination="@id/authorizationEnterPinFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_contract"/>
 </navigation>

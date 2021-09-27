@@ -152,6 +152,8 @@
     <string name="text_description_contract">Phasellus aliquet sapien lorem, non rutrum odio pellentesque at. Sed malesuada ipsum ligula, vitae egestas sapien luctus sit amet. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget.\n\nVivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget ultricies. Phasellus aliquet sapien lorem, non rutrum odio pellentesque at. Sed malesuada ipsum ligula, vitae egestas sapien luctus sit amet. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget ultricies. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget ultricies.\n\nPhasellus aliquet sapien lorem, non rutrum odio pellentesque at. Sed malesuada ipsum ligula, vitae egestas sapien luctus sit amet.</string>
     <string name="text_button_decline">Отклонить</string>
     <string name="text_button_accept">Принять</string>
+    <string name="text_category_contract">Соглашение</string>
+    <string name="error_message_input_email">Отсутствует @ символ"</string>
     <string-array name="key_names_for_detect_passport">
         <item>"PASSPORT"</item>
         <item>REPUBLIC</item>
