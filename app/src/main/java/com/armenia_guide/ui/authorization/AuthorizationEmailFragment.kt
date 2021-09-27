@@ -32,12 +32,10 @@ class AuthorizationEmailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (bindingAuthorizationEmailFragment?.editEmail?.requestFocus() == true) { activity?.window?.setSoftInputMode(
+        if (bindingAuthorizationEmailFragment.editEmail.requestFocus()) { activity?.window?.setSoftInputMode(
             WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)}
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
+
 
 }

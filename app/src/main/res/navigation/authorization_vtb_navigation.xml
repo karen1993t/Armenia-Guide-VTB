@@ -446,7 +446,11 @@
         android:id="@+id/contractFragment"
         android:name="com.armenia_guide.ui.contract.ContractFragment"
         android:label="ContractFragment"
-        tools:layout="@layout/fragment_contract"/>
+        tools:layout="@layout/fragment_contract">
+        <action
+            android:id="@+id/action_contractFragment_to_authorizationEmailFragment"
+            app:destination="@id/authorizationEmailFragment" />
+    </fragment>
         tools:layout="@layout/fragment_biometry_video" />
     <fragment
         android:id="@+id/payFragment"

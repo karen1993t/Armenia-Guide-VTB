@@ -16,7 +16,7 @@ import com.armenia_guide.databinding.FragmentConfirmEmailBinding
 class ConfirmEmailFragment : Fragment() {
     private val showBindingConfirmEmail by lazy { FragmentConfirmEmailBinding.inflate(layoutInflater) }
     lateinit var inputEmailEditText: EditText
-    private var errorEmailInputMessage = resources.getString(R.string.error_message_input_email)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,6 +27,8 @@ class ConfirmEmailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val errorEmailInputMessage = resources.getString(R.string.error_message_input_email)
         showBindingConfirmEmail.btnStart.isActivated = false
 
         inputEmailEditText = showBindingConfirmEmail.editInputEmail

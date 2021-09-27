@@ -62,7 +62,7 @@ class PersonalAreaFragment : Fragment() {
 
 
         val monthList = resources.getStringArray(R.array.month)
-        val adapterMounts = ArrayAdapter(requireContext(), R.layout.drop_down_item_country,
+        val adapterMounts = ArrayAdapter(requireContext(), R.layout.drop_down_item_gender,
             R.id.text_view_drop_down,monthList)
         bindingPersonalAreaFragment.editMonth.setAdapter(adapterMounts)
 
