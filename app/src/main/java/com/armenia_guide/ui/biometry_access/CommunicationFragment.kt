@@ -23,7 +23,7 @@ class CommunicationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        changeTextColorByIndex()
+
 
         showBindingCommunication?.btnNext?.setOnClickListener {
             Navigation.findNavController(view)
@@ -32,24 +32,5 @@ class CommunicationFragment : Fragment() {
     }
 
 
-    private fun changeTextColorByIndex() {
-        val textViewPrivacyPolicy = showBindingCommunication?.textPrivacyPolicy
 
-        var textChangeColor = RefactorTextColorsTools.refactorColorText(
-            requireContext(),
-            textViewPrivacyPolicy,
-            R.color.color_red,
-            11,
-            26
-        )
-        textViewPrivacyPolicy?.text = textChangeColor
-        textChangeColor = RefactorTextColorsTools.refactorColorText(
-            requireContext(),
-            textViewPrivacyPolicy,
-            R.color.color_red,
-            29,
-            textViewPrivacyPolicy?.text?.length ?: 10
-        )
-        textViewPrivacyPolicy?.text = textChangeColor
-    }
 }

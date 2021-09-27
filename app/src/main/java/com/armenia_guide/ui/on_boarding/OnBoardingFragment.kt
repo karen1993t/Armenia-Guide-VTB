@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.armenia_guide.R
@@ -53,7 +54,10 @@ class OnBoardingFragment : Fragment() {
         viewPager2.setPageTransformer(MarginPageTransformer(100))
 
 
-
+        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_onBoardingFragment_to_authClientFragment)
+        }
 
     }
 

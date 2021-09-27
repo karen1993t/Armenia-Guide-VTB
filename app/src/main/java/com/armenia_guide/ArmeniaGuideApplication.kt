@@ -1,7 +1,10 @@
 package com.armenia_guide
 
 import android.app.Application
+import com.armenia_guide.analyzer.PassportDetectAnalyzer
+
 import com.armenia_guide.view_models.AuthorizationAndBiometryViewModel
+import com.armenia_guide.view_models.BiometryFaceAndPassportDetectViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -11,15 +14,19 @@ class ArmeniaGuideApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val moduleAuthorization = module {
+        val moduleAuthorizationAndBiometry = module {
             viewModel {
                 AuthorizationAndBiometryViewModel()
+
+            }
+            viewModel {
+                BiometryFaceAndPassportDetectViewModel()
             }
 
         }
-            startKoin {
-               androidContext(applicationContext)
-                modules(moduleAuthorization)
-            }
+        startKoin {
+            androidContext(applicationContext)
+            modules(moduleAuthorizationAndBiometry)
         }
     }
+}

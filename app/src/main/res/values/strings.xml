@@ -112,11 +112,49 @@
         <item>Женский</item>
         <item>Мужской</item>
     </string-array>
+    <string-array name="citizen_ship">
+        <item>Республика Армения</item>
+        <item>Российская Федерация</item>
+
+    </string-array>
     <string name="attempts_left_5">Осталось 5 попиток</string>
     <string name="attempts_left_4">Осталось 4 попиток</string>
     <string name="attempts_left_3">Осталось 3 попиток</string>
     <string name="attempts_left_2">Осталось 2 попиток</string>
     <string name="attempts_left_1">Осталось 1 попиток</string>
     <string name="attempts_left_0">Осталось 0 попиток</string>
-
+    <string name="description_icon_check">description_icon_check</string>
+    <string name="regular_expression">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ</string>
+    <string name="text_retake_button">Перснять</string>
+    <string name="text_submit_button">Готово</string>
+    <string name="description_button_back">description_button_back</string>
+    <string name="title_detect_passport_photo">Фото паспорта</string>
+    <string name="description_button_capture_video">description_button_capture_video</string>
+    <string name="description_background_detect_box">description_background_detect_box</string>
+    <string name="description_passport_photo">description_passport_photo</string>
+    <string name="description_icon_prepare_passport">description_icon_prepare_passport</string>
+    <string name="title_passport_photo">Подготовьте ваш паспорт</string>
+    <string name="text_info_passport_photo">Сделайте фото первых двух страниц</string>
+    <string name="description_face_detect_box">description_face_detect_box</string>
+    <string name="text_title_face_detect_video_success">Успешно</string>
+    <string name="text_description_face_detect_video_success">Следующий шаг: Фото паспорта</string>
+    <string name="text_face_detect_failure_btn_retake">Повторить</string>
+    <string name="text_face_detect_failure_btn_later">Позже</string>
+    <string name="text_title_face_detect_failure">Вас плохо видно</string>
+    <string name="text_description_face_detect_failure">Не удалось снять видео</string>
+    <string name="text_title_detect_passport_submit">Благодарим за пройденную авторизацию!</string>
+    <string name="text_description_detect_passport_submit">Данные уже в обработке</string>
+    <string name="icon_vtb_brand_card">icon_vtb_brand_card</string>
+    <string name="text_title_answer">Поздравляем!</string>
+    <string name="text_description_answer">Вы успешно прошли проверку</string>
+    <string name="text_button_proceed_to_profile">В личный кабинет</string>
+    <string name="text_title_contract">Id vel lectus id mauris dui loreum iliduas</string>
+    <string name="text_description_contract">Phasellus aliquet sapien lorem, non rutrum odio pellentesque at. Sed malesuada ipsum ligula, vitae egestas sapien luctus sit amet. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget.\n\nVivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget ultricies. Phasellus aliquet sapien lorem, non rutrum odio pellentesque at. Sed malesuada ipsum ligula, vitae egestas sapien luctus sit amet. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget ultricies. Vivamus ultricies quam vel justo dapibus convallis. Integer congue efficitur odio eget ultricies.\n\nPhasellus aliquet sapien lorem, non rutrum odio pellentesque at. Sed malesuada ipsum ligula, vitae egestas sapien luctus sit amet.</string>
+    <string name="text_button_decline">Отклонить</string>
+    <string name="text_button_accept">Принять</string>
+    <string-array name="key_names_for_detect_passport">
+        <item>"PASSPORT"</item>
+        <item>REPUBLIC</item>
+        <item>COUNTRY CODE</item>
+    </string-array>
 </resources>

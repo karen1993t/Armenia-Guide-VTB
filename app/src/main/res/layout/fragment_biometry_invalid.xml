@@ -18,7 +18,7 @@
 
     <TextView
         android:layout_width="0dp"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/gotham_pro"
         android:gravity="center_horizontal|top"

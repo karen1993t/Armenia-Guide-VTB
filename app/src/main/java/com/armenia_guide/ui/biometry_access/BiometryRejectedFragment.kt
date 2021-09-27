@@ -8,19 +8,13 @@ import androidx.fragment.app.Fragment
 import com.armenia_guide.databinding.FragmentBiometryRejectedBinding
 
 class BiometryRejectedFragment : Fragment() {
-    private var showBindingBiometryReject: FragmentBiometryRejectedBinding? = null
+    private val showBindingBiometryReject by lazy {  FragmentBiometryRejectedBinding.inflate(layoutInflater) }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        showBindingBiometryReject =
-            FragmentBiometryRejectedBinding.inflate(inflater, container, false)
-        return showBindingBiometryReject?.root
+    ): View {
+        return showBindingBiometryReject.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        showBindingBiometryReject = null
-    }
 }

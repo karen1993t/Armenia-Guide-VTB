@@ -10,7 +10,7 @@ import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentBiometrySuccessBinding
 
 
-class BiometrySuccessFragment : Fragment() {
+class PersonalInformationSuccessFragment : Fragment() {
     private var showBiometrySuccess: FragmentBiometrySuccessBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,

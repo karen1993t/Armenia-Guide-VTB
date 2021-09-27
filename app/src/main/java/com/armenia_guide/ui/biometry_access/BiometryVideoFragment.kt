@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentBiometryVideoBinding
-import com.google.android.material.snackbar.Snackbar
+
 
 class BiometryVideoFragment : Fragment() {
     private var showBindingBiometryVideo: FragmentBiometryVideoBinding? = null
@@ -26,7 +28,7 @@ class BiometryVideoFragment : Fragment() {
 
         val permissionCamera =
             registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-                Snackbar.make(requireContext(),view,"camera Preview",Snackbar.LENGTH_SHORT).show()
+               Navigation.findNavController(view).navigate(R.id.action_biometryVideoFragment_to_faceDetectVideoFragment)
 
             }
         showBindingBiometryVideo?.btnNextToBiometry?.setOnClickListener {

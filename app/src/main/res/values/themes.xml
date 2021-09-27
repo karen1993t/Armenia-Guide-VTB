@@ -53,14 +53,11 @@
     </style>
 
 
-
     <style name="ErrorTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold|italic</item>
     </style>
-
-
 
 
     <style name="HelperTextAppearance" parent="TextAppearance.AppCompat.Body2">
@@ -72,9 +69,11 @@
         <item name="android:textStyle">normal</item>
         <item name="fontFamily">@font/gotham_pro</item>
     </style>
+
     <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
 
     </style>
+
     <style name="box_drop_down_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
 
         <item name="backgroundTint">@color/white</item>
@@ -85,6 +84,12 @@
         <item name="fontFamily">@font/gotham_pro</item>
 
     </style>
+
+    <style name="box_drop_down_search_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="fontFamily">@font/gotham_pro</item>
+    </style>
+
     <style name="CustomProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressBackgroundTint">#8E2126</item>
         <item name="android:progressTint">#8E2126</item>
@@ -96,6 +101,7 @@
     </style>
 
     // Alert Dialog Personal Area
+
     <style name="CutShapeTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance</item>
         <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral</item>
@@ -113,6 +119,7 @@
     </style>
 
     // Alert Dialog Reset password
+
     <style name="ResetTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance_1</item>
         <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral_1</item>
@@ -124,19 +131,10 @@
         <item name="cornerSize">16dp</item>
     </style>
 
-    <style name="Alert.Button.Neutral_1" parent="Widget.MaterialComponents.Button.TextButton" >
+    <style name="Alert.Button.Neutral_1" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textSize">14sp</item>
     </style>
-
-
-
-
-
-
-
-
-
 
 
 </resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="2dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/passport_detect_box"
+        app:layout_constraintEnd_toEndOf="@id/passport_detect_box"
+        app:layout_constraintStart_toStartOf="@id/passport_detect_box"
+        app:layout_constraintTop_toTopOf="@id/passport_detect_box">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/scan_face_preview_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5.5dp"
+        android:background="@drawable/ic_background_video_capture_close_button"
+        android:contentDescription="@string/description_btn_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_detect_passport"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/gotham_pro"
+        android:gravity="center_horizontal|center_vertical"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/title_detect_passport_photo"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_close"
+        app:layout_constraintEnd_toStartOf="@id/btn_close"
+        app:layout_constraintStart_toEndOf="@id/btn_back"
+        app:layout_constraintTop_toTopOf="@id/btn_close"
+        tools:targetApi="p" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22.5dp"
+        android:background="@drawable/ic_back_toolbar"
+        android:contentDescription="@string/description_button_back"
+        app:layout_constraintBottom_toBottomOf="@id/btn_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_close" />
+
+    <ImageView
+        android:id="@+id/passport_detect_box"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/ic_background_passport_detect"
+        android:contentDescription="@string/description_background_detect_box"
+        app:layout_constraintBottom_toTopOf="@id/guideline_position_captureButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_detect_passport"
+        app:layout_goneMarginBottom="24dp" />
+
+    <ImageButton
+        android:id="@+id/camera_capture_button"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="49dp"
+        android:background="@drawable/ic_background_video_capture_button"
+        android:contentDescription="@string/description_button_capture_video"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_position_captureButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:barrierDirection="bottom"
+        app:layout_constraintGuide_begin="620dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
