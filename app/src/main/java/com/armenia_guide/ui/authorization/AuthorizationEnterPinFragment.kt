@@ -29,6 +29,7 @@ class AuthorizationEnterPinFragment : Fragment() {
         bindingAuthorizationEnterPinFragment =
             FragmentAuthorizationEnterPinBinding.inflate(inflater)
 
+
         return bindingAuthorizationEnterPinFragment?.root
 
     }
@@ -79,10 +80,11 @@ class AuthorizationEnterPinFragment : Fragment() {
     }
 
     override fun onResume() {
-     activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         super.onResume()
+        if (bindingAuthorizationEnterPinFragment?.editTextEnterPin?.requestFocus() == true) { activity?.window?.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)}
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

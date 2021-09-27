@@ -102,9 +102,10 @@ class AuthorizationRepeatPinFragment : Fragment() {
             }
         })
     }
+
     override fun onResume() {
         if (bindingAuthorizationRepeatPinFragment?.editTextEnterPin?.requestFocus() == true) { activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE); }
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE) }
         super.onResume()
     }
 
@@ -112,5 +113,6 @@ class AuthorizationRepeatPinFragment : Fragment() {
         super.onDestroyView()
         bindingAuthorizationRepeatPinFragment = null
     }
+
 }
 

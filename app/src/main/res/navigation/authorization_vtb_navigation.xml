@@ -96,9 +96,6 @@
         <action
             android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
             app:destination="@id/authorizationRepeatPinFragment" />
-        <action
-            android:id="@+id/action_authorizationEnterPinFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorizationRepeatPinFragment"
@@ -108,9 +105,6 @@
         <action
             android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
             app:destination="@id/authorizationPersonalAreaFragment" />
-        <action
-            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationEnterPinFragment"
-            app:destination="@id/authorizationEnterPinFragment" />
     </fragment>
 
     <fragment

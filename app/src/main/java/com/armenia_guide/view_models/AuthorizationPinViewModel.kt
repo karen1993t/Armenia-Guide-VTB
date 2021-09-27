@@ -24,5 +24,13 @@ class AuthorizationPinViewModel : ViewModel() {
         _getPin2LiveData.postValue(string)
     }
 
+//    //btn close
+//    private val _btnCloseLiveData = MutableLiveData<Boolean>()
+//    val btnCloseLiveData: LiveData<Boolean> = _btnCloseLiveData
+//
+//    fun btnClose(boolean: Boolean){
+//        _btnCloseLiveData.postValue(boolean)
+//    }
+
 
 }

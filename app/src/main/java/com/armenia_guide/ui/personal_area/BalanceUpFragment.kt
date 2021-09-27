@@ -16,10 +16,7 @@ class BalanceUpFragment : Fragment() {
         FragmentBalanceUpBinding.inflate(layoutInflater)
     }
 
-
     private lateinit var bottomSheetAddCard: BottomSheetBehavior<ConstraintLayout>
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,20 +30,9 @@ class BalanceUpFragment : Fragment() {
 
         bindingBalanceUpFragment.toolbarBalanceUp.setNavigationIcon(R.drawable.ic_back_toolbar)
 
-//        val bottomSheet = view.findViewById<ConstraintLayout>(R.id.bottomSheet)
-//        bottomSheetAddCard = BottomSheetBehavior.from(bottomSheet)
+        val bottomSheet = view.findViewById<ConstraintLayout>(R.id.bottomSheet)
+        bottomSheetAddCard = BottomSheetBehavior.from(bottomSheet)
 
-        //#3 Listening to State Changes of BottomSheet
-//        bottomSheetAddCard.addBottomSheetCallback(object :
-//            BottomSheetBehavior.BottomSheetCallback() {
-//            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-//            }
-//
-//            override fun onStateChanged(bottomSheet: View, newState: Int) {
-//
-//
-//            }
-//        })
 
         bindingBalanceUpFragment.addCard.setOnClickListener {
             val state =
@@ -56,9 +42,5 @@ class BalanceUpFragment : Fragment() {
                     BottomSheetBehavior.STATE_EXPANDED
             bottomSheetAddCard.state = state
         }
-
-
     }
-
-
 }

@@ -90,7 +90,7 @@ class PayFragment : Fragment() {
                             })
                         }
 
-                        Toast.makeText(requireContext(), "${rect.width()}", Toast.LENGTH_SHORT).show()
+                     //   Toast.makeText(requireContext(), "${rect.width()}", Toast.LENGTH_SHORT).show()
 
                     })
 

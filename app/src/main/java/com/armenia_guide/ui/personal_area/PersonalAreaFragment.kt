@@ -30,6 +30,12 @@ class PersonalAreaFragment : Fragment() {
         FragmentPersonalAreaBinding.inflate(layoutInflater)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+       activity?.window?.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -154,9 +160,5 @@ class PersonalAreaFragment : Fragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-    }
+
 }
