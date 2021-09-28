@@ -1,8 +1,15 @@
 package com.armenia_guide.ui.biometry_access
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
+import android.text.Spanned
 import android.text.TextWatcher
+import android.text.method.DigitsKeyListener
+import android.text.method.KeyListener
+import android.text.method.TextKeyListener
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +27,7 @@ import com.armenia_guide.view_models.AuthorizationAndBiometryViewModel
 class PersonalInformationFragment : Fragment() {
     private var showBindingPersonalInformation: FragmentPersonalInformationBinding? = null
     private lateinit var arrayAdapterGender: ArrayAdapter<String>
+    private lateinit var arrayAdapterCitizenShip: ArrayAdapter<String>
     private val sharedViewModel: AuthorizationAndBiometryViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -32,17 +40,33 @@ class PersonalInformationFragment : Fragment() {
         return showBindingPersonalInformation?.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val genderList = resources.getStringArray(R.array.gender)
+        val citizenShipList = resources.getStringArray(R.array.citizen_ship)
+
+
+
         arrayAdapterGender =
             ArrayAdapter(
                 requireContext(),
-                R.layout.drop_down_item_country,
+                R.layout.drop_down_item_gender,
                 R.id.text_view_drop_down,
                 genderList
             )
+
+        arrayAdapterCitizenShip = ArrayAdapter(
+            requireContext(),
+            R.layout.drop_down_item_search,
+            R.id.text_view_drop_down,
+            citizenShipList
+        )
         showBindingPersonalInformation?.editUserGender?.setAdapter(arrayAdapterGender)
+        showBindingPersonalInformation?.searchEditUserCitizenShip?.setAdapter(
+            arrayAdapterCitizenShip
+        )
         isCheckedInputTexts()
 
         showBindingPersonalInformation?.editUserDateOfBirth?.setOnClickListener {
@@ -55,13 +79,34 @@ class PersonalInformationFragment : Fragment() {
             }
 
         }
-        showBindingPersonalInformation?.editUserGender?.setOnClickListener {
 
+        showBindingPersonalInformation?.editUserGender?.setOnClickListener {
             showBindingPersonalInformation?.editUserGender?.showDropDown()
+        }
+
+        showBindingPersonalInformation?.editUserCitizenShip?.setOnClickListener {
+            showBindingPersonalInformation?.containerPersonalInformation?.background =
+                resources.getDrawable(R.color.gray, null)
+
+            showBindingPersonalInformation?.containerSearchCitizenShip?.visibility = View.VISIBLE
+
+        }
+        showBindingPersonalInformation?.searchEditUserCitizenShip?.setOnDismissListener {
+            showBindingPersonalInformation?.containerPersonalInformation?.background =
+                resources.getDrawable(R.color.white, null)
+
+            showBindingPersonalInformation?.containerSearchCitizenShip?.visibility = View.GONE
+            showBindingPersonalInformation?.editUserCitizenShip?.text =
+                showBindingPersonalInformation?.searchEditUserCitizenShip?.text
         }
         showBindingPersonalInformation?.btnNext?.setOnClickListener {
             isCheckedInputTextsAndNext()
 
+        }
+
+        showBindingPersonalInformation?.btnClose?.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_personalInformationFragment_to_biometryAccessFragment)
         }
     }
 
@@ -94,9 +139,9 @@ class PersonalInformationFragment : Fragment() {
                     true
                 showBindingPersonalInformation?.textInputLayoutCitizenShip?.error = errorText
             }
-            else -> showBindingPersonalInformation?.root?.let {
+            else -> showBindingPersonalInformation?.root?.let { view ->
                 sendData()
-                Navigation.findNavController(it)
+                Navigation.findNavController(view)
                     .navigate(R.id.action_personalInformationFragment_to_phoneNumberFragment)
             }
         }
@@ -178,6 +223,7 @@ class PersonalInformationFragment : Fragment() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
                 when {
                     showBindingPersonalInformation?.editUserCitizenShip?.text.toString()
                         .isNotEmpty() -> showBindingPersonalInformation?.textInputLayoutCitizenShip?.isErrorEnabled =

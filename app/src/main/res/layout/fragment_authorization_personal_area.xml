@@ -151,8 +151,8 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/entered_pin_1"
-       android:layout_marginTop="60dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_marginBottom="30dp"
         tools:targetApi="p" />
 
 

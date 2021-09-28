@@ -9,12 +9,10 @@ import com.armenia_guide.R
 
 class OnBoardingFragment4 : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_on_boarding_4, container, false)
     }
-
 }

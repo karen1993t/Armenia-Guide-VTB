@@ -1,16 +1,13 @@
 package com.armenia_guide.ui.personal_area
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ArrayAdapter
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,13 +27,6 @@ class PersonalAreaFragment : Fragment() {
         FragmentPersonalAreaBinding.inflate(layoutInflater)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-       activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,14 +34,11 @@ class PersonalAreaFragment : Fragment() {
         return bindingPersonalAreaFragment.root
     }
 
-
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         bindingPersonalAreaFragment.toolbarPersonalArea.setNavigationIcon(R.drawable.ic_back_toolbar)
-
-
 
         bindingPersonalAreaFragment.pay.setOnClickListener {
             findNavController().navigate(R.id.action_personalAreaFragment_to_payFragment)
@@ -60,9 +47,8 @@ class PersonalAreaFragment : Fragment() {
             findNavController().navigate(R.id.action_personalAreaFragment_to_balanceUpFragment)
         }
 
-
         val monthList = resources.getStringArray(R.array.month)
-        val adapterMounts = ArrayAdapter(requireContext(), R.layout.drop_down_item_country,
+        val adapterMounts = ArrayAdapter(requireContext(), R.layout.drop_down_item_gender,
             R.id.text_view_drop_down,monthList)
         bindingPersonalAreaFragment.editMonth.setAdapter(adapterMounts)
 
@@ -70,26 +56,25 @@ class PersonalAreaFragment : Fragment() {
             bindingPersonalAreaFragment.month.hint =monthList[i]
         }
 
-
         bindingPersonalAreaFragment.editMonth.setOnClickListener {
             bindingPersonalAreaFragment.month.hint = ""
 
             bindingPersonalAreaFragment.editMonth.showDropDown()
         }
 
-
-
         val pieChart: PieChart = view.findViewById(R.id.pie_chart)
 
-        val NoOfEmp = ArrayList<PieEntry>()
-        NoOfEmp.add(PieEntry(296288f, 0))
-        NoOfEmp.add(PieEntry(45353f, 1))
-        NoOfEmp.add(PieEntry(50353f, 2))
-        NoOfEmp.add(PieEntry(45353f, 3))
-        NoOfEmp.add(PieEntry(57353f, 4))
+        val employess = ArrayList<PieEntry>()
+        employess.add(PieEntry(296288f, 0))
+        employess.add(PieEntry(45353f, 1))
+        employess.add(PieEntry(50353f, 2))
 
 
-        val dataSet = PieDataSet(NoOfEmp, "Number Of Employees")
+        employess.add(PieEntry(45353f, 3))
+        employess.add(PieEntry(57353f, 4))
+
+
+        val dataSet = PieDataSet(employess, "Number Of Employees")
 
         val price = ArrayList<String>()
         price.add("AVIA")
@@ -108,15 +93,12 @@ class PersonalAreaFragment : Fragment() {
 
         dataSet.colors = colors
 
-
         val data = PieData(dataSet)
 
-
         pieChart.data = data
+        pieChart.isRotationEnabled = false
 
         pieChart.animateXY(1000, 1000)
-
-
 
 
         val recycler = view.findViewById<RecyclerView>(R.id.recycler_view)
@@ -129,7 +111,6 @@ class PersonalAreaFragment : Fragment() {
             ModelPersonalArea(R.drawable.fingerprint_dialog_fp_icon, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
             ModelPersonalArea(R.drawable.ic_fb, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
 
-
             ModelPersonalArea(R.drawable.ic_bank_auth_success, "Moscow→Paris", "21:30", "-296 288 ₽"),
             ModelPersonalArea(R.drawable.ic_apple, "Hilton Hotel", "20:30", "-196 435 ₽"),
             ModelPersonalArea(R.drawable.ic_apple_gray, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
@@ -151,14 +132,9 @@ class PersonalAreaFragment : Fragment() {
             ModelPersonalArea(R.drawable.ic_checkbox_unchecked, "Hilton Hotel", "20:30", "-196 435 ₽"),
             ModelPersonalArea(R.drawable.fingerprint_dialog_fp_icon, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
             ModelPersonalArea(R.drawable.ic_fb, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
-
-
         )
         val customAdapter = PersonalAreaAdapter(requireContext(), listData)
         recycler.adapter = customAdapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
-
     }
-
-
 }

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthClientBinding
 
 
@@ -21,6 +23,11 @@ class AuthClientFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        showBindingAuthClient?.textSignInEmail?.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_authClientFragment_to_confirmEmailFragment)
+
+        }
     }
 
 

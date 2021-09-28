@@ -1,236 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/balance_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.personal_area.BalanceUpFragment">
+    tools:context=".ui.personal_area.balance_up.BalanceUpFragment">
+
+
+    <Toolbar
+        android:id="@+id/toolbar_balance_up"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/background_toolbar_personal_area"
+        android:titleTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Toolbar>
+
+    <TextView
+        android:id="@+id/title_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/s_f_pro"
+        android:gravity="center"
+        android:lineHeight="20dp"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/balance_up"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_balance_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbar_balance_up"
+        tools:targetApi="p" />
+
+
+    <TextView
+        android:id="@+id/debit_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="14.4dp"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/debit_card"
+        android:textColor="@color/gray"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_balance_up"
+        tools:targetApi="p" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Toolbar
-            android:id="@+id/toolbar_balance_up"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@drawable/background_toolbar_personal_area"
-            android:titleTextColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </Toolbar>
+        android:layout_height="75dp"
+        android:layout_marginTop="6dp"
+        android:clickable="true"
+        app:layout_constraintTop_toBottomOf="@id/debit_card">
 
         <TextView
-            android:id="@+id/title_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/s_f_pro"
-            android:gravity="center"
-            android:lineHeight="20dp"
-            android:lineSpacingExtra="0sp"
-            android:text="@string/balance_up"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@id/toolbar_balance_up"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/toolbar_balance_up"
-            tools:targetApi="p" />
-
-
-        <TextView
-            android:id="@+id/debit_card"
+            android:id="@+id/number_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
             android:fontFamily="@font/gotham_pro"
-            android:lineHeight="14.4dp"
-            android:lineSpacingExtra="3sp"
-            android:text="@string/debit_card"
-            android:textColor="@color/gray"
-            android:textFontWeight="400"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_balance_up"
-            tools:targetApi="p" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/add_card"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="6dp"
-            android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@id/debit_card">
-
-            <TextView
-                android:id="@+id/number_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:fontFamily="@font/gotham_pro"
-                android:lineHeight="18dp"
-                android:lineSpacingExtra="4sp"
-                android:text="@string/card_number"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:targetApi="p" />
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_marginEnd="15dp"
-                android:src="@drawable/ic_next_grey"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/top_up_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/gotham_pro"
-            android:lineHeight="14.4dp"
-            android:lineSpacingExtra="3sp"
-            android:text="@string/top_up_card"
-            android:textColor="@color/gray"
-            android:textFontWeight="400"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_card"
-            tools:targetApi="p" />
-
-        <TextView
-            android:id="@+id/top_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="127dp"
-            android:fontFamily="@font/gotham_pro"
-            android:lineHeight="21.6dp"
+            android:lineHeight="18dp"
             android:lineSpacingExtra="4sp"
-            android:text="@string/top_up_amount"
+            android:text="@string/add_card"
             android:textColor="@color/black"
-            android:textFontWeight="700"
-            android:textSize="18sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_card"
-            tools:targetApi="p" />
-
-        <EditText
-            android:id="@+id/edit_amount"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="7dp"
-            android:digits="0123456789 "
-            android:hint="0"
-            android:inputType="number"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_amount" />
-
-        <TextView
-            android:id="@+id/rur_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="15dp"
-            android:fontFamily="@font/gotham_pro"
-            android:lineHeight="16.8dp"
-            android:lineSpacingExtra="3sp"
-            android:text="RUB"
-            android:textColor="#8E2126"
             android:textFontWeight="400"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@id/edit_amount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/edit_amount"
-            tools:targetApi="p" />
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_get_started"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="44dp"
-            android:background="@drawable/background_button"
-            android:fontFamily="@font/gotham_pro"
-            android:lineHeight="20dp"
-            android:text="@string/balance_up_button"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="p" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/added_cards"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="6dp"
-            android:clickable="true"
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_next_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_up_card">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gotham_pro"
-                android:lineHeight="18dp"
-                android:lineSpacingExtra="4sp"
-                android:text="Your cards"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:targetApi="p" />
-
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:src="@drawable/ic_next_grey"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/top_up_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="14.4dp"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/top_up_card"
+        android:textColor="@color/gray"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_card"
+        tools:targetApi="p" />
 
-    <include layout="@layout/bottom_sheet_add_card" />
+    <TextView
+        android:id="@+id/top_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="127dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="21.6dp"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/top_up_amount"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_card"
+        tools:targetApi="p" />
+
+    <EditText
+        android:id="@+id/edit_amount"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="7dp"
+        android:digits="0123456789 "
+        android:hint="0"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_amount" />
+
+    <TextView
+        android:id="@+id/rur_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="16.8dp"
+        android:lineSpacingExtra="3sp"
+        android:text="RUB"
+        android:textColor="#8E2126"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@id/edit_amount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edit_amount"
+        tools:targetApi="p" />
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_get_started"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/background_button_red"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="20dp"
+        android:text="@string/balance_up_button"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="p" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/added_cards"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="6dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_up_card">
+
+        <TextView
+            android:id="@+id/card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gotham_pro"
+            android:lineHeight="18dp"
+            android:lineSpacingExtra="4sp"
+            android:text="Your cards"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p" />
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_next_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

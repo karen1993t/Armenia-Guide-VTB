@@ -9,7 +9,6 @@ import com.armenia_guide.R
 
 class OnBoardingFragment2 : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
