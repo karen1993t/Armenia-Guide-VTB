@@ -199,4 +199,7 @@
         <item>REPUBLIC</item>
         <item>COUNTRY CODE</item>
     </string-array>
+    <string name="error_message_input_card_number">Введите номер карты</string>
+    <string name="error_message_input_card_date">Введите дату карты</string>
+    <string name="error_message_input_card_cvc">Введите CVC карты</string>
 </resources>

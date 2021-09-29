@@ -18,6 +18,7 @@ import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.koin.androidx.scope.fragmentScope
 import java.util.concurrent.Executor
 
 class AuthorizationPersonalAreaFragment : Fragment() {
@@ -34,9 +35,8 @@ class AuthorizationPersonalAreaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
         return bindingAuthorizationPersonalArea.root
     }
 
@@ -193,6 +193,12 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                     ).show()
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 
     override fun onPause() {

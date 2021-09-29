@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentBalanceUpBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -17,7 +18,6 @@ class BalanceUpFragment : Fragment() {
         FragmentBalanceUpBinding.inflate(layoutInflater)
     }
 
-    private lateinit var bottomSheetAddCard: BottomSheetBehavior<ConstraintLayout>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,15 +31,13 @@ class BalanceUpFragment : Fragment() {
 
         bindingBalanceUpFragment.toolbarBalanceUp.setNavigationIcon(R.drawable.ic_back_toolbar)
 
-//        val bottomSheet = view.findViewById<ConstraintLayout>(R.id.bottomSheet)
-//        bottomSheetAddCard = BottomSheetBehavior.from(bottomSheet)
-        val  bottomSheetAddCard =  BottomSheetDialog(requireContext())
-        bottomSheetAddCard.setContentView(R.layout.bottom_sheet_add_card)
+
 
 
 
         bindingBalanceUpFragment.addCard.setOnClickListener {
-            bottomSheetAddCard.show()
+            val bottomSheetAddCard = BottomSheetAddCardFragment()
+           bottomSheetAddCard.show(parentFragmentManager,"")
         }
     }
 }

@@ -26,7 +26,6 @@ class AuthorizationEnterPinFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bindingAuthorizationEnterPin.editTextEnterPin.requestFocus()
         return bindingAuthorizationEnterPin.root
     }
 
@@ -68,5 +67,11 @@ class AuthorizationEnterPinFragment : Fragment() {
                 }
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bindingAuthorizationEnterPin.editTextEnterPin.requestFocus()
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 }

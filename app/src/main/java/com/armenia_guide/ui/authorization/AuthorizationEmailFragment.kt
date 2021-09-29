@@ -1,11 +1,13 @@
 package com.armenia_guide.ui.authorization
 
+import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
@@ -21,7 +23,6 @@ class AuthorizationEmailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bindingAuthorizationEmailFragment.editEmail.requestFocus()
         return bindingAuthorizationEmailFragment.root
     }
 
@@ -62,5 +63,11 @@ class AuthorizationEmailFragment : Fragment() {
                     resources.getString(R.string.error_message_input_email_1)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bindingAuthorizationEmailFragment.editEmail.requestFocus()
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 }

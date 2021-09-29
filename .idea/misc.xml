@@ -21,12 +21,14 @@
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/color_list_personal_area.xml" value="0.36018518518518516" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/default_dot.xml" value="0.67" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_back_toolbar.xml" value="0.215625" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_img.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_logo.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_logo_vtb_rus_blue.xml" value="0.2759259259259259" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_on_boarding_fragment_1.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_on_boarding_fragment_1_1.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_on_boarding_fragment_2.xml" value="0.2109375" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_path.xml" value="0.37083333333333335" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_phone.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_rest.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_union.xml" value="0.37083333333333335" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/drawable/ic_vtb_eng_blue.xml" value="0.2759259259259259" />
@@ -41,9 +43,10 @@
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_authorization_personal_area.xml" value="0.19635416666666666" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_authorization_repeat_pin.xml" value="0.509090909090909" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_balance_up.xml" value="0.33" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_bottom_sheet_add_card.xml" value="0.3546875" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding.xml" value="0.22" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_1.xml" value="0.22" />
-        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_2.xml" value="0.22" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_2.xml" value="0.18" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_3.xml" value="0.17794871794871794" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_4.xml" value="0.17794871794871794" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding_5.xml" value="0.17962962962962964" />
@@ -54,6 +57,7 @@
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_phone_number.xml" value="0.3546875" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_pie_chart.xml" value="0.25" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_resetting_code.xml" value="0.3546875" />
+        <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/personal_area_recycler_header.xml" value="0.3546875" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/personal_area_recycler_row.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/armen/Desktop/Armenia-Guide-VTB/app/src/main/res/drawable/background_toolbar_personal_area.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/armen/Desktop/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding.xml" value="0.32051282051282054" />
