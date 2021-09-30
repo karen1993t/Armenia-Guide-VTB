@@ -1,6 +1,7 @@
 package com.armenia_guide.ui.authorization
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
@@ -18,16 +21,28 @@ class AuthorizationEmailFragment : Fragment() {
         FragmentAuthorizationEmailBinding.inflate(layoutInflater)
     }
     private var checkerEmail = false
+    private lateinit var keyboard:InputMethodManager
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        bindingAuthorizationEmailFragment.editEmail.requestFocus()
+
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         return bindingAuthorizationEmailFragment.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        keyboard = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        keyboard.toggleSoftInput(InputMethodManager.RESULT_SHOWN,0)
+
 
         bindingAuthorizationEmailFragment.editEmailContainer.editText?.addTextChangedListener(object :
             TextWatcher {
@@ -67,7 +82,19 @@ class AuthorizationEmailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        bindingAuthorizationEmailFragment.editEmail.requestFocus()
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+//        bindingAuthorizationEmailFragment.editEmail.requestFocus()
+//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        keyboard.toggleSoftInput(InputMethodManager.RESULT_HIDDEN,0)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+    }
+
 }

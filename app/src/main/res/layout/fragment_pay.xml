@@ -63,16 +63,13 @@
     android:id="@+id/surfaceView"
     android:layout_width="250dp"
     android:layout_height="150dp"
+    android:background="@drawable/background_barcode_scanner"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent">
 
-    <SurfaceView android:id="@+id/surfaceViewBarcode"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_barcode_scanner"
-        />
+
 
 
 

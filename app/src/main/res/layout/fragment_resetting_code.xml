@@ -47,7 +47,7 @@
         android:src="@drawable/ic_vtb_eng_blue" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_email_reset"
+        android:id="@+id/edit_email_reset_container"
         app:boxStrokeColor="@color/black"
         app:endIconMode="clear_text"
         app:hintTextColor="@color/black"
@@ -60,6 +60,7 @@
         android:layout_marginTop="19dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_email_reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -86,7 +87,7 @@
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_email_reset"
+        app:layout_constraintTop_toBottomOf="@id/edit_email_reset_container"
         tools:targetApi="p" />
 
 

@@ -109,7 +109,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
                         } else {
                             bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_black)
-                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_personalAreaFragment)
+                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
                         }
                     }
                     4 -> {
@@ -197,8 +197,8 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+//        bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()
+//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 
     override fun onPause() {
