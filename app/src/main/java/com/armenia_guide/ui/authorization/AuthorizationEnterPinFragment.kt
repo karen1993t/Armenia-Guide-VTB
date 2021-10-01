@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationEnterPinBinding
+import com.armenia_guide.tools.KeyboardTools
 
 class AuthorizationEnterPinFragment : Fragment() {
 
@@ -31,6 +32,7 @@ class AuthorizationEnterPinFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         bindingAuthorizationEnterPin.editTextEnterPin.addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -67,11 +69,5 @@ class AuthorizationEnterPinFragment : Fragment() {
                 }
             }
         })
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        bindingAuthorizationEnterPin.editTextEnterPin.requestFocus()
-//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 }

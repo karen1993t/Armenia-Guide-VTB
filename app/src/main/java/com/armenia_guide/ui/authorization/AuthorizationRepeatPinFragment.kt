@@ -97,11 +97,5 @@ class AuthorizationRepeatPinFragment : Fragment() {
             }
         })
     }
-
-    override fun onResume() {
-        super.onResume()
-//        bindingAuthorizationRepeatPin.editTextEnterPin.requestFocus()
-//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-    }
 }
 

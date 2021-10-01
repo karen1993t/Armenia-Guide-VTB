@@ -1,6 +1,7 @@
 package com.armenia_guide.ui.personal_area
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +15,10 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.armenia_guide.R
 import com.armenia_guide.analyzer.BarcodeAnalyzer
 import com.armenia_guide.databinding.FragmentPayBinding
 import java.util.concurrent.ExecutorService
@@ -30,6 +34,7 @@ class PayFragment : Fragment() {
     private lateinit var cameraExecutor: ExecutorService
     private var processingBarcode = AtomicBoolean(false)
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +45,8 @@ class PayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        bindingPay.surfaceView.background.colorFilter
 
         val requestPermissions =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {}
@@ -54,6 +61,7 @@ class PayFragment : Fragment() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun startCamera() {
 
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
@@ -74,6 +82,11 @@ class PayFragment : Fragment() {
                     it.setAnalyzer(cameraExecutor, BarcodeAnalyzer() { barcode ->
 
                         if (processingBarcode.compareAndSet(false, true)) {
+                            bindingPay.surfaceView.background = resources.getDrawable(R.drawable.background_barcode_scanner_success,null)
+
+
+                            findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
+
 
                             Toast.makeText(requireContext(), "$barcode", Toast.LENGTH_SHORT)
                                 .show()

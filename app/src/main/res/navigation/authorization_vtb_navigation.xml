@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/contractFragment">
+    app:startDestination="@id/authorizationPersonalAreaFragment">
 
 
     <fragment
@@ -478,12 +478,20 @@
             android:id="@+id/action_contractFragment_to_authorizationEmailFragment"
             app:destination="@id/authorizationEmailFragment" />
     </fragment>
-        tools:layout="@layout/fragment_biometry_video" />
+
     <fragment
         android:id="@+id/payFragment"
         android:name="com.armenia_guide.ui.personal_area.PayFragment"
         android:label="fragment_pay"
-        tools:layout="@layout/fragment_pay" />
+        tools:layout="@layout/fragment_pay" >
+        <action
+            android:id="@+id/action_payFragment_to_searchedBarcodeFragment"
+            app:destination="@id/searchedBarcodeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/balanceUpFragment"
         android:name="com.armenia_guide.ui.personal_area.balance_up.BalanceUpFragment"
@@ -509,4 +517,9 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/searchedBarcodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.SearchedBarcodeFragment"
+        android:label="fragment_searched_barcode"
+        tools:layout="@layout/fragment_searched_barcode" />
 </navigation>

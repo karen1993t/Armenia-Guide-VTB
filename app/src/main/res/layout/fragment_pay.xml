@@ -58,22 +58,17 @@
         app:layout_constraintTop_toBottomOf="@id/view_top"
         app:layout_constraintBottom_toTopOf="@id/view_bottom"/>
 
-
-<androidx.constraintlayout.widget.ConstraintLayout
+<View
     android:id="@+id/surfaceView"
     android:layout_width="250dp"
-    android:layout_height="150dp"
+    android:layout_height="250dp"
     android:background="@drawable/background_barcode_scanner"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent">
 
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</View>
 
 
 
@@ -97,6 +92,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="p" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

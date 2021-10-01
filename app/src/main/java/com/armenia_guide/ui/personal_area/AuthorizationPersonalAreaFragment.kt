@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
+import com.armenia_guide.tools.KeyboardTools
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.scope.fragmentScope
 import java.util.concurrent.Executor
@@ -30,18 +31,24 @@ class AuthorizationPersonalAreaFragment : Fragment() {
     private var pinPersonalArea: String = ""
     private var pin2: String = ""
     private var counter: Int = 0
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if ( bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()){
+            activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-
         return bindingAuthorizationPersonalArea.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         viewModelPersonalArea.getPin2LiveData.observe(viewLifecycleOwner, {
             pin2 = it
@@ -110,6 +117,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                         } else {
                             bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_black)
                             findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
+
                         }
                     }
                     4 -> {
@@ -193,16 +201,5 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                     ).show()
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()
-//        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-    }
-
-    override fun onPause() {
-        bindingAuthorizationPersonalArea.editTextPersonalArea.isFocusable = false
-        super.onPause()
     }
 }
