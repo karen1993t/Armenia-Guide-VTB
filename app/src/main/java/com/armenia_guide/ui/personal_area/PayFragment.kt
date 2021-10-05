@@ -21,6 +21,8 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
 import com.armenia_guide.analyzer.BarcodeAnalyzer
 import com.armenia_guide.databinding.FragmentPayBinding
+import com.armenia_guide.view_models.SendBarcodeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
@@ -33,6 +35,7 @@ class PayFragment : Fragment() {
     }
     private lateinit var cameraExecutor: ExecutorService
     private var processingBarcode = AtomicBoolean(false)
+    val viewModel:SendBarcodeViewModel by viewModel()
 
 
     override fun onCreateView(
@@ -84,12 +87,8 @@ class PayFragment : Fragment() {
                         if (processingBarcode.compareAndSet(false, true)) {
                             bindingPay.surfaceView.background = resources.getDrawable(R.drawable.background_barcode_scanner_success,null)
 
-
                             findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
-
-
-                            Toast.makeText(requireContext(), "$barcode", Toast.LENGTH_SHORT)
-                                .show()
+                            viewModel.sendBarcode(barcode)
                         }
                     })
                 }

@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class AuthorizationRepeatPinFragment : Fragment() {
@@ -20,7 +22,7 @@ class AuthorizationRepeatPinFragment : Fragment() {
     private val bindingAuthorizationRepeatPin by lazy {
         FragmentAuthorizationRepeatPinBinding.inflate(layoutInflater)
     }
-    private val viewModel: AuthorizationPinViewModel by activityViewModels()
+    private val viewModel: AuthorizationPinViewModel by viewModel()
     private var pin1: String = ""
     private var pin2: String = ""
 
@@ -96,6 +98,10 @@ class AuthorizationRepeatPinFragment : Fragment() {
                 }
             }
         })
+
+        requireActivity().onBackPressedDispatcher.addCallback() {
+            findNavController().navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationEmailFragment)
+        }
     }
 }
 

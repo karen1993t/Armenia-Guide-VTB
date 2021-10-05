@@ -1,9 +1,9 @@
 package com.armenia_guide
 
 import android.app.Application
-import com.armenia_guide.view_models.AuthorizationAndBiometryViewModel
-import com.armenia_guide.view_models.AuthorizationPinViewModel
-import com.armenia_guide.view_models.BiometryFaceAndPassportDetectViewModel
+import com.armenia_guide.ui.personal_area.ListPersonalAreaImpl
+import com.armenia_guide.ui.personal_area.RepositoryPersonalArea
+import com.armenia_guide.view_models.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -21,18 +21,33 @@ class ArmeniaGuideApplication : Application() {
             viewModel {
                 BiometryFaceAndPassportDetectViewModel()
             }
-
         }
 
-        val moduleAuthorizationPin = module {
-            viewModel {
+        val moduleSendData = module {
+            single {
                 AuthorizationPinViewModel()
+            }
+            single {
+                SendBarcodeViewModel()
+            }
+        }
+        val modulePersonalArea = module {
+            single {
+                PersonalAreaViewModel(repositoryPersonalArea = get())
+            }
+
+            single<RepositoryPersonalArea> {
+                ListPersonalAreaImpl()
             }
         }
 
         startKoin {
             androidContext(applicationContext)
-            modules(moduleAuthorizationAndBiometry, moduleAuthorizationPin)
+            modules(
+                moduleAuthorizationAndBiometry,
+                moduleSendData,
+                modulePersonalArea
+            )
         }
     }
 }

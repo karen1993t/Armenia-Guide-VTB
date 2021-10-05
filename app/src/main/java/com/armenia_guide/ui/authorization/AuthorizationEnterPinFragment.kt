@@ -6,18 +6,19 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
+
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationEnterPinBinding
-import com.armenia_guide.tools.KeyboardTools
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class AuthorizationEnterPinFragment : Fragment() {
 
-    private val viewModel: AuthorizationPinViewModel by activityViewModels()
+    private val viewModel: AuthorizationPinViewModel by viewModel()
     private var pin1: String = ""
     private val bindingAuthorizationEnterPin by lazy {
         FragmentAuthorizationEnterPinBinding.inflate(layoutInflater)

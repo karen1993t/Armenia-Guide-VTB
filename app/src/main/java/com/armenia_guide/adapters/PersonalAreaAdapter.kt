@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.armenia_guide.R
-import com.armenia_guide.ui.personal_area.ModelPersonalArea
+import com.armenia_guide.ui.personal_area.Entity.ModelPersonalArea
 
 class PersonalAreaAdapter(val context: Context, private val listPersonalArea: List<ModelPersonalArea>) :
     Adapter<PersonalAreaAdapter.ViewHolderPersonalArea>() {

@@ -1,13 +1,15 @@
 package com.armenia_guide.ui.personal_area
 
+import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.contains
-import androidx.core.view.isEmpty
+import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
@@ -27,6 +29,7 @@ class ResettingCodeFragment : Fragment() {
         return bindingResettingCode.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -69,15 +72,15 @@ class ResettingCodeFragment : Fragment() {
         bindingResettingCode.btnEmailReset.setOnClickListener {
             MaterialAlertDialogBuilder(
                 requireContext(),
-                R.style.ResetTheme
+                 R.style.ResetTheme
             )
-
-                .setMessage("Мы отправили вам письмо  с ссылкой для сброса кода")
-                .setIcon(R.mipmap.ic_launcher)
-                .setNeutralButton("Продолжить") { _, _ ->
-                    findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+                .setView(R.layout.alert_dialog_reset_code)
+                .setNeutralButton("Продолжить"){ _, _ ->
+                   findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
                 }
                 .show()
+
+
         }
     }
 }

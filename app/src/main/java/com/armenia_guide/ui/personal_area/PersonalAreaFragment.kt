@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.ArrayAdapter
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,10 +14,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.armenia_guide.R
 import com.armenia_guide.adapters.PersonalAreaAdapter
 import com.armenia_guide.databinding.FragmentPersonalAreaBinding
+import com.armenia_guide.view_models.PersonalAreaViewModel
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -26,6 +28,7 @@ class PersonalAreaFragment : Fragment() {
     private val bindingPersonalAreaFragment by lazy {
         FragmentPersonalAreaBinding.inflate(layoutInflater)
     }
+    private  val viewModel: PersonalAreaViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,12 +87,11 @@ class PersonalAreaFragment : Fragment() {
         price.add("OTHER")
 
 
+        val arrayColors = resources.getIntArray(R.array.pie_chart_colors)
         val colors = ArrayList<Int>()
-        colors.add(resources.getColor(R.color.color_1_personal_area, null))
-        colors.add(resources.getColor(R.color.color_2_personal_area, null))
-        colors.add(resources.getColor(R.color.color_3_personal_area, null))
-        colors.add(resources.getColor(R.color.color_4_personal_area, null))
-        colors.add(resources.getColor(R.color.color_5_personal_area, null))
+        for (element in arrayColors){
+            colors.add(element)
+        }
 
         dataSet.colors = colors
 
@@ -102,39 +104,18 @@ class PersonalAreaFragment : Fragment() {
 
 
         val recycler = view.findViewById<RecyclerView>(R.id.recycler_view)
-        val listData = listOf(
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "21:30", "-296 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_rest, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Income", "21:30", "+2 241 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
+        viewModel.getListPersonalArea()
+        viewModel.listPersonalAreaLiveData.observe(viewLifecycleOwner,{
+            val listData =it
+            val customAdapter = PersonalAreaAdapter(requireContext(), listData)
+            recycler.adapter = customAdapter
+            recycler.layoutManager = LinearLayoutManager(requireContext())
+        })
 
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "21:30", "-296 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_rest, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Income", "21:30", "+2 241 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "21:30", "-296 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_rest, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Income", "21:30", "+2 241 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "21:30", "-296 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_rest, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Income", "21:30", "+2 241 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_logo, "Hilton Hotel", "20:30", "-196 435 ₽"),
-            ModelPersonalArea(R.drawable.ic_union, "Chateau Bordeaux", "12:30", "-10 288 ₽"),
-            ModelPersonalArea(R.drawable.ic_path, "Moscow→Paris", "10:00", "-1 296 288 ₽"),
-        )
-        val customAdapter = PersonalAreaAdapter(requireContext(), listData)
-        recycler.adapter = customAdapter
-        recycler.layoutManager = LinearLayoutManager(requireContext())
+        requireActivity().onBackPressedDispatcher.addCallback() {
+            findNavController().navigate(R.id.action_personalAreaFragment_to_authorizationEmailFragment)
+        }
+
+
     }
 }

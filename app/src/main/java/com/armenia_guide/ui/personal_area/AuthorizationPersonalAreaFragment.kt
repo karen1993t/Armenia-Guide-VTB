@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
@@ -17,9 +18,10 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
-import com.armenia_guide.tools.KeyboardTools
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.koin.androidx.scope.fragmentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 import java.util.concurrent.Executor
 
 class AuthorizationPersonalAreaFragment : Fragment() {
@@ -27,10 +29,11 @@ class AuthorizationPersonalAreaFragment : Fragment() {
     private val bindingAuthorizationPersonalArea by lazy {
       FragmentAuthorizationPersonalAreaBinding.inflate(layoutInflater)
     }
-    private val viewModelPersonalArea: AuthorizationPinViewModel by activityViewModels()
+    private val viewModelPersonalArea: AuthorizationPinViewModel by viewModel()
     private var pinPersonalArea: String = ""
     private var pin2: String = ""
     private var counter: Int = 0
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if ( bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()){
@@ -116,7 +119,11 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
                         } else {
                             bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_black)
+                           // bindingAuthorizationPersonalArea.editTextPersonalArea.text.clear()
+                           // bindingAuthorizationPersonalArea.circle1.setImageResource(R.drawable.circle_pin_view_black)
                             findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
+
+
 
                         }
                     }
@@ -201,5 +208,10 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                     ).show()
             }
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback() {
+            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_authorizationEmailFragment)
+        }
     }
+
 }
