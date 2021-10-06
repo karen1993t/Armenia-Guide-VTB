@@ -1,15 +1,13 @@
 package com.armenia_guide.ui.personal_area
 
 import android.annotation.SuppressLint
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.appcompat.widget.AppCompatButton
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
@@ -22,6 +20,7 @@ class ResettingCodeFragment : Fragment() {
         FragmentResettingCodeBinding.inflate(layoutInflater)
     }
     private var checkerEmail = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +31,10 @@ class ResettingCodeFragment : Fragment() {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback() {
+            findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+        }
 
         bindingResettingCode.editEmailResetContainer.editText?.addTextChangedListener(object :
             TextWatcher {
@@ -72,15 +75,15 @@ class ResettingCodeFragment : Fragment() {
         bindingResettingCode.btnEmailReset.setOnClickListener {
             MaterialAlertDialogBuilder(
                 requireContext(),
-                 R.style.ResetTheme
+                R.style.ResetTheme
             )
                 .setView(R.layout.alert_dialog_reset_code)
-                .setNeutralButton("Продолжить"){ _, _ ->
-                   findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+
+                .setNeutralButton(getString(R.string.continue_reset)) { _, _ ->
+                    findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
                 }
                 .show()
-
-
         }
+
     }
 }

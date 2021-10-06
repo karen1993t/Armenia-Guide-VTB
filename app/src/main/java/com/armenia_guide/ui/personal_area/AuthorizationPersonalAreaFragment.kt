@@ -13,7 +13,6 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
@@ -50,8 +49,6 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         viewModelPersonalArea.getPin2LiveData.observe(viewLifecycleOwner, {
             pin2 = it
@@ -104,12 +101,13 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                         getString(
                                             R.string.attempts_left_0
                                         )
+
                                     MaterialAlertDialogBuilder(
                                         requireContext(),
                                         R.style.CutShapeTheme
                                     )
-                                        .setTitle(getString(R.string.enter_personal_area_blocked))
-                                        .setMessage(getString(R.string.reset_pin_and_repeat))
+                                        .setView(R.layout.alert_dialog_wrong_pin)
+                                        .setCancelable(false)
                                         .setNeutralButton(getString(R.string.reset)) { _, _ ->
                                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
                                         }
@@ -119,12 +117,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
 
                         } else {
                             bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_black)
-                           // bindingAuthorizationPersonalArea.editTextPersonalArea.text.clear()
-                           // bindingAuthorizationPersonalArea.circle1.setImageResource(R.drawable.circle_pin_view_black)
                             findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
-
-
-
                         }
                     }
                     4 -> {

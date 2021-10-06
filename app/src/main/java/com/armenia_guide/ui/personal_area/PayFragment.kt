@@ -2,14 +2,22 @@ package com.armenia_guide.ui.personal_area
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.icu.lang.UCharacter.IndicPositionalCategory.*
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity.TOP
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
@@ -62,6 +70,7 @@ class PayFragment : Fragment() {
             )
             startCamera()
         }
+
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -78,6 +87,7 @@ class PayFragment : Fragment() {
                     bindingPay.fragmentScanBarcodePreviewView.surfaceProvider
                 )
             }
+
 
             val imageAnalysis = ImageAnalysis.Builder()
                 .build()
@@ -102,6 +112,8 @@ class PayFragment : Fragment() {
             }
         }, ContextCompat.getMainExecutor(requireContext()))
     }
+
+
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(
