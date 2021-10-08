@@ -36,13 +36,24 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="p" />
 
+    <ImageView
+        android:id="@+id/logo_vtb_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:contentDescription="@string/description_icon_logo"
+        android:src="@drawable/ic_vtb_eng_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_enter_personal_area" />
+
 
     <TextView
         android:id="@+id/title_enter_personal_area_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/gotham_pro"
         android:gravity="center_horizontal|center_vertical"
         android:lineHeight="24dp"
@@ -55,7 +66,7 @@
         android:translationY="-2.43sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_enter_personal_area"
+        app:layout_constraintTop_toBottomOf="@id/logo_vtb_auth"
         tools:targetApi="p" />
 
 
@@ -64,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

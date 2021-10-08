@@ -1,6 +1,7 @@
 package com.armenia_guide.ui.personal_area
 
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,8 +68,11 @@ class BluePersonalAreaFragment : Fragment() {
         })
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-            findNavController().navigate(R.id.action_bluePersonalAreaFragment_to_authorizationEmailFragment)
+         //   findNavController().navigate(R.id.action_bluePersonalAreaFragment_to_authorizationEmailFragment)
         }
+
+
+        bindingBluePersonalArea.titleMoney.transformationMethod= PasswordTransformationMethod()
     }
 
 

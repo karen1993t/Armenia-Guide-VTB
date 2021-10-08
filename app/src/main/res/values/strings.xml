@@ -201,6 +201,11 @@
     <string name="error_message_input_card_date">Введите дату карты</string>
     <string name="error_message_input_card_cvc">Введите CVC карты</string>
     <string name="reset_pin_and_repeat">Сбросте код и повторите попитьку</string>
-    <string name="enter_personal_area_blocked">Вход в личный кабинет ВТБ Armenia Guide заблокирован</string>
-    <string name="continue_reset">Продолжить</string>
+    <string name="enter_personal_area_blocked">Вход в личный кабинет  ВТБ &amp; Armenia Guide заблокирован</string>
+    <string name="continue_reset">На главную</string>
+    <string name="reset_code">Сброс кода</string>
+    <string name="btn_reset_code">Сбросить код</string>
+    <string name="we_send_email">Мы отправили вам письмо с ссылкой для сброса кода</string>
+    <string name="send_card_details_email">Мы вышлим реквизиты на emal адрес</string>
+    <string name="title_details_card">Реквизиты карты</string>
 </resources>

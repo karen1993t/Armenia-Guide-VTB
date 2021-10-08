@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Color.GREEN
 import android.graphics.Paint
 import android.icu.lang.UCharacter.IndicPositionalCategory.*
 import android.os.Build
@@ -57,7 +58,7 @@ class PayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bindingPay.surfaceView.background.colorFilter
+       // bindingPay.surfaceView.background.colorFilter
 
         val requestPermissions =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {}
@@ -95,7 +96,7 @@ class PayFragment : Fragment() {
                     it.setAnalyzer(cameraExecutor, BarcodeAnalyzer() { barcode ->
 
                         if (processingBarcode.compareAndSet(false, true)) {
-                            bindingPay.surfaceView.background = resources.getDrawable(R.drawable.background_barcode_scanner_success,null)
+                          // CustomRectangleCutoutView(requireContext()).framePaint.color = GREEN
 
                             findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
                             viewModel.sendBarcode(barcode)

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationEnterPinBinding
+import com.armenia_guide.tools.KeyboardTools
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -22,6 +23,14 @@ class AuthorizationEnterPinFragment : Fragment() {
     private var pin1: String = ""
     private val bindingAuthorizationEnterPin by lazy {
         FragmentAuthorizationEnterPinBinding.inflate(layoutInflater)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (bindingAuthorizationEnterPin.editTextEnterPin.requestFocus()){
+        KeyboardTools.showKeyboard(
+            requireContext()
+        )}
     }
 
     override fun onCreateView(
@@ -70,5 +79,10 @@ class AuthorizationEnterPinFragment : Fragment() {
                 }
             }
         })
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        if (false.also { bindingAuthorizationEnterPin.editTextEnterPin.isFocusable = it }){
+            KeyboardTools.hideKeyboard(requireContext())}
     }
 }

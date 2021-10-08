@@ -165,7 +165,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                         override fun onAuthenticationSucceeded(
                             result: BiometricPrompt.AuthenticationResult
                         ) {
-                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_personalAreaFragment)
+                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
                         }
                         
                         override fun onAuthenticationError(
@@ -203,7 +203,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
         }
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_authorizationEmailFragment)
+           // findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_authorizationEmailFragment)
         }
     }
 

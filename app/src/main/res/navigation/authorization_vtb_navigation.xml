@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/contractFragment">
+    app:startDestination="@id/bluePersonalAreaFragment">
 
 
     <fragment
@@ -64,19 +64,6 @@
 
 
     <fragment
-        android:id="@+id/authorizationEmailFragment"
-        android:name="com.armenia_guide.ui.authorization.AuthorizationEmailFragment"
-        android:label="fragment_authorization_email"
-        tools:layout="@layout/fragment_authorization_email">
-        <action
-            android:id="@+id/action_authorizationEmailFragment_to_authorizationEnterPinFragment"
-            app:destination="@id/authorizationEnterPinFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
         android:id="@+id/authorizationPersonalAreaFragment"
         android:name="com.armenia_guide.ui.personal_area.AuthorizationPersonalAreaFragment"
         android:label="fragment_authorization_personal_area"
@@ -89,22 +76,8 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_authorizationPersonalAreaFragment_to_personalAreaFragment"
-            app:destination="@id/personalAreaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
             android:id="@+id/action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment"
             app:destination="@id/bluePersonalAreaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_authorizationPersonalAreaFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -114,15 +87,7 @@
         android:id="@+id/resettingCodeFragment"
         android:name="com.armenia_guide.ui.personal_area.ResettingCodeFragment"
         android:label="fragment_resetting_code"
-        tools:layout="@layout/fragment_resetting_code" >
-        <action
-            android:id="@+id/action_resettingCodeFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
+        tools:layout="@layout/fragment_resetting_code" />
     <fragment
         android:id="@+id/personalAreaFragment"
         android:name="com.armenia_guide.ui.personal_area.PersonalAreaFragment"
@@ -142,9 +107,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_personalAreaFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment" />
     </fragment>
 
     <fragment
@@ -168,13 +130,6 @@
         <action
             android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
             app:destination="@id/authorizationPersonalAreaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -496,8 +451,8 @@
         android:label="ContractFragment"
         tools:layout="@layout/fragment_contract">
         <action
-            android:id="@+id/action_contractFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment" />
+            android:id="@+id/action_contractFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment" />
     </fragment>
 
     <fragment
@@ -533,13 +488,6 @@
         <action
             android:id="@+id/action_bluePersonalAreaFragment_to_payFragment"
             app:destination="@id/payFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_bluePersonalAreaFragment_to_authorizationEmailFragment"
-            app:destination="@id/authorizationEmailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"

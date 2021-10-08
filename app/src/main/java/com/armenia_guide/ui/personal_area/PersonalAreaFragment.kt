@@ -113,7 +113,7 @@ class PersonalAreaFragment : Fragment() {
         })
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-            findNavController().navigate(R.id.action_personalAreaFragment_to_authorizationEmailFragment)
+          //  findNavController().navigate(R.id.action_personalAreaFragment_to_authorizationEmailFragment)
         }
 
 

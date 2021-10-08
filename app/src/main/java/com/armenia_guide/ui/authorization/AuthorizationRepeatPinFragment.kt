@@ -100,7 +100,7 @@ class AuthorizationRepeatPinFragment : Fragment() {
         })
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-            findNavController().navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationEmailFragment)
+         //   findNavController().navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationEmailFragment)
         }
     }
 }

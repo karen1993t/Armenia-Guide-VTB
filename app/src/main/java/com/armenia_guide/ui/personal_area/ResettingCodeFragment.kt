@@ -33,7 +33,7 @@ class ResettingCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-            findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+          //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
         }
 
         bindingResettingCode.editEmailResetContainer.editText?.addTextChangedListener(object :
@@ -65,7 +65,7 @@ class ResettingCodeFragment : Fragment() {
         bindingResettingCode.btnEmailReset.setOnClickListener {
             when {
                 checkerEmail -> bindingResettingCode.btnEmailReset.setOnClickListener {
-                    findNavController().navigate(R.id.action_authorizationEmailFragment_to_authorizationEnterPinFragment)
+                 //   findNavController().navigate(R.id.action_authorizationEmailFragment_to_authorizationEnterPinFragment)
                 }
                 else -> bindingResettingCode.editEmailResetContainer.error =
                     resources.getString(R.string.error_message_input_email_1)
@@ -78,9 +78,9 @@ class ResettingCodeFragment : Fragment() {
                 R.style.ResetTheme
             )
                 .setView(R.layout.alert_dialog_reset_code)
-
+                .setCancelable(false)
                 .setNeutralButton(getString(R.string.continue_reset)) { _, _ ->
-                    findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+                  //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
                 }
                 .show()
         }

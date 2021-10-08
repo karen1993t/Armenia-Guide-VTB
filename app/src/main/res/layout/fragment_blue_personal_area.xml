@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_personal_area"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layoutDescription="@xml/fragment_blue_personal_area_scene"
     tools:context=".ui.personal_area.BluePersonalAreaFragment">
+
     <Toolbar
         android:id="@+id/toolbar_personal_area"
         android:layout_width="match_parent"
@@ -32,6 +34,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </Toolbar>
+
     <TextView
         android:id="@+id/title_toolbar"
         android:layout_width="wrap_content"
@@ -52,91 +55,147 @@
         tools:targetApi="p" />
 
     <ImageView
-        android:id="@+id/logo_vtb_and_master"
+        android:id="@+id/img_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_logo_vtb_and_master"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@string/card_vtb"
+        android:src="@drawable/ic_card__personal_area"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_personal_area"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_personal_area" />
+
+
+    <EditText
+        android:id="@+id/title_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/blue_personal_area"
+        android:clickable="true"
+        android:editable="false"
+        android:fontFamily="@font/s_f_pro"
+        android:lineHeight="30dp"
+        android:lineSpacingExtra="0sp"
+        android:text="25 252,54 rub"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_card"
+        tools:targetApi="p"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/replenish"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_button_replenish_personal_area_blue"
+        android:clickable="true"
+        android:fontFamily="@font/gotham_pro"
+        android:text="@string/replenish"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/pay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_money" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/pay"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/background_button_pay_blue"
+        android:fontFamily="@font/gotham_pro"
+        android:text="@string/pay"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/replenish"
+        app:layout_constraintTop_toBottomOf="@id/title_money" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/balance"
+        android:id="@+id/card_details"
         android:layout_width="0dp"
-        android:layout_height="113dp"
+        android:layout_height="55dp"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="20dp"
-        android:elevation="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_card_details_personal_area"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_vtb_and_master">
+        app:layout_constraintTop_toBottomOf="@+id/pay">
+
+        <ImageView
+            android:id="@+id/img_card_1"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@string/card_vtb"
+            android:src="@drawable/ic_card__personal_area"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/title_balance"
+            android:id="@+id/title_card_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/gotham_pro"
-            android:textSize="15sp"
+            android:gravity="center"
+            android:lineHeight="16.8sp"
+            android:lineSpacingExtra="3sp"
+            android:text="@string/title_details_card"
+            android:textColor="@color/white"
             android:textFontWeight="400"
-            android:lineHeight="14sp"
-            android:textColor="@color/white"
-            android:alpha="0.5"
-            android:text="Баланс"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-
-
-
-        <TextView
-            android:id="@+id/title_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/s_f_pro"
-            android:lineHeight="30dp"
-            android:lineSpacingExtra="0sp"
-            android:text="25 252,54 rub"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="25sp"
+            android:textSize="14sp"
             android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_balance"
+            app:layout_constraintStart_toEndOf="@id/img_card_1"
+            app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="p" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/replenish"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_button_replenish_personal_area_blue"
-            android:clickable="true"
+        <TextView
+            android:id="@+id/title_card_details_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:alpha="0.5"
             android:fontFamily="@font/gotham_pro"
-            android:text="@string/replenish"
-            android:textAllCaps="false"
+            android:lineHeight="12sp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/send_card_details_email"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pay"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textFontWeight="400"
+            android:textSize="10sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/img_card_1"
+            app:layout_constraintTop_toBottomOf="@id/title_card_details"
+            tools:ignore="SmallSp"
+            tools:targetApi="p" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pay"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/background_button_pay_blue"
-            android:fontFamily="@font/gotham_pro"
-            android:textColor="@color/white"
-            android:text="@string/pay"
-            android:textAllCaps="false"
-            android:textSize="16sp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_next_black_alpha_0_5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/replenish" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tab_bar"
         android:layout_width="188dp"
@@ -212,9 +271,8 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
         android:background="@drawable/background_recycler_personal_area"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balance" />
+        app:layout_constraintTop_toTopOf="@id/replenish"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

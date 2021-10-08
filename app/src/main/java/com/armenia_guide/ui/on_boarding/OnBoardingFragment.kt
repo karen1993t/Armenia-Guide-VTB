@@ -48,6 +48,7 @@ class OnBoardingFragment : Fragment() {
         val adapter =
             ViewPagerAdapterOnBoarding(requireActivity().supportFragmentManager, lifecycle)
         viewPager2.adapter = adapter
+
         TabLayoutMediator(tabLayout, viewPager2) { _, _ ->
         }.attach()
         viewPager2.setPageTransformer(MarginPageTransformer(100))
