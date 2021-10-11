@@ -65,61 +65,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_personal_area" />
 
-
-    <EditText
-        android:id="@+id/title_money"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/title_money_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@color/blue_personal_area"
         android:clickable="true"
-        android:editable="false"
-        android:fontFamily="@font/s_f_pro"
-        android:lineHeight="30dp"
-        android:lineSpacingExtra="0sp"
-        android:text="25 252,54 rub"
-        android:textColor="@color/white"
-        android:textFontWeight="700"
-        android:textSize="25sp"
-        android:textStyle="normal"
+
+app:boxStrokeColor="@color/blue_personal_area"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_card"
-        tools:targetApi="p"/>
+        app:layout_constraintTop_toBottomOf="@id/img_card">
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/replenish"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="15dp"
+        <EditText
+            android:id="@+id/title_money"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue_personal_area"
+            android:focusable="false"
+            android:fontFamily="@font/s_f_pro"
+            android:lineHeight="30dp"
+
+            android:lineSpacingExtra="0sp"
+            android:text="25 252,54 RUB"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/background_button_replenish_personal_area_blue"
-        android:clickable="true"
-        android:fontFamily="@font/gotham_pro"
-        android:text="@string/replenish"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/pay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_money" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/pay"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/background_button_pay_blue"
-        android:fontFamily="@font/gotham_pro"
-        android:text="@string/pay"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/replenish"
-        app:layout_constraintTop_toBottomOf="@id/title_money" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_money_container">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/replenish_blue"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/background_button_replenish_personal_area_blue"
+            android:clickable="true"
+            android:fontFamily="@font/gotham_pro"
+            android:text="@string/replenish"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/pay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pay"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/background_button_pay_blue"
+            android:fontFamily="@font/gotham_pro"
+            android:text="@string/pay"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/replenish_blue"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_details"
@@ -131,7 +147,7 @@
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pay">
+        app:layout_constraintTop_toBottomOf="@+id/buttons">
 
         <ImageView
             android:id="@+id/img_card_1"
@@ -268,11 +284,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_blue"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/background_recycler_personal_area"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/replenish"/>
+        app:layout_constraintTop_toTopOf="@id/replenish_blue" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

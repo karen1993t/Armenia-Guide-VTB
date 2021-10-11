@@ -7,10 +7,12 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
+import com.armenia_guide.databinding.AlertDialogResetCodeBinding
 import com.armenia_guide.databinding.FragmentResettingCodeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -73,16 +75,20 @@ class ResettingCodeFragment : Fragment() {
         }
 
         bindingResettingCode.btnEmailReset.setOnClickListener {
+            val ciew by lazy {  AlertDialogResetCodeBinding.inflate(layoutInflater)}
             MaterialAlertDialogBuilder(
                 requireContext(),
                 R.style.ResetTheme
             )
-                .setView(R.layout.alert_dialog_reset_code)
+                .setView(ciew.root)
                 .setCancelable(false)
                 .setNeutralButton(getString(R.string.continue_reset)) { _, _ ->
                   //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
                 }
                 .show()
+            ciew.logoSend.setOnClickListener {
+                Toast.makeText(requireContext(),"tost",Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

@@ -52,13 +52,13 @@ class BluePersonalAreaFragment : Fragment() {
         bindingBluePersonalArea.pay.setOnClickListener {
             findNavController().navigate(R.id.action_bluePersonalAreaFragment_to_payFragment)
         }
-        bindingBluePersonalArea.replenish.setOnClickListener {
+        bindingBluePersonalArea.replenishBlue.setOnClickListener {
             findNavController().navigate(R.id.action_bluePersonalAreaFragment_to_balanceUpFragment)
         }
 
 
 
-        val recycler = view.findViewById<RecyclerView>(R.id.recycler_view)
+        val recycler = view.findViewById<RecyclerView>(R.id.recycler_view_blue)
         viewModel.getListPersonalArea()
         viewModel.listPersonalAreaLiveData.observe(viewLifecycleOwner, {
             val listData = it
@@ -72,7 +72,7 @@ class BluePersonalAreaFragment : Fragment() {
         }
 
 
-        bindingBluePersonalArea.titleMoney.transformationMethod= PasswordTransformationMethod()
+        //bindingBluePersonalArea.titleMoney.transformationMethod= PasswordTransformationMethod()
     }
 
 
