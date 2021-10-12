@@ -208,4 +208,5 @@
     <string name="we_send_email">Мы отправили вам письмо с ссылкой для сброса кода</string>
     <string name="send_card_details_email">Мы вышлим реквизиты на emal адрес</string>
     <string name="title_details_card">Реквизиты карты</string>
+    <string name="_10_transactions">Последние 10 транзакций</string>
 </resources>

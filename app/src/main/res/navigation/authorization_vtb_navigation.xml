@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/resettingCodeFragment">
+    app:startDestination="@id/bluePersonalAreaFragment">
 
 
     <fragment
@@ -87,7 +87,11 @@
         android:id="@+id/resettingCodeFragment"
         android:name="com.armenia_guide.ui.personal_area.ResettingCodeFragment"
         android:label="fragment_resetting_code"
-        tools:layout="@layout/fragment_resetting_code" />
+        tools:layout="@layout/fragment_resetting_code" >
+        <action
+            android:id="@+id/action_resettingCodeFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment" />
+    </fragment>
     <fragment
         android:id="@+id/personalAreaFragment"
         android:name="com.armenia_guide.ui.personal_area.PersonalAreaFragment"

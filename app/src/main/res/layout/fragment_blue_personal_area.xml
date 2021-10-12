@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/personal_area"
     android:background="@color/blue_personal_area"
     app:layoutDescription="@xml/fragment_blue_personal_area_scene"
     tools:context=".ui.personal_area.BluePersonalAreaFragment">
@@ -65,36 +66,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_personal_area" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/title_money_container"
+    <ImageView
+        android:id="@+id/img_closed_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@string/card_vtb"
+        android:src="@drawable/ic_card__personal_area"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_personal_area" />
 
-app:boxStrokeColor="@color/blue_personal_area"
-        app:endIconMode="password_toggle"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_card">
 
-
-        <EditText
-            android:id="@+id/title_money"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <TextView
+            android:id="@+id/title_money_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/blue_personal_area"
             android:focusable="false"
             android:fontFamily="@font/s_f_pro"
             android:lineHeight="30dp"
-
             android:lineSpacingExtra="0sp"
-            android:text="25 252,54 RUB"
+            android:text="***"
             android:textColor="@color/white"
             android:textFontWeight="700"
             android:textSize="25sp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/img_show"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextViewEdits"
             tools:targetApi="p" />
-    </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/img_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_show_money"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/title_money_text"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttons"
@@ -104,7 +127,7 @@ app:boxStrokeColor="@color/blue_personal_area"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_money_container">
+        app:layout_constraintTop_toBottomOf="@id/title_money">
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -283,12 +306,55 @@ app:boxStrokeColor="@color/blue_personal_area"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_blue"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/background_recycler_personal_area"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/replenish_blue" />
+        app:layout_constraintTop_toTopOf="@id/buttons">
+
+        <View
+            android:id="@+id/line_swipe"
+            android:layout_width="35dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_line"
+            app:circularflow_defaultRadius="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/title_transactions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/gotham_pro"
+            android:lineHeight="21.6sp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/_10_transactions"
+            android:textColor="@color/color_10_transactions"
+            android:textFontWeight="700"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_blue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_transactions" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

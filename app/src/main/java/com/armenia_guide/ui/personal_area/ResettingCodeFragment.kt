@@ -7,7 +7,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,10 +17,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ResettingCodeFragment : Fragment() {
 
-    private val bindingResettingCode by lazy {
-        FragmentResettingCodeBinding.inflate(layoutInflater)
-    }
+    private val bindingResettingCode by lazy { FragmentResettingCodeBinding.inflate(layoutInflater) }
     private var checkerEmail = false
+    private val bindingAlert by lazy { AlertDialogResetCodeBinding.inflate(layoutInflater) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +33,7 @@ class ResettingCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-          //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+            //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
         }
 
         bindingResettingCode.editEmailResetContainer.editText?.addTextChangedListener(object :
@@ -66,30 +64,25 @@ class ResettingCodeFragment : Fragment() {
 
         bindingResettingCode.btnEmailReset.setOnClickListener {
             when {
-                checkerEmail -> bindingResettingCode.btnEmailReset.setOnClickListener {
-                 //   findNavController().navigate(R.id.action_authorizationEmailFragment_to_authorizationEnterPinFragment)
+                checkerEmail -> {
+                    val dialog = MaterialAlertDialogBuilder(
+                        requireContext(),
+                        R.style.ResetTheme
+                    )
+                        .setView(bindingAlert.root)
+                        .setCancelable(false)
+                        .show()
+                    bindingAlert.buttonAlert.setOnClickListener {
+                        dialog.dismiss()
+                        findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEnterPinFragment)
+                    }
                 }
+
                 else -> bindingResettingCode.editEmailResetContainer.error =
                     resources.getString(R.string.error_message_input_email_1)
             }
         }
 
-        bindingResettingCode.btnEmailReset.setOnClickListener {
-            val ciew by lazy {  AlertDialogResetCodeBinding.inflate(layoutInflater)}
-            MaterialAlertDialogBuilder(
-                requireContext(),
-                R.style.ResetTheme
-            )
-                .setView(ciew.root)
-                .setCancelable(false)
-                .setNeutralButton(getString(R.string.continue_reset)) { _, _ ->
-                  //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
-                }
-                .show()
-            ciew.logoSend.setOnClickListener {
-                Toast.makeText(requireContext(),"tost",Toast.LENGTH_SHORT).show()
-            }
-        }
 
     }
 }

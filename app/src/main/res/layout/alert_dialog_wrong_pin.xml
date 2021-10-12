@@ -47,15 +47,24 @@
         app:layout_constraintTop_toBottomOf="@id/text_alert_1"
         tools:targetApi="p" />
 
-    <View
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_alert_blue"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="44dp"
+        android:text="@string/reset"
+        android:textColor="@color/blue_alert"
+        android:fontFamily="@font/s_f_pro"
+        android:textAllCaps="false"
+        android:textFontWeight="400"
+        android:textStyle="normal"
+        android:textSize="17sp"
+        android:lineHeight="22sp"
         app:layout_constraintTop_toBottomOf="@id/text_alert_2"
-        android:background="@color/black"
-        android:alpha="0.15"
-        android:layout_marginTop="16dp"/>
+        android:background="@color/white"
+        android:layout_marginTop="16dp"
+        tools:targetApi="p" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

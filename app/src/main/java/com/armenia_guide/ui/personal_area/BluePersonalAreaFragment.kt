@@ -1,6 +1,7 @@
 package com.armenia_guide.ui.personal_area
 
 import android.os.Bundle
+import android.text.InputType.*
 import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
@@ -19,9 +20,7 @@ import com.armenia_guide.view_models.PersonalAreaViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BluePersonalAreaFragment : Fragment() {
-    private val bindingBluePersonalArea by lazy {
-        FragmentBluePersonalAreaBinding.inflate(layoutInflater)
-    }
+    private val bindingBluePersonalArea by lazy { FragmentBluePersonalAreaBinding.inflate(layoutInflater) }
     private val viewModel: PersonalAreaViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,13 +32,7 @@ class BluePersonalAreaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bindingBluePersonalArea.titleMoney.text = RefactorTextColorsTools.refactorColorText(
-            requireContext(),
-            bindingBluePersonalArea.titleMoney,
-            R.color.money_title_end_color,
-            bindingBluePersonalArea.titleMoney.text.length - 7,
-            bindingBluePersonalArea.titleMoney.text.length
-        )
+
         activity?.setActionBar(bindingBluePersonalArea.toolbarPersonalArea)
         return bindingBluePersonalArea.root
     }
@@ -54,6 +47,30 @@ class BluePersonalAreaFragment : Fragment() {
         }
         bindingBluePersonalArea.replenishBlue.setOnClickListener {
             findNavController().navigate(R.id.action_bluePersonalAreaFragment_to_balanceUpFragment)
+        }
+        var count = 0
+        bindingBluePersonalArea.imgShow.setOnClickListener {
+            count++
+            if (count%2 == 0){
+                bindingBluePersonalArea.imgShow.setImageResource(R.drawable.ic_show_money)
+                bindingBluePersonalArea.titleMoneyText.text = "***"
+              //  bindingBluePersonalArea.titleMoneyText.transformationMethod = PasswordTransformationMethod()
+            }else{
+                bindingBluePersonalArea.imgShow.setImageResource(R.drawable.ic_hide_money)
+               bindingBluePersonalArea.titleMoneyText.text = "25 252,54 RUB"
+
+
+                bindingBluePersonalArea.titleMoneyText.text = RefactorTextColorsTools.refactorColorText(
+                    requireContext(),
+                    bindingBluePersonalArea.titleMoneyText,
+                    R.color.money_title_end_color,
+                    bindingBluePersonalArea.titleMoneyText.text.length - 7,
+                    bindingBluePersonalArea.titleMoneyText.text.length
+                )
+//                bindingBluePersonalArea.titleMoneyText.inputType = TYPE_CLASS_TEXT
+
+
+            }
         }
 
 

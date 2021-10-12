@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
+import com.armenia_guide.databinding.AlertDialogWrongPinBinding
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -25,9 +26,8 @@ import java.util.concurrent.Executor
 
 class AuthorizationPersonalAreaFragment : Fragment() {
 
-    private val bindingAuthorizationPersonalArea by lazy {
-      FragmentAuthorizationPersonalAreaBinding.inflate(layoutInflater)
-    }
+    private val bindingAuthorizationPersonalArea by lazy { FragmentAuthorizationPersonalAreaBinding.inflate(layoutInflater) }
+    private val bindingAlertDialog by lazy { AlertDialogWrongPinBinding.inflate(layoutInflater) }
     private val viewModelPersonalArea: AuthorizationPinViewModel by viewModel()
     private var pinPersonalArea: String = ""
     private var pin2: String = ""
@@ -102,16 +102,18 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                             R.string.attempts_left_0
                                         )
 
-                                    MaterialAlertDialogBuilder(
+                                   val dialog =  MaterialAlertDialogBuilder(
                                         requireContext(),
                                         R.style.CutShapeTheme
                                     )
-                                        .setView(R.layout.alert_dialog_wrong_pin)
+                                        .setView(bindingAlertDialog.root)
                                         .setCancelable(false)
-                                        .setNeutralButton(getString(R.string.reset)) { _, _ ->
-                                           findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
-                                        }
                                         .show()
+                                    bindingAlertDialog.buttonAlertBlue.setOnClickListener {
+                                        dialog.dismiss()
+                                        findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
+
+                                    }
                                 }
                             }
 

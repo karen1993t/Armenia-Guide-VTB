@@ -34,7 +34,7 @@ class BiometryAccessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textErrorToast = resources.getString(R.string.text_toast_error_privacy_policy)
-        changeTextColorByIndex()
+        //changeTextColorByIndex()
 
 
         showBindingBiometryAccess?.btnNext?.setOnClickListener {
@@ -61,25 +61,25 @@ class BiometryAccessFragment : Fragment() {
     }
 
 
-    private fun changeTextColorByIndex() {
-        val textViewPrivacyPolicy = showBindingBiometryAccess?.textPrivacyPolicy
-
-        var textChangeColor = RefactorTextColorsTools.refactorColorText(
-            requireContext(),
-            textViewPrivacyPolicy,
-            R.color.color_red,
-            11,
-            26
-        )
-        textViewPrivacyPolicy?.text = textChangeColor
-        textChangeColor = RefactorTextColorsTools.refactorColorText(
-            requireContext(),
-            textViewPrivacyPolicy,
-            R.color.color_red,
-            29,
-            textViewPrivacyPolicy?.text?.length ?: 10
-        )
-        textViewPrivacyPolicy?.text = textChangeColor
-    }
+//    private fun changeTextColorByIndex() {
+//        val textViewPrivacyPolicy = showBindingBiometryAccess?.textPrivacyPolicy
+//
+//        var textChangeColor = RefactorTextColorsTools.refactorColorText(
+//            requireContext(),
+//            textViewPrivacyPolicy,
+//            R.color.color_red,
+//            11,
+//            26
+//        )
+//        textViewPrivacyPolicy?.text = textChangeColor
+//        textChangeColor = RefactorTextColorsTools.refactorColorText(
+//            requireContext(),
+//            textViewPrivacyPolicy,
+//            R.color.color_red,
+//            29,
+//            textViewPrivacyPolicy?.text?.length ?: 10
+//        )
+//        textViewPrivacyPolicy?.text = textChangeColor
+//    }
 
 }
