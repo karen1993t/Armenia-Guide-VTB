@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_email"
+        style="@style/box_input_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:hint="@string/hint_label_email"
+        android:textColorHint="@color/gray"
+        app:endIconMode="clear_text"
+        app:expandedHintEnabled="false"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_input_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_text_input_email"
+            android:inputType="textEmailAddress"
+            android:lineSpacingExtra="4sp"
+            android:lines="1"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:errorEnabled="true"
+            tools:ignore="TextContrastCheck"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_password"
+        style="@style/box_input_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="25dp"
+        android:hint="@string/hint_text_password"
+        android:textColorHint="@color/gray"
+        app:endIconMode="password_toggle"
+        app:expandedHintEnabled="false"
+        app:hintTextColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_input_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:digits="@string/regular_expression"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical"
+            android:hint="@string/hint_text_input_password"
+            android:inputType="textPassword"
+            android:lineSpacingExtra="4sp"
+            android:lines="1"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:errorEnabled="true"
+            tools:ignore="TextContrastCheck"
+            tools:targetApi="p" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25.5dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/background_button_white"
+        android:elevation="5dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:lineHeight="17sp"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/text_button_login_user"
+        android:textAllCaps="false"
+        android:textAppearance="@style/text_appearance"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_password"
+        tools:targetApi="p" />
+
+    <TextView
+        android:id="@+id/text_reset_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_horizontal|bottom"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/text_reset_password"
+        android:textAppearance="@style/text_appearance"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        android:translationY="1.7sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/btn_login_user"
+        app:layout_constraintEnd_toStartOf="@id/btn_login_user"
+        tools:targetApi="p" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:alpha="0.1"
+        android:layout_marginTop="3dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="@id/text_reset_password"
+        app:layout_constraintStart_toStartOf="@id/text_reset_password"
+        app:layout_constraintTop_toBottomOf="@id/text_reset_password" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@
         <item name="android:colorControlActivated">@color/color_red</item>
     </style>
 
-    <style name="text_title">
+    <style name="text_appearance">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="fontFamily">@font/gotham_pro</item>
@@ -41,6 +41,7 @@
         <item name="helperTextTextAppearance">@style/HelperTextAppearance</item>
         <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
         <item name="boxStrokeColor">@color/gray</item>
+        <item name="colorControlActivated">@color/color_red</item>
 
     </style>
 
@@ -52,12 +53,12 @@
     </style>
 
 
-
     <style name="ErrorTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold|italic</item>
     </style>
+
 
     <style name="HelperTextAppearance" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textSize">12sp</item>
@@ -68,13 +69,24 @@
         <item name="android:textStyle">normal</item>
         <item name="fontFamily">@font/gotham_pro</item>
     </style>
+
     <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
+
     </style>
 
     <style name="box_drop_down_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
         <item name="backgroundTint">@color/white</item>
+        <item name="mock_labelBackgroundColor">@color/black</item>
+        <item name="selectableItemBackground">@color/white</item>
         <item name="selectableItemBackgroundBorderless">@color/white</item>
         <item name="boxStrokeColor">@color/gray</item>
+        <item name="fontFamily">@font/gotham_pro</item>
+
+    </style>
+
+    <style name="box_drop_down_search_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/white</item>
         <item name="fontFamily">@font/gotham_pro</item>
     </style>
 
@@ -86,5 +98,41 @@
         <item name="android:minWidth">200dp</item>
         <item name="cornerRadius">20dp</item>
 
+    </style>
+
+    // Alert Dialog Personal Area
+
+    <style name="CutShapeTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral</item>
+
+    </style>
+
+    <style name="CutShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Alert.Button.Neutral" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    // Alert Dialog Reset password
+
+    <style name="ResetTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance_1</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral_1</item>
+
+    </style>
+
+    <style name="CutShapeAppearance_1" parent="ShapeAppearance.MaterialComponents.MediumComponent" tools:ignore="DuplicateDefinition">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="Alert.Button.Neutral_1" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/color_red</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>

@@ -16,40 +16,22 @@
         </item>
         <!--        <item name="android:colorControlActivated">@color/color_red</item>-->
         <item name="android:colorControlActivated">@color/color_red</item>
+
     </style>
 
-    <style name="text_title">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/black</item>
+    <style name="text_appearance" parent="TextAppearance.AppCompat.Body2">
         <item name="fontFamily">@font/gotham_pro</item>
         <item name="android:textStyle">normal</item>
-        <item name="lineHeight">20dp</item>
-        <item name="android:lineSpacingExtra">5sp</item>
     </style>
 
-    <style name="some_id">
-        <item name="android:textSize">14sp</item>
-        <item name="fontFamily">@font/gotham_pro</item>
-        <item name="android:textColor">@color/color_red</item>
-        <item name="android:translationY">-1.7sp</item>
-        <item name="android:lineSpacingExtra">3sp</item>
-        <item name="lineHeight">16.8dp</item>
-        <item name="android:textStyle">normal</item>
-    </style>
 
     <style name="box_input_style" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
         <item name="backgroundTint">@color/white</item>
+        <item name="boxStrokeColor">@color/text_input_outline_color_state</item>
         <item name="helperTextTextAppearance">@style/HelperTextAppearance</item>
         <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
-        <item name="boxStrokeColor">@color/gray</item>
+        <item name="colorControlActivated">@color/color_red</item>
 
-    </style>
-
-    <style name="box_input_style_1" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="backgroundTint">@color/white</item>
-        <item name="helperTextTextAppearance">@style/HelperTextAppearance</item>
-        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
-        <item name="boxStrokeColor">@color/gray</item>
     </style>
 
 
@@ -69,6 +51,7 @@
         <item name="android:textStyle">normal</item>
         <item name="fontFamily">@font/gotham_pro</item>
     </style>
+
 
     <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
 
@@ -91,7 +74,7 @@
     </style>
 
     <style name="CustomProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:progressBackgroundTint">#8E2126</item>
+        <item name="android:progressBackgroundTint">@color/gray</item>
         <item name="android:progressTint">#8E2126</item>
         <item name="trackCornerRadius">20dp</item>
         <item name="android:secondaryProgressTint">#8E2126</item>
@@ -134,6 +117,78 @@
     <style name="Alert.Button.Neutral_1" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+
+    // style bottom Sheet
+
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    //Date Picker style
+
+    <style name="my_dialog_theme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/color_red</item>
+        <item name="android:textColorSecondaryInverse">@color/white</item>
+        <item name="selectableItemBackgroundBorderless">@color/color_red</item>
+        <item name="android:textColorSecondary">@color/color_red</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+
+    </style>
+
+    <style name="MyDatePicker" parent="android:Widget.Material.Light.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/color_red</item>
+    </style>
+
+    <style name="SelectedTextAppearanceCountryName" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/gotham_pro</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DefaultTextAppearanceCountryName" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/gotham_pro</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="SelectedTextAppearancePhoneCode" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/gotham_pro</item>
+        <item name="android:textColor">@color/color_red</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DefaultTextAppearancePhoneCode" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/gotham_pro</item>
+        <item name="android:textColor">@color/color_red</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="SearchInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxStrokeWidth">2dp</item>
     </style>
 
 

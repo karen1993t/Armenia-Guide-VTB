@@ -11,6 +11,7 @@
     <color name="background_facebook">#3B5998</color>
     <color name="background_vkontakte">#4C6C91</color>
     <color name="gray">#808080</color>
+    <color name="gray_description">#949494</color>
     <color name="red_selector_dot">#C79093</color>
     <color name="color_grey_pin_view">#BFBFBF</color>
     <color name="blue">#007AFF</color>
@@ -20,5 +21,7 @@
     <color name="color_3_personal_area">#7FC5DB</color>
     <color name="color_4_personal_area">#FFC90A</color>
     <color name="color_5_personal_area">#FFA21A</color>
+
+
 
 </resources>

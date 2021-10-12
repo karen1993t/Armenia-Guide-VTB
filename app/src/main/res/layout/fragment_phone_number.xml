@@ -1,127 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/title_phone_number"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="15.5dp"
-        android:fontFamily="@font/gotham_pro"
-        android:lineHeight="24dp"
-        android:lineSpacingExtra="5sp"
-        android:text="@string/text_title_phone_number"
-        android:textColor="@color/black"
-        android:textFontWeight="700"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@id/btn_close"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btn_close"
-        tools:targetApi="p" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/progress_biometry"
-        style="@style/CustomProgressBar"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="15dp"
-        android:max="100"
-        android:progress="20"
-        android:secondaryProgress="40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_phone_number" />
-
-    <ImageView
-        android:id="@+id/btn_close"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/ic_btn_close_grey"
-        android:clickable="true"
-        android:contentDescription="@string/description_btn_close"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/gotham_pro"
-        android:gravity="center_vertical"
-        android:lineHeight="18sp"
-        android:lineSpacingExtra="4sp"
-        android:text="@string/text_description_phone_number"
-        android:textColor="@color/gray"
-        android:textFontWeight="400"
-        android:textSize="15sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progress_biometry"
-        tools:targetApi="p" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_phone_number"
-        style="@style/box_drop_down_style"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="14.5dp"
-        android:hint="@string/hint_text_phone_number"
-        android:textColorHint="@color/black"
-
-        app:endIconDrawable="@drawable/ic_next_gray"
-        app:endIconMode="custom"
-        app:hintTextColor="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_info">
-
-        <AutoCompleteTextView
-            android:id="@+id/edit_phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
+        <TextView
+            android:id="@+id/title_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="15.5dp"
             android:fontFamily="@font/gotham_pro"
-            android:gravity="center_vertical"
-            android:inputType="textAutoComplete"
-            android:lineSpacingExtra="4sp"
+            android:lineHeight="24sp"
+            android:translationY="-2.43sp"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/text_title_phone_number"
             android:textColor="@color/black"
+            android:textFontWeight="700"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p" />
+
+
+        <TextView
+            android:id="@+id/text_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="top"
+            android:translationY="-1.82sp"
+            android:lineHeight="18sp"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/text_description_phone_number"
+            android:textColor="@color/gray_description"
             android:textFontWeight="400"
             android:textSize="15sp"
             android:textStyle="normal"
-            tools:ignore="LabelFor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_phone_number"
             tools:targetApi="p" />
-    </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="14.5dp"
+            android:hint="@string/hint_text_phone_number"
+            android:textColorHint="@color/gray"
+            app:endIconDrawable="@drawable/ic_next_gray"
+            app:endIconMode="custom"
+            app:hintTextColor="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_info">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="4sp"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                tools:ignore="LabelFor"
+                tools:targetApi="p" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_next"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginHorizontal="15sp"
-        android:layout_marginBottom="44dp"
-        android:background="@drawable/background_button_red"
-        android:fontFamily="@font/gotham_pro"
-        android:gravity="center_vertical|center_horizontal"
-        android:lineSpacingExtra="5sp"
-        android:text="@string/next"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textFontWeight="400"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="p" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="15sp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/background_button_red"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_vertical|center_horizontal"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="p" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/include_bottom_sheet_phone_number"
+        layout="@layout/bottom_sheet_phone_number" />
+
+    <include
+        android:id="@+id/include_bottomSheet_search_country_code"
+        layout="@layout/bottom_sheet_search_country_phone_number_code" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,7 +1,9 @@
 package com.armenia_guide
 
 import android.app.Application
-import com.armenia_guide.view_models.AuthorizationAndBiometryViewModel
+import com.armenia_guide.model.LocalDataCountryPhoneNumberCodeImpl
+import com.armenia_guide.model.Repository
+import com.armenia_guide.view_models.AuthorizationUserViewModel
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.view_models.BiometryFaceAndPassportDetectViewModel
 import org.koin.android.ext.koin.androidContext
@@ -14,13 +16,20 @@ class ArmeniaGuideApplication : Application() {
         super.onCreate()
 
         val moduleAuthorizationAndBiometry = module {
-            viewModel {
-                AuthorizationAndBiometryViewModel()
+
+            single<Repository> {
+                LocalDataCountryPhoneNumberCodeImpl(context = get())
+            }
+
+            single {
+
+                AuthorizationUserViewModel(repo = get())
 
             }
             viewModel {
                 BiometryFaceAndPassportDetectViewModel()
             }
+
 
         }
 
