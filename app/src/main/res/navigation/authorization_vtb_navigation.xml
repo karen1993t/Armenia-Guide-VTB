@@ -76,26 +76,7 @@
             android:id="@+id/action_resettingCodeFragment_to_authorizationEnterPinFragment"
             app:destination="@id/authorizationEnterPinFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/personalAreaFragment"
-        android:name="com.armenia_guide.ui.personal_area.PersonalAreaFragment"
-        android:label="fragment_personal_area"
-        tools:layout="@layout/fragment_personal_area">
-        <action
-            android:id="@+id/action_personalAreaFragment_to_payFragment"
-            app:destination="@id/payFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_personalAreaFragment_to_balanceUpFragment"
-            app:destination="@id/balanceUpFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
+
 
     <fragment
         android:id="@+id/authorizationEnterPinFragment"
