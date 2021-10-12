@@ -29,7 +29,7 @@ class LoginUserFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            loginUserBinding.btnLoginUser.id -> findNavController().navigate(R.id.action_loginViaEmailFragment_to_confirmEmailFragment)
+            loginUserBinding.btnLoginUser.id -> findNavController().navigate(R.id.action_loginViaEmailFragment_to_authorizationPersonalAreaFragment)
             loginUserBinding.textResetPassword.id ->
                 findNavController().navigate(R.id.action_loginViaEmailFragment_to_resetPasswordFragment)
 

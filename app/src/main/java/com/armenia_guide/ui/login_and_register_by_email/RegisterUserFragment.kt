@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentRegisterUserBinding
 import com.armenia_guide.tools.RefactorTextColorsTools
 
@@ -33,11 +35,7 @@ class RegisterUserFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            registerUserBinding.btnRegisterUser.id -> Toast.makeText(
-                requireContext(),
-                "Register User",
-                Toast.LENGTH_SHORT
-            ).show()
+            registerUserBinding.btnRegisterUser.id -> findNavController().navigate(R.id.action_loginViaEmailFragment_to_confirmEmailFragment)
             registerUserBinding.textPrivacyPolicy.id -> Toast.makeText(
                 requireContext(),
                 "Privacy Policy",
