@@ -3,6 +3,7 @@ package com.armenia_guide.tools
 import android.app.DatePickerDialog
 import android.content.Context
 import android.widget.EditText
+import com.armenia_guide.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,7 +22,7 @@ object CustomDateDialogTools {
                 updateDateInView(formatDate, editDateText)
             }
         val dialog = DatePickerDialog(
-            context, dateSetListener,
+            context, R.style.my_dialog_theme, dateSetListener,
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)

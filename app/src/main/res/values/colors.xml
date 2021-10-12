@@ -11,6 +11,7 @@
     <color name="background_facebook">#3B5998</color>
     <color name="background_vkontakte">#4C6C91</color>
     <color name="gray">#808080</color>
+    <color name="gray_description">#949494</color>
     <color name="red_selector_dot">#C79093</color>
     <color name="color_grey_pin_view">#BFBFBF</color>
     <color name="blue_alert">#007AFF</color>
@@ -26,5 +27,7 @@
     <color name="money_title_end_color">#8093C0</color>
     <color name="green_success">#50C878</color>
     <color name="color_10_transactions">#340F06</color>
+
+
 
 </resources>

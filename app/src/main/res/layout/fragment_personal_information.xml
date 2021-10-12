@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,76 +7,110 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_personal_information"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/title_user_information"
             android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="15.5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
             android:fontFamily="@font/gotham_pro"
-            android:lineHeight="24dp"
+            android:lineHeight="24sp"
             android:lineSpacingExtra="5sp"
+            android:translationY="-2.43sp"
+            android:gravity="top"
             android:text="@string/text_title_user_information"
             android:textColor="@color/black"
             android:textFontWeight="700"
             android:textSize="20sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@id/btn_close"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_close"
+            app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="p" />
 
-        <ProgressBar
-            android:id="@+id/progress_biometry"
-            style="@style/CustomProgressBar"
-            android:layout_width="0dp"
-            android:layout_height="4dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="15dp"
-            android:max="100"
-            android:progress="0"
-            android:secondaryProgress="20"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_user_information" />
-
-        <ImageView
-            android:id="@+id/btn_close"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/ic_btn_close_grey"
-            android:clickable="true"
-            android:contentDescription="@string/description_btn_close"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/text_info"
+            android:id="@+id/text_description"
             android:layout_width="0dp"
-            android:layout_height="18dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/gotham_pro"
+            android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:lineHeight="18sp"
             android:lineSpacingExtra="4sp"
             android:text="@string/text_description_personal_area"
-            android:textColor="@color/gray"
+            android:textAppearance="@style/text_appearance"
+            android:textColor="@color/gray_description"
             android:textFontWeight="400"
             android:textSize="15sp"
-            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progress_biometry"
+            app:layout_constraintTop_toBottomOf="@id/title_user_information"
             tools:ignore="TextContrastCheck"
+            tools:targetApi="p" />
+
+        <TextView
+            android:id="@+id/text_gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:lineHeight="14.4sp"
+            android:lineSpacingExtra="3sp"
+            android:text="Пол"
+            android:textAppearance="@style/text_appearance"
+            android:textColor="@color/gray_description"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            tools:targetApi="p" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_male"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/background_button_red"
+            android:elevation="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:lineHeight="17sp"
+            android:lineSpacingExtra="3sp"
+            android:text="Мужской"
+            android:textAppearance="@style/text_appearance"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gender"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:targetApi="p" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_female"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="5dp"
+
+            android:background="@drawable/background_button_white"
+            android:elevation="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:lineHeight="17sp"
+            android:lineSpacingExtra="3sp"
+            android:text="Женский"
+            android:textAppearance="@style/text_appearance"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/btn_male"
+
+            app:layout_constraintStart_toEndOf="@id/btn_male"
+            tools:ignore="TouchTargetSizeCheck"
             tools:targetApi="p" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -85,28 +119,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             android:hint="@string/hint_text_first_name"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/gray"
+            android:textColorHint="@color/gray_description"
             app:endIconMode="clear_text"
+            app:expandedHintEnabled="false"
             app:hintTextColor="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_info">
+            app:layout_constraintTop_toBottomOf="@id/btn_male">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_user_first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-
                 android:fontFamily="@font/gotham_pro"
                 android:gravity="center_vertical"
+                android:hint="@string/hin_text_register_first_number"
                 android:inputType="textPersonName"
                 android:lineSpacingExtra="4sp"
                 android:lines="1"
                 android:textColor="@color/black"
+                android:textColorHint="@color/gray_description"
                 android:textFontWeight="400"
                 android:textSize="15sp"
                 android:textStyle="normal"
@@ -115,33 +150,36 @@
                 tools:targetApi="p" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_layout_surname"
+            android:id="@+id/text_input_layout_last_name"
             style="@style/box_input_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="14.5dp"
-            android:hint="@string/hint_text_second_name"
-            android:textColorHint="@color/black"
+            android:layout_marginTop="25dp"
+            android:hint="@string/hint_text_last_name"
+            android:textColorHint="@color/gray_description"
             app:endIconMode="clear_text"
+            app:expandedHintEnabled="false"
             app:hintTextColor="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_input_layout_first_name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_user_surname"
+                android:id="@+id/edit_user_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:digits="@string/regular_expression"
                 android:fontFamily="@font/gotham_pro"
                 android:gravity="center_vertical"
+                android:hint="@string/hint_text_register_last_name"
                 android:inputType="textPersonName"
                 android:lineSpacingExtra="4sp"
                 android:lines="1"
                 android:textColor="@color/black"
+                android:textColorHint="@color/gray_description"
                 android:textFontWeight="400"
                 android:textSize="15sp"
                 android:textStyle="normal"
@@ -156,15 +194,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="14.5dp"
-            android:hint="@string/hint_text_date_of_birth"
-            android:textColorHint="@color/black"
+            android:layout_marginTop="25dp"
+            android:hint="Дата рождения"
+            android:textColorHint="@color/gray_description"
             app:endIconDrawable="@drawable/ic_next_gray"
             app:endIconMode="custom"
+            app:expandedHintEnabled="false"
             app:hintTextColor="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_input_layout_surname">
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout_last_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_user_date_of_birth"
@@ -176,9 +215,11 @@
                 android:focusable="false"
                 android:fontFamily="@font/gotham_pro"
                 android:gravity="center_vertical"
+                android:hint="Выберите дату"
                 android:inputType="none"
                 android:lineSpacingExtra="4sp"
                 android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textFontWeight="400"
                 android:textSize="15sp"
                 android:textStyle="normal"
@@ -188,88 +229,51 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_layout_gender"
-            style="@style/box_drop_down_style"
+            android:id="@+id/text_input_layout_citizen_ship"
+            style="@style/box_input_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="14.5dp"
-            android:hint="@string/hint_text_gender"
-            android:textColorHint="@color/black"
-            app:boxStrokeErrorColor="@color/design_default_color_error"
+            android:layout_marginTop="25dp"
+            android:hint="Гражданство"
+            android:textColorHint="@color/gray_description"
             app:endIconDrawable="@drawable/ic_next_gray"
             app:endIconMode="custom"
-            app:errorTextColor="@color/design_default_color_error"
+            app:expandedHintEnabled="false"
+            app:hintTextColor="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_input_layout_date_of_birth">
 
-            <AutoCompleteTextView
-                android:id="@+id/edit_user_gender"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_citizen_ship"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:clickable="true"
                 android:cursorVisible="false"
-                android:dropDownAnchor="@id/edit_user_gender"
                 android:focusable="false"
                 android:fontFamily="@font/gotham_pro"
                 android:gravity="center_vertical"
+                android:hint="Российская Федерация"
                 android:inputType="none"
                 android:lineSpacingExtra="4sp"
                 android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textFontWeight="400"
                 android:textSize="15sp"
                 android:textStyle="normal"
-                tools:ignore="LabelFor,TextContrastCheck"
+                tools:ignore="TextContrastCheck"
                 tools:targetApi="p" />
+
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_layout_citizen_ship"
-            style="@style/box_drop_down_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="14.5dp"
-            android:hint="@string/hint_text_citizen_ship"
-            android:textColorHint="@color/black"
-            app:endIconDrawable="@drawable/ic_next_gray"
-            app:endIconMode="custom"
-            app:hintTextColor="@color/gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_input_layout_gender">
-
-            <AutoCompleteTextView
-                android:id="@+id/edit_user_citizen_ship"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:clickable="true"
-                android:completionThreshold="1"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:fontFamily="@font/gotham_pro"
-                android:gravity="center_vertical"
-                android:inputType="textAutoComplete"
-                android:lineSpacingExtra="4sp"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                tools:ignore="LabelFor,TextContrastCheck"
-                tools:targetApi="p" />
-        </com.google.android.material.textfield.TextInputLayout>
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_marginHorizontal="15sp"
-            android:layout_marginBottom="44dp"
-            android:background="@drawable/background_button_red"
+            android:background="@drawable/background_button_gray"
             android:fontFamily="@font/gotham_pro"
             android:gravity="center_vertical|center_horizontal"
             android:lineSpacingExtra="5sp"
@@ -285,62 +289,10 @@
             tools:ignore="TouchTargetSizeCheck"
             tools:targetApi="p" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_search_citizen_ship"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/background_button_white"
-        android:clickable="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <include
+        android:id="@+id/include_bottom_sheet_citizen_ship"
+        layout="@layout/bottom_sheet_citizen_ship" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/search_text_input_layout_citizen_ship"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="30dp"
-            app:boxStrokeColor="@color/white"
-            app:endIconMode="clear_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/ic_search">
-
-            <AutoCompleteTextView
-                android:id="@+id/search_edit_user_citizen_ship"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_search_field"
-                android:completionThreshold="0"
-                android:dropDownAnchor="@id/drop_down_anchor"
-                android:fontFamily="@font/gotham_pro"
-                android:gravity="center_vertical"
-                android:inputType="textAutoComplete"
-                android:lineSpacingExtra="4sp"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                tools:ignore="LabelFor,TextContrastCheck"
-                tools:targetApi="p" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <View
-            android:id="@+id/drop_down_anchor"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@id/search_text_input_layout_citizen_ship"
-            app:layout_constraintStart_toStartOf="@id/search_text_input_layout_citizen_ship"
-            app:layout_constraintTop_toBottomOf="@id/search_text_input_layout_citizen_ship" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
