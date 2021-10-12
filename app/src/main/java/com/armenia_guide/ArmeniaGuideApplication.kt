@@ -3,9 +3,6 @@ package com.armenia_guide
 import android.app.Application
 import com.armenia_guide.model.LocalDataCountryPhoneNumberCodeImpl
 import com.armenia_guide.model.Repository
-import com.armenia_guide.view_models.AuthorizationUserViewModel
-import com.armenia_guide.view_models.AuthorizationPinViewModel
-import com.armenia_guide.view_models.BiometryFaceAndPassportDetectViewModel
 import com.armenia_guide.ui.personal_area.ListPersonalAreaImpl
 import com.armenia_guide.ui.personal_area.RepositoryPersonalArea
 import com.armenia_guide.view_models.*
@@ -36,11 +33,11 @@ class ArmeniaGuideApplication : Application() {
 
         }
 
-        val moduleAuthorizationPin = module {
-            viewModel {
-                BiometryFaceAndPassportDetectViewModel()
-            }
-        }
+//        val moduleAuthorizationPin = module {
+//            viewModel {
+//                AuthorizationPinViewModel()
+//            }
+//        }
 
         val moduleSendData = module {
             single {
@@ -60,11 +57,11 @@ class ArmeniaGuideApplication : Application() {
             }
         }
 
-        startKoin {
+        startKoin (){
             androidContext(applicationContext)
-            modules(moduleAuthorizationAndBiometry,
-                moduleAuthorizationPin,
+            modules(
                 moduleAuthorizationAndBiometry,
+//                moduleAuthorizationPin,
                 moduleSendData,
                 modulePersonalArea
             )

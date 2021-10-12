@@ -56,7 +56,7 @@ class OnBoardingFragment : Fragment() {
         viewPager2.setPageTransformer(MarginPageTransformer(100))
 
 
-        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
+        bindingOnBoarding.btnGetStarted.setOnClickListener {
             findNavController().navigate(R.id.action_onBoardingFragment_to_profileFragment)
         }
     }

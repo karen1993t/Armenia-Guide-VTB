@@ -104,18 +104,12 @@
 
     <style name="CutShapeTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="shapeAppearanceMediumComponent">@style/CutShapeAppearance</item>
-        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral</item>
 
     </style>
 
     <style name="CutShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
-    </style>
-
-    <style name="Alert.Button.Neutral" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">@color/blue</item>
-        <item name="android:textSize">14sp</item>
     </style>
 
     // Alert Dialog Reset password

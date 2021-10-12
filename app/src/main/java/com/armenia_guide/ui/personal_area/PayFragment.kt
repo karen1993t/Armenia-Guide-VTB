@@ -98,7 +98,7 @@ class PayFragment : Fragment() {
                         if (processingBarcode.compareAndSet(false, true)) {
                           // CustomRectangleCutoutView(requireContext()).framePaint.color = GREEN
 
-                            findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
+                           // findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
                             viewModel.sendBarcode(barcode)
                         }
                     })
