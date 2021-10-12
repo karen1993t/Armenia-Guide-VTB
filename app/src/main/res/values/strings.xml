@@ -123,8 +123,6 @@
     <string name="attempts_left_2">Осталось 2 попиток</string>
     <string name="attempts_left_1">Осталось 1 попиток</string>
     <string name="attempts_left_0">Осталось 0 попиток</string>
-    <string name="enter_personal_area_blocked"><![CDATA[Вход в личный кабинет ВТБ & Armenia Guide заблокирован]]></string>
-    <string name="reset_pin_and_repeat">Сбросте код и повторите попитьку</string>
     <string name="reset">Сбросить</string>
     <string name="replenish">Пополнить</string>
     <string name="pay">Оплатить</string>
@@ -192,4 +190,23 @@
         <item>REPUBLIC</item>
         <item>COUNTRY CODE</item>
     </string-array>
+    <string name="error_message_input_email_1">Введите Email"</string>
+    <string name="error_detect">Error Detect</string>
+    <string name="add_card">Добавить карту</string>
+    <string name="icon_airplane">icon_airplane</string>
+    <string name="icon_hotel">icon_hotel</string>
+    <string name="icon_rest">icon_rest</string>
+    <string name="icon_logo">icon_logo</string>
+    <string name="error_message_input_card_number">Введите номер карты</string>
+    <string name="error_message_input_card_date">Введите дату карты</string>
+    <string name="error_message_input_card_cvc">Введите CVC карты</string>
+    <string name="reset_pin_and_repeat">Сбросте код и повторите попитьку</string>
+    <string name="enter_personal_area_blocked">Вход в личный кабинет  ВТБ &amp; Armenia Guide заблокирован</string>
+    <string name="continue_reset">На главную</string>
+    <string name="reset_code">Сброс кода</string>
+    <string name="btn_reset_code">Сбросить код</string>
+    <string name="we_send_email">Мы отправили вам письмо с ссылкой для сброса кода</string>
+    <string name="send_card_details_email">Мы вышлим реквизиты на emal адрес</string>
+    <string name="title_details_card">Реквизиты карты</string>
+    <string name="_10_transactions">Последние 10 транзакций</string>
 </resources>

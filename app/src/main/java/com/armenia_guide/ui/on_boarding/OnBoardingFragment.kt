@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.armenia_guide.R
@@ -17,24 +17,23 @@ import com.armenia_guide.databinding.FragmentOnBoardingBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-
 class OnBoardingFragment : Fragment() {
-    private var bindingOnBoardingFragment: FragmentOnBoardingBinding? = null
+    private val bindingOnBoarding by lazy {
+        FragmentOnBoardingBinding.inflate(layoutInflater)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        bindingOnBoardingFragment = FragmentOnBoardingBinding.inflate(inflater)
-
-        return bindingOnBoardingFragment?.root
+    ): View {
+        return bindingOnBoarding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val requestPermission =
-            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { _ ->
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             }
 
         requestPermission.launch(
@@ -49,21 +48,13 @@ class OnBoardingFragment : Fragment() {
         val adapter =
             ViewPagerAdapterOnBoarding(requireActivity().supportFragmentManager, lifecycle)
         viewPager2.adapter = adapter
+
         TabLayoutMediator(tabLayout, viewPager2) { _, _ ->
         }.attach()
         viewPager2.setPageTransformer(MarginPageTransformer(100))
 
-
-        bindingOnBoardingFragment?.btnGetStarted?.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_onBoardingFragment_to_authClientFragment)
+        bindingOnBoarding.btnGetStarted.setOnClickListener {
+            findNavController().navigate(R.id.action_onBoardingFragment_to_authClientFragment)
         }
-
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bindingOnBoardingFragment = null
-    }
-
 }

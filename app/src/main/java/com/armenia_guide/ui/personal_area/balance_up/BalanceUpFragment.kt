@@ -1,4 +1,4 @@
-package com.armenia_guide.ui.personal_area
+package com.armenia_guide.ui.personal_area.balance_up
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentBalanceUpBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class BalanceUpFragment : Fragment() {
 
@@ -16,7 +18,6 @@ class BalanceUpFragment : Fragment() {
         FragmentBalanceUpBinding.inflate(layoutInflater)
     }
 
-    private lateinit var bottomSheetAddCard: BottomSheetBehavior<ConstraintLayout>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,17 +31,13 @@ class BalanceUpFragment : Fragment() {
 
         bindingBalanceUpFragment.toolbarBalanceUp.setNavigationIcon(R.drawable.ic_back_toolbar)
 
-        val bottomSheet = view.findViewById<ConstraintLayout>(R.id.bottomSheet)
-        bottomSheetAddCard = BottomSheetBehavior.from(bottomSheet)
+
+
 
 
         bindingBalanceUpFragment.addCard.setOnClickListener {
-            val state =
-                if (bottomSheetAddCard.state == BottomSheetBehavior.STATE_EXPANDED)
-                    BottomSheetBehavior.STATE_COLLAPSED
-                else
-                    BottomSheetBehavior.STATE_EXPANDED
-            bottomSheetAddCard.state = state
+            val bottomSheetAddCard = BottomSheetAddCardFragment()
+           bottomSheetAddCard.show(parentFragmentManager,"")
         }
     }
 }

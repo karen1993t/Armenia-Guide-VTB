@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.on_boarding.OnBoardingFragment2">
 
-    <ImageView
+      <ImageView
         android:id="@+id/ic_on_boarding_fragment_2_1"
         android:layout_width="57dp"
         android:layout_height="21dp"
@@ -71,6 +71,9 @@
         android:contentDescription="@string/card_vtb"
         android:src="@drawable/ic_on_boarding_fragment_2"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_on_boarding_fragment_2_2"
-        app:layout_constraintStart_toStartOf="parent" />
+     />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

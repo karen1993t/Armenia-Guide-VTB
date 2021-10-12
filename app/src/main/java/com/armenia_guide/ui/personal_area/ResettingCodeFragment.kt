@@ -1,52 +1,88 @@
 package com.armenia_guide.ui.personal_area
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
+import com.armenia_guide.databinding.AlertDialogResetCodeBinding
 import com.armenia_guide.databinding.FragmentResettingCodeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-
 class ResettingCodeFragment : Fragment() {
-private var bindingResettingCodeFragment:FragmentResettingCodeBinding?=null
+
+    private val bindingResettingCode by lazy { FragmentResettingCodeBinding.inflate(layoutInflater) }
+    private var checkerEmail = false
+    private val bindingAlert by lazy { AlertDialogResetCodeBinding.inflate(layoutInflater) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        bindingResettingCodeFragment= FragmentResettingCodeBinding.inflate(inflater)
-        return bindingResettingCodeFragment?.root
+    ): View {
+        return bindingResettingCode.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindingResettingCodeFragment?.btnEmailReset?.setOnClickListener {
 
-            MaterialAlertDialogBuilder(
-                requireContext(),
-                R.style.ResetTheme
-            )
+        requireActivity().onBackPressedDispatcher.addCallback() {
+            //  findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEmailFragment)
+        }
 
-                .setIcon(R.drawable.ic_send_email)
-                .setMessage("Мы отправили вам письмо  с ссылкой для сброса кода")
-                .setNeutralButton("Продолжить") { _, _ ->
-//                    Navigation.findNavController(view)
-//                        .navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
+        bindingResettingCode.editEmailResetContainer.editText?.addTextChangedListener(object :
+            TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                when {
+                    bindingResettingCode.editEmailReset.text?.isEmpty() == true ->
+                        bindingResettingCode.editEmailResetContainer.error =
+                            resources.getString(R.string.error_message_input_email_1)
+
+                    !bindingResettingCode.editEmailReset.text?.contains('@')!! ->
+                        bindingResettingCode.editEmailReset.error =
+                            resources.getString(R.string.error_message_input_email)
+                    else -> {
+                        bindingResettingCode.editEmailResetContainer.error = null
+                        checkerEmail = true
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
+
+        bindingResettingCode.btnEmailReset.setOnClickListener {
+            when {
+                checkerEmail -> {
+                    val dialog = MaterialAlertDialogBuilder(
+                        requireContext(),
+                        R.style.ResetTheme
+                    )
+                        .setView(bindingAlert.root)
+                        .setCancelable(false)
+                        .show()
+                    bindingAlert.buttonAlert.setOnClickListener {
+                        dialog.dismiss()
+                        findNavController().navigate(R.id.action_resettingCodeFragment_to_authorizationEnterPinFragment)
+                    }
                 }
 
-
-                .show()
+                else -> bindingResettingCode.editEmailResetContainer.error =
+                    resources.getString(R.string.error_message_input_email_1)
+            }
         }
 
 
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bindingResettingCodeFragment=null
-    }
-
 }

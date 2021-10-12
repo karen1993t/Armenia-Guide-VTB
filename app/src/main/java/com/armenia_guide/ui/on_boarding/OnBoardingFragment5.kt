@@ -15,5 +15,4 @@ class OnBoardingFragment5 : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_on_boarding_5, container, false)
     }
-
 }

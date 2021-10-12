@@ -9,13 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.armenia_guide.R
-import com.armenia_guide.ui.personal_area.ModelPersonalArea
+import com.armenia_guide.ui.personal_area.Entity.ModelPersonalArea
 
 class PersonalAreaAdapter(val context: Context, private val listPersonalArea: List<ModelPersonalArea>) :
     Adapter<PersonalAreaAdapter.ViewHolderPersonalArea>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPersonalArea {
-        val view = LayoutInflater.from(context).inflate(R.layout.personal_area_recycler_row, parent, false)
+        val view =  LayoutInflater.from(context).inflate(R.layout.personal_area_recycler_row, parent, false)
         return ViewHolderPersonalArea(view)
     }
 
@@ -36,10 +37,10 @@ class PersonalAreaAdapter(val context: Context, private val listPersonalArea: Li
 
 
     class ViewHolderPersonalArea(view: View) : RecyclerView.ViewHolder(view) {
-        val image = view.findViewById<ImageView>(R.id.image)
-        val titleText = view.findViewById<TextView>(R.id.title)
-        val timeText = view.findViewById<TextView>(R.id.time)
-        val priceText = view.findViewById<TextView>(R.id.price)
+        val image: ImageView = view.findViewById(R.id.image)
+        val titleText: TextView = view.findViewById(R.id.title)
+        val timeText: TextView = view.findViewById(R.id.time)
+        val priceText: TextView = view.findViewById(R.id.price)
 
     }
 }

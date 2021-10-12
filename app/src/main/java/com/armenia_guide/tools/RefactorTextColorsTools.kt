@@ -5,12 +5,13 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 
 object RefactorTextColorsTools {
 
     fun refactorColorText(
         context: Context,
-        textView: TextView?,
+        textView: TextView,
         colorResources: Int,
         startIndex: Int,
         endIndex: Int

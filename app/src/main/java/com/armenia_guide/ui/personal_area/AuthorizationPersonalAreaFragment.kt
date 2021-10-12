@@ -8,34 +8,43 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
+import com.armenia_guide.databinding.AlertDialogWrongPinBinding
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 import java.util.concurrent.Executor
 
 class AuthorizationPersonalAreaFragment : Fragment() {
 
-    private var bindingAuthorizationPersonalAreaBinding: FragmentAuthorizationPersonalAreaBinding? =
-        null
-    private val viewModelPersonalArea: AuthorizationPinViewModel by activityViewModels()
+    private val bindingAuthorizationPersonalArea by lazy { FragmentAuthorizationPersonalAreaBinding.inflate(layoutInflater) }
+    private val bindingAlertDialog by lazy { AlertDialogWrongPinBinding.inflate(layoutInflater) }
+    private val viewModelPersonalArea: AuthorizationPinViewModel by viewModel()
     private var pinPersonalArea: String = ""
     private var pin2: String = ""
     private var counter: Int = 0
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if ( bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()){
+            activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        bindingAuthorizationPersonalAreaBinding =
-            FragmentAuthorizationPersonalAreaBinding.inflate(inflater)
-        return bindingAuthorizationPersonalAreaBinding?.root
+    ): View {
+        return bindingAuthorizationPersonalArea.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +54,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
             pin2 = it
         })
 
-        bindingAuthorizationPersonalAreaBinding?.editTextPersonalArea?.addTextChangedListener(object :
+        bindingAuthorizationPersonalArea.editTextPersonalArea.addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -57,81 +66,82 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                     5 -> {
                         if (pinPersonalArea != pin2) {
                             counter++
-                            bindingAuthorizationPersonalAreaBinding?.circle5?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationPersonalAreaBinding?.circle4?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationPersonalAreaBinding?.circle3?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationPersonalAreaBinding?.circle2?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationPersonalAreaBinding?.circle1?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.setTextColor(
+                            bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationPersonalArea.circle4.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationPersonalArea.circle3.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationPersonalArea.circle2.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationPersonalArea.circle1.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationPersonalArea.titleEnterPersonalArea1.setTextColor(
                                 resources.getColor(R.color.color_red, null)
                             )
 
                             when (counter) {
-                                1 -> bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.text =
+                                1 -> bindingAuthorizationPersonalArea.titleEnterPersonalArea1.text =
                                     getString(
                                         R.string.attempts_left_5
                                     )
-                                2 -> bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.text =
+                                2 -> bindingAuthorizationPersonalArea.titleEnterPersonalArea1.text =
                                     getString(
                                         R.string.attempts_left_4
                                     )
-                                3 -> bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.text =
+                                3 -> bindingAuthorizationPersonalArea.titleEnterPersonalArea1.text =
                                     getString(
                                         R.string.attempts_left_3
                                     )
-                                4 -> bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.text =
+                                4 -> bindingAuthorizationPersonalArea.titleEnterPersonalArea1.text =
                                     getString(
                                         R.string.attempts_left_2
                                     )
-                                5 -> bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.text =
+                                5 -> bindingAuthorizationPersonalArea.titleEnterPersonalArea1.text =
                                     getString(
                                         R.string.attempts_left_1
                                     )
                                 else -> {
-                                    bindingAuthorizationPersonalAreaBinding?.titleEnterPersonalArea1?.text =
+                                    bindingAuthorizationPersonalArea.titleEnterPersonalArea1.text =
                                         getString(
                                             R.string.attempts_left_0
                                         )
-                                    MaterialAlertDialogBuilder(
+
+                                   val dialog =  MaterialAlertDialogBuilder(
                                         requireContext(),
                                         R.style.CutShapeTheme
                                     )
-                                        .setTitle(getString(R.string.enter_personal_area_blocked))
-                                        .setMessage(getString(R.string.reset_pin_and_repeat))
-                                        .setNeutralButton(getString(R.string.reset)) { _, _ ->
-                                            Navigation.findNavController(view)
-                                                .navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
-                                        }
+                                        .setView(bindingAlertDialog.root)
+                                        .setCancelable(false)
                                         .show()
+                                    bindingAlertDialog.buttonAlertBlue.setOnClickListener {
+                                        dialog.dismiss()
+                                        findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)
+
+                                    }
                                 }
                             }
 
                         } else {
-                            bindingAuthorizationPersonalAreaBinding?.circle5?.setImageResource(R.drawable.circle_pin_view_black)
-                            Navigation.findNavController(view)
-                                .navigate(R.id.action_authorizationPersonalAreaFragment_to_personalAreaFragment)
+                            bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_black)
+                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
                         }
                     }
                     4 -> {
-                        bindingAuthorizationPersonalAreaBinding?.circle5?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationPersonalAreaBinding?.circle4?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationPersonalAreaBinding?.circle3?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationPersonalAreaBinding?.circle2?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationPersonalAreaBinding?.circle1?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle5.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationPersonalArea.circle4.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle3.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle2.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle1.setImageResource(R.drawable.circle_pin_view_black)
                     }
                     3 -> {
-                        bindingAuthorizationPersonalAreaBinding?.circle4?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationPersonalAreaBinding?.circle3?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle4.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationPersonalArea.circle3.setImageResource(R.drawable.circle_pin_view_black)
                     }
                     2 -> {
-                        bindingAuthorizationPersonalAreaBinding?.circle3?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationPersonalAreaBinding?.circle2?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle3.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationPersonalArea.circle2.setImageResource(R.drawable.circle_pin_view_black)
                     }
                     1 -> {
-                        bindingAuthorizationPersonalAreaBinding?.circle2?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationPersonalAreaBinding?.circle1?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationPersonalArea.circle2.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationPersonalArea.circle1.setImageResource(R.drawable.circle_pin_view_black)
                     }
-                    else -> bindingAuthorizationPersonalAreaBinding?.circle1?.setImageResource(R.drawable.circle_pin_view_grey)
+                    else -> bindingAuthorizationPersonalArea.circle1.setImageResource(R.drawable.circle_pin_view_grey)
                 }
             }
         })
@@ -139,7 +149,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
         val executor = ContextCompat.getMainExecutor(requireContext())
         val biometricManager = BiometricManager.from(requireContext())
 
-        bindingAuthorizationPersonalAreaBinding?.titleEnterWithFaceId?.setOnClickListener {
+        bindingAuthorizationPersonalArea.titleEnterWithFaceId.setOnClickListener {
 
             fun authUser(executor: Executor) {
 
@@ -157,19 +167,14 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                         override fun onAuthenticationSucceeded(
                             result: BiometricPrompt.AuthenticationResult
                         ) {
-                            Navigation.findNavController(view)
-                                .navigate(R.id.action_authorizationPersonalAreaFragment_to_personalAreaFragment)
+                            findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
                         }
                         
                         override fun onAuthenticationError(
                             errorCode: Int, errString: CharSequence
                         ) {
                             super.onAuthenticationError(errorCode, errString)
-                            Toast.makeText(
-                                requireContext(),
-                                "Error Detect",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(requireContext(),getString(R.string.error_detect),Toast.LENGTH_SHORT).show()
                         }
                     })
                 biometricPrompt.authenticate(promptInfo)
@@ -198,19 +203,10 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                     ).show()
             }
         }
-    }
 
-    override fun onResume() {
-        if (bindingAuthorizationPersonalAreaBinding?.editTextPersonalArea?.requestFocus() == true) {
-            activity?.window?.setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
-            )
+        requireActivity().onBackPressedDispatcher.addCallback() {
+           // findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_authorizationEmailFragment)
         }
-        super.onResume()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bindingAuthorizationPersonalAreaBinding = null
-    }
 }

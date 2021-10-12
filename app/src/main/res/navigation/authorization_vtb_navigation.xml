@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/onBoardingFragment">
+    app:startDestination="@id/authorizationEmailFragment">
 
 
     <fragment
@@ -89,18 +89,22 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_authorizationPersonalAreaFragment_to_personalAreaFragment"
-            app:destination="@id/personalAreaFragment"
+            android:id="@+id/action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment"
+            app:destination="@id/bluePersonalAreaFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/resettingCodeFragment"
         android:name="com.armenia_guide.ui.personal_area.ResettingCodeFragment"
         android:label="fragment_resetting_code"
-        tools:layout="@layout/fragment_resetting_code" />
+        tools:layout="@layout/fragment_resetting_code" >
+        <action
+            android:id="@+id/action_resettingCodeFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment" />
+    </fragment>
     <fragment
         android:id="@+id/personalAreaFragment"
         android:name="com.armenia_guide.ui.personal_area.PersonalAreaFragment"
@@ -108,10 +112,18 @@
         tools:layout="@layout/fragment_personal_area" >
         <action
             android:id="@+id/action_personalAreaFragment_to_payFragment"
-            app:destination="@id/payFragment" />
+            app:destination="@id/payFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_personalAreaFragment_to_balanceUpFragment"
-            app:destination="@id/balanceUpFragment" />
+            app:destination="@id/balanceUpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -121,7 +133,11 @@
         tools:layout="@layout/fragment_authorization_enter_pin">
         <action
             android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
-            app:destination="@id/authorizationRepeatPinFragment" />
+            app:destination="@id/authorizationRepeatPinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/authorizationRepeatPinFragment"
@@ -130,7 +146,11 @@
         tools:layout="@layout/fragment_authorization_repeat_pin" >
         <action
             android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
-            app:destination="@id/authorizationPersonalAreaFragment" />
+            app:destination="@id/authorizationPersonalAreaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -459,7 +479,32 @@
         tools:layout="@layout/fragment_pay" />
     <fragment
         android:id="@+id/balanceUpFragment"
-        android:name="com.armenia_guide.ui.personal_area.BalanceUpFragment"
+        android:name="com.armenia_guide.ui.personal_area.balance_up.BalanceUpFragment"
         android:label="fragment_balance_up"
         tools:layout="@layout/fragment_balance_up" />
+    <fragment
+        android:id="@+id/bluePersonalAreaFragment"
+        android:name="com.armenia_guide.ui.personal_area.BluePersonalAreaFragment"
+        android:label="fragment_blue_personal_area"
+        tools:layout="@layout/fragment_blue_personal_area" >
+        <action
+            android:id="@+id/action_bluePersonalAreaFragment_to_balanceUpFragment"
+            app:destination="@id/balanceUpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_bluePersonalAreaFragment_to_payFragment"
+            app:destination="@id/payFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/searchedBarcodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.SearchedBarcodeFragment"
+        android:label="fragment_searched_barcode"
+        tools:layout="@layout/fragment_searched_barcode" />
 </navigation>

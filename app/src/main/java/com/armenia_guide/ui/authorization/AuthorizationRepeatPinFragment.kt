@@ -7,30 +7,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class AuthorizationRepeatPinFragment : Fragment() {
 
-    private var bindingAuthorizationRepeatPinFragment: FragmentAuthorizationRepeatPinBinding? = null
-    private val viewModel: AuthorizationPinViewModel by activityViewModels()
+    private val bindingAuthorizationRepeatPin by lazy {
+        FragmentAuthorizationRepeatPinBinding.inflate(layoutInflater)
+    }
+    private val viewModel: AuthorizationPinViewModel by viewModel()
     private var pin1: String = ""
     private var pin2: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        bindingAuthorizationRepeatPinFragment =
-            FragmentAuthorizationRepeatPinBinding.inflate(inflater)
-
-        return bindingAuthorizationRepeatPinFragment?.root
-
+    ): View {
+        return bindingAuthorizationRepeatPin.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class AuthorizationRepeatPinFragment : Fragment() {
             pin1 = it
         })
 
-        bindingAuthorizationRepeatPinFragment?.editTextEnterPin?.addTextChangedListener(object :
+        bindingAuthorizationRepeatPin.editTextEnterPin.addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -53,66 +53,55 @@ class AuthorizationRepeatPinFragment : Fragment() {
                 when (p0?.length) {
                     5 -> {
                         if (pin1 != pin2) {
-                            bindingAuthorizationRepeatPinFragment?.circle5?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circle4?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circle3?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circle2?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circle1?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circlePin5?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circlePin4?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circlePin3?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circlePin2?.setImageResource(R.drawable.circle_pin_view_red)
-                            bindingAuthorizationRepeatPinFragment?.circlePin1?.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circle5.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circle4.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circle3.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circle2.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circle1.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circlePin5.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circlePin4.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circlePin3.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circlePin2.setImageResource(R.drawable.circle_pin_view_red)
+                            bindingAuthorizationRepeatPin.circlePin1.setImageResource(R.drawable.circle_pin_view_red)
                         } else {
-                            bindingAuthorizationRepeatPinFragment?.circle5?.setImageResource(R.drawable.circle_pin_view_black)
+                            bindingAuthorizationRepeatPin.circle5.setImageResource(R.drawable.circle_pin_view_black)
                             viewModel.sendPin2(pin2)
-                            Navigation.findNavController(view).navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment)
-
-
-
+                           findNavController().navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment)
                         }
                     }
 
                     4 -> {
-                        bindingAuthorizationRepeatPinFragment?.circle5?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationRepeatPinFragment?.circle4?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circle3?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circle2?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circle1?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circlePin5?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circlePin4?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circlePin3?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circlePin2?.setImageResource(R.drawable.circle_pin_view_black)
-                        bindingAuthorizationRepeatPinFragment?.circlePin1?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle5.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationRepeatPin.circle4.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle3.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle2.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle1.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circlePin5.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circlePin4.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circlePin3.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circlePin2.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circlePin1.setImageResource(R.drawable.circle_pin_view_black)
                     }
                     3 -> {
-                        bindingAuthorizationRepeatPinFragment?.circle4?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationRepeatPinFragment?.circle3?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle4.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationRepeatPin.circle3.setImageResource(R.drawable.circle_pin_view_black)
                     }
                     2 -> {
-                        bindingAuthorizationRepeatPinFragment?.circle3?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationRepeatPinFragment?.circle2?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle3.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationRepeatPin.circle2.setImageResource(R.drawable.circle_pin_view_black)
                     }
                     1 -> {
-                        bindingAuthorizationRepeatPinFragment?.circle2?.setImageResource(R.drawable.circle_pin_view_grey)
-                        bindingAuthorizationRepeatPinFragment?.circle1?.setImageResource(R.drawable.circle_pin_view_black)
+                        bindingAuthorizationRepeatPin.circle2.setImageResource(R.drawable.circle_pin_view_grey)
+                        bindingAuthorizationRepeatPin.circle1.setImageResource(R.drawable.circle_pin_view_black)
                     }
-                    else -> bindingAuthorizationRepeatPinFragment?.circle1?.setImageResource(R.drawable.circle_pin_view_grey)
+                    else -> bindingAuthorizationRepeatPin.circle1.setImageResource(R.drawable.circle_pin_view_grey)
                 }
             }
         })
-    }
 
-    override fun onResume() {
-        if (bindingAuthorizationRepeatPinFragment?.editTextEnterPin?.requestFocus() == true) { activity?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE) }
-        super.onResume()
+        requireActivity().onBackPressedDispatcher.addCallback() {
+         //   findNavController().navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationEmailFragment)
+        }
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bindingAuthorizationRepeatPinFragment = null
-    }
-
 }
 
