@@ -23,7 +23,7 @@ class NewPasswordFragment :Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        newPasswordBinding.btnUpdatePassword.setOnClickListener{
+        newPasswordBinding.btnResetPassword.setOnClickListener{
             findNavController().navigate(R.id.action_newPasswordFragment_to_loginViaEmailFragment)
         }
     }

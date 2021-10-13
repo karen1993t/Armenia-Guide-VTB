@@ -33,7 +33,7 @@ class LoginViaEmailFragment : Fragment(), View.OnClickListener {
 
         loginViaEmailBinding.btnLogin.setOnClickListener(this)
         loginViaEmailBinding.btnRegister.setOnClickListener(this)
-        loginViaEmailBinding.btnBack.setOnClickListener(this)
+        loginViaEmailBinding.btnClose.setOnClickListener(this)
 
 
     }
@@ -42,7 +42,7 @@ class LoginViaEmailFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View?) {
         val btnRegister = loginViaEmailBinding.btnRegister
         val btnLogin = loginViaEmailBinding.btnLogin
-        val btnBack = loginViaEmailBinding.btnBack
+        val btnBack = loginViaEmailBinding.btnClose
 
         val stateTextColorPressedLoginBtn = resources.getColor(R.color.white, null)
         val stateTextColorPressedRegisterBtn = resources.getColor(R.color.white, null)

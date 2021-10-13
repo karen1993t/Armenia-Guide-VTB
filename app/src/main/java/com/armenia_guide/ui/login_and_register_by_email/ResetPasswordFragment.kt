@@ -28,15 +28,15 @@ class ResetPasswordFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         resetPasswordBinding.editInputEmail.requestFocus()
-        resetPasswordBinding.btnBack.setOnClickListener(this)
+
         resetPasswordBinding.btnResetPassword.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
 
-            resetPasswordBinding.btnBack.id ->
-                findNavController().navigate(R.id.action_resetPasswordFragment_to_loginViaEmailFragment)
+//            resetPasswordBinding.btnBack.id ->
+//                findNavController().navigate(R.id.action_resetPasswordFragment_to_loginViaEmailFragment)
 
             resetPasswordBinding.btnResetPassword.id ->
                 createSendingMessageDialog()

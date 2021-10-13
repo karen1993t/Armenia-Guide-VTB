@@ -11,9 +11,12 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">
-            @color/black
-
+            @color/white
         </item>
+        <!-- status bar color-->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!-- icon color status bar -->
+        <item name="android:windowLightStatusBar">true</item>
         <!--        <item name="android:colorControlActivated">@color/color_red</item>-->
         <item name="android:colorControlActivated">@color/color_red</item>
 
