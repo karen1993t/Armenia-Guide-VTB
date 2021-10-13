@@ -23,11 +23,11 @@
     <string name="title_on_boarding_fragment_1">Виртуальная карта, которая тебе понравится</string>
     <string name="card_vtb">card_vtb</string>
     <string name="title_on_boarding_fragment_2_1">Мгновенное оформление</string>
-    <string name="title_on_boarding_fragment_2_2">Быстрое оформление через приложение</string>
+    <string name="title_on_boarding_fragment_2_2">Быстрое оформление \nчерез приложение</string>
     <string name="title_on_boarding_fragment_3_1">Mультивалютный дебетовый счет</string>
-    <string name="title_on_boarding_fragment_3_2">AMD, USD, EUR, RUR с льготным курсом конвертации</string>
+    <string name="title_on_boarding_fragment_3_2">AMD, USD, EUR, RUR \nс льготным курсом конвертации</string>
     <string name="title_on_boarding_fragment_4_1">Полный контроль</string>
-    <string name="title_on_boarding_fragment_4_2">Управление банковской активностью в онлайн-режиме</string>
+    <string name="title_on_boarding_fragment_4_2">Управление банковской активностью \nв онлайн-режиме</string>
     <string name="title_on_boarding_fragment_5_1">Удобная оплата</string>
     <string name="title_on_boarding_fragment_5_2">Оплата онлайн и офлайн покупок через приложение Armenia Guide</string>
     <string name="icon_close_black">icon_close_black</string>

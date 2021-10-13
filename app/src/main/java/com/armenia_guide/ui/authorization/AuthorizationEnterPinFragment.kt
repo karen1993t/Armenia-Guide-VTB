@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 
 import androidx.fragment.app.Fragment
 
@@ -84,6 +83,6 @@ class AuthorizationEnterPinFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         if (false.also { bindingAuthorizationEnterPin.editTextEnterPin.isFocusable = it }){
-            KeyboardTools.hideKeyboard(requireContext())}
+            KeyboardTools.hideKeyboard()}
     }
 }

@@ -6,36 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".ui.on_boarding.OnBoardingFragment2">
 
-      <ImageView
+    <ImageView
         android:id="@+id/ic_on_boarding_fragment_2_1"
-        android:layout_width="57dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="68dp"
+        android:layout_height="24dp"
         android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/card_vtb"
-        android:src="@drawable/ic_vtb_rus_blue"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_vtb_eng_blue"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ic_on_boarding_fragment_2_2"
         android:layout_width="50dp"
         android:layout_height="37dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/card_vtb"
         android:src="@drawable/ic_master_card"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title_on_boarding_fragment_2_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="82dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="77dp"
         android:fontFamily="@font/gotham_pro"
-        android:lineHeight="30dp"
+        android:gravity="center_vertical"
+        android:lineHeight="30sp"
+        android:lineSpacingExtra="6sp"
         android:text="@string/title_on_boarding_fragment_2_1"
         android:textColor="@color/color_red"
         android:textFontWeight="700"
@@ -50,10 +52,12 @@
         android:id="@+id/title_on_boarding_fragment_2_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/gotham_pro"
-        android:lineHeight="18dp"
+        android:gravity="center_vertical"
+        android:lineHeight="18sp"
+        android:lineSpacingExtra="4sp"
         android:text="@string/title_on_boarding_fragment_2_2"
         android:textColor="@color/black"
         android:textFontWeight="400"
@@ -66,14 +70,14 @@
 
     <ImageView
         android:id="@+id/ic_on_boarding_fragment_2_3"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/card_vtb"
-        android:src="@drawable/ic_on_boarding_fragment_2"
+        android:src="@mipmap/ic_on_boarding_fragment_2"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_on_boarding_fragment_2_2"
-     />
+        app:layout_constraintTop_toBottomOf="@id/title_on_boarding_fragment_2_2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.armenia_guide.ui.personal_area.Entity.ModelPersonalArea
+import com.armenia_guide.ui.personal_area.entity.ModelPersonalArea
 import com.armenia_guide.ui.personal_area.RepositoryPersonalArea
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

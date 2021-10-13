@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/bluePersonalAreaFragment">
 
 
     <fragment
@@ -405,7 +405,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchedBarcodeFragment"
-        android:name="com.armenia_guide.ui.personal_area.SearchedBarcodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.pay.SearchedBarcodeFragment"
         android:label="fragment_searched_barcode"
         tools:layout="@layout/fragment_searched_barcode" />
     <fragment

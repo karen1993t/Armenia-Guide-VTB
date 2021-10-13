@@ -1,7 +1,7 @@
 package com.armenia_guide.ui.personal_area
 
 import com.armenia_guide.R
-import com.armenia_guide.ui.personal_area.Entity.ModelPersonalArea
+import com.armenia_guide.ui.personal_area.entity.ModelPersonalArea
 
 class ListPersonalAreaImpl : RepositoryPersonalArea {
 

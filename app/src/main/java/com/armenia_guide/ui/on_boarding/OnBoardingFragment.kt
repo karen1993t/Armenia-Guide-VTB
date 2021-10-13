@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
@@ -53,6 +52,7 @@ class OnBoardingFragment : Fragment() {
 
         TabLayoutMediator(tabLayout, viewPager2) { _, _ ->
         }.attach()
+        viewPager2.scrollBarFadeDuration = 300
         viewPager2.setPageTransformer(MarginPageTransformer(100))
 
 

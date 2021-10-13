@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,13 +26,16 @@ class BluePersonalAreaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        KeyboardTools.hideKeyboard(requireContext())
+      //  KeyboardTools.hideKeyboard()
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //activity?.theme?.applyStyle(R.color.blue_personal_area,false)
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.blue_personal_area)
 
         activity?.setActionBar(bindingBluePersonalArea.toolbarPersonalArea)
         return bindingBluePersonalArea.root
