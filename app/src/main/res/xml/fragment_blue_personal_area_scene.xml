@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+<!--        <Transition-->
+<!--            motion:constraintSetEnd="@+id/end"-->
+<!--            motion:constraintSetStart="@id/start"-->
+<!--            motion:duration="1000"-->
+<!--            motion:motionInterpolator="linear">-->
+
+<!--            <OnSwipe-->
+<!--                motion:dragDirection="dragUp"-->
+<!--                motion:onTouchUp="stop"-->
+<!--                motion:touchAnchorId="@+id/recycler_view_blue" />-->
+<!--        </Transition>-->
+
+<!--    <ConstraintSet android:id="@+id/start">-->
+<!--        <Constraint-->
+<!--            android:id="@+id/constraint_recycler"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:background="@drawable/background_recycler_personal_area"-->
+<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
+<!--            motion:layout_constraintTop_toBottomOf="@+id/card_details" />-->
+<!--    </ConstraintSet>-->
+
+<!--    <ConstraintSet android:id="@+id/end">-->
+<!--        <Constraint-->
+<!--            android:id="@+id/recycler_view_blue"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="@drawable/background_recycler_personal_area"-->
+<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
+<!--            motion:layout_constraintTop_toBottomOf="@+id/toolbar_personal_area" />-->
+
+<!--    </ConstraintSet>-->
+
+
+
+
+
+
+    <Transition
+        motion:constraintSetEnd="@+id/end_btn"
+        motion:constraintSetStart="@id/start_btn"
+        motion:duration="1000"
+        motion:motionInterpolator="linear">
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@+id/personal_area" />
+<!--        <OnSwipe-->
+<!--            motion:dragDirection="dragUp"-->
+<!--            motion:onTouchUp="stop"-->
+<!--            motion:touchAnchorId="@id/line_swipe" />-->
+
+        <KeyFrameSet></KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start_btn">
+        <Constraint
+            android:id="@+id/constraint_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/background_recycler_personal_area"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/title_money" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end_btn">
+        <Constraint
+            android:id="@+id/constraint_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/background_recycler_personal_area"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/card_details" />
+    </ConstraintSet>
+</MotionScene>

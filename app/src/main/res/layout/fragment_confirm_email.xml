@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/description_btn_close"
+        android:src="@drawable/ic_btn_close_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_confirm"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_container_confirm"
+        android:elevation="40dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_close">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_logo_vtb"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginTop="21.66dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ic_vtb_logo_eng"
+                android:contentDescription="@string/description_logo_vtb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginTop="19dp" />
+
+            <ImageView
+                android:id="@+id/icon_master_card"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/ic_master_card"
+                android:contentDescription="@string/description_icon_mc"
+                app:layout_constraintBottom_toBottomOf="@id/img_logo_vtb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_logo_vtb" />
+
+            <TextView
+                android:id="@+id/text_title_confirm_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="center_vertical"
+                android:lineHeight="30sp"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/text_title_email_confirm"
+                android:textColor="@color/color_red"
+                android:textFontWeight="700"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon_master_card"
+                tools:targetApi="p" />
+
+            <ImageView
+                android:id="@+id/icon_confirm_email"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_confirm_email"
+                android:contentDescription="@string/description_icon_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_confirm_email" />
+
+            <TextView
+                android:id="@+id/text_position_confirm_email"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="23.5dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="18sp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/text_position_confirm_email"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:translationY="-1.82sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon_confirm_email"
+                app:layout_constraintTop_toBottomOf="@id/text_title_confirm_email"
+                tools:targetApi="p" />
+
+            <TextView
+                android:id="@+id/text_one_minute"
+                android:layout_width="0dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="14.4sp"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/text_minutes_position_confirm_email"
+                android:textColor="@color/gray"
+                android:textFontWeight="400"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:translationY="-1.46sp"
+                app:layout_constraintEnd_toEndOf="@id/text_position_confirm_email"
+                app:layout_constraintStart_toStartOf="@id/text_position_confirm_email"
+                app:layout_constraintTop_toBottomOf="@id/text_position_confirm_email"
+                tools:ignore="TextContrastCheck,TextContrastCheck"
+                tools:targetApi="p" />
+
+            <ImageView
+                android:id="@+id/icon_fill_in_form"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_fill_in_form"
+                android:contentDescription="@string/description_icon_fill_in_form"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon_confirm_email" />
+
+            <TextView
+                android:id="@+id/text_position_fill_in_form"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="18sp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/text_position_fill_in_form"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:translationY="-1.82sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon_fill_in_form"
+                app:layout_constraintTop_toBottomOf="@id/text_one_minute"
+                tools:targetApi="p" />
+
+            <TextView
+                android:id="@+id/text_two_minutes"
+                android:layout_width="0dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="14.4sp"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/text_minutes_fill_in_form"
+                android:textColor="@color/gray"
+                android:textFontWeight="400"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:translationY="-1.46sp"
+                app:layout_constraintEnd_toEndOf="@id/text_position_fill_in_form"
+                app:layout_constraintStart_toStartOf="@id/text_position_fill_in_form"
+                app:layout_constraintTop_toBottomOf="@id/text_position_fill_in_form"
+                tools:ignore="TextContrastCheck"
+                tools:targetApi="p" />
+
+            <ImageView
+                android:id="@+id/icon_go_verification"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_go_to_verification"
+                android:contentDescription="@string/description_icon_go_to_verification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon_fill_in_form" />
+
+            <TextView
+                android:id="@+id/text_position_go_to_verification"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="18sp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/text_position_go_to_verification"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:translationY="-1.82sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon_go_verification"
+                app:layout_constraintTop_toBottomOf="@id/text_two_minutes"
+                tools:targetApi="p" />
+
+            <TextView
+                android:id="@+id/text_three_minutes"
+                android:layout_width="0dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="14.4sp"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/text_minutes_position_go_to_verification"
+                android:textColor="@color/gray"
+                android:textFontWeight="400"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:translationY="-1.46sp"
+                app:layout_constraintEnd_toEndOf="@id/text_position_go_to_verification"
+                app:layout_constraintStart_toStartOf="@id/text_position_go_to_verification"
+                app:layout_constraintTop_toBottomOf="@id/text_position_go_to_verification"
+                tools:ignore="TextContrastCheck"
+                tools:targetApi="p" />
+
+            <ImageView
+                android:id="@+id/icon_get_your_card"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_get_your_card"
+                android:contentDescription="@string/description_icon_get_your_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon_go_verification" />
+
+            <TextView
+                android:id="@+id/text_position_get_your_card"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="top"
+                android:lineHeight="18sp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/text_position_get_your_card"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:translationY="-1.82sp"
+                app:layout_constraintBottom_toBottomOf="@id/icon_get_your_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon_get_your_card"
+                app:layout_constraintTop_toTopOf="@id/icon_get_your_card"
+                tools:targetApi="p" />
+
+            <CheckBox
+                android:id="@+id/checkBox_privacy_policy"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="125dp"
+                android:layout_marginBottom="13dp"
+                android:button="@drawable/check_box_selector"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="12dp"
+                app:layout_goneMarginTop="16dp"
+                android:theme="@style/CustomCheckBox"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_goneMarginBottom="13dp" />
+
+            <TextView
+                android:id="@+id/text_privacy_policy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/gotham_pro"
+                android:gravity="center_vertical|bottom"
+                android:lineHeight="14.4sp"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/text_privacy_policy"
+                android:textFontWeight="400"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@id/checkBox_privacy_policy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/checkBox_privacy_policy"
+                app:layout_constraintTop_toTopOf="@id/checkBox_privacy_policy"
+                tools:targetApi="p" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_start"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/background_button_gray"
+        android:fontFamily="@font/gotham_pro"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineHeight="20sp"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/text_btn_start"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_confirm"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck"
+        tools:targetApi="p" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

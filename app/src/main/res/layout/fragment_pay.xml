@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.personal_area.PayFragment"
+    tools:ignore="MissingClass">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/fragment_scan_barcode_preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <com.armenia_guide.ui.personal_area.CustomRectangleCutoutView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/top_up_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:fontFamily="@font/gotham_pro"
+        android:lineHeight="14.4dp"
+        android:lineSpacingExtra="3sp"
+        android:text="Поместите QR-код в область квадрата"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="p" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

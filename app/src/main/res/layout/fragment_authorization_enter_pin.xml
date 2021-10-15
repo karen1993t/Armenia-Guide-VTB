@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.authorization.AuthorizationEnterPinFragment">
+
+    <ImageView
+        android:id="@+id/ic_close_enter_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:clickable="true"
+        android:contentDescription="@string/icon_close_black"
+        android:src="@drawable/ic_btn_close_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_vtb_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:contentDescription="@string/description_icon_logo"
+        android:src="@drawable/ic_vtb_eng_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_enter_pin_1" />
+
+    <TextView
+        android:id="@+id/title_enter_pin_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/gotham_pro"
+        android:gravity="center_horizontal|center_vertical"
+        android:lineHeight="20sp"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/title_enter_pin_1"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p"
+        />
+
+
+    <TextView
+        android:id="@+id/title_enter_pin_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/gotham_pro"
+        android:gravity="center_horizontal|top"
+        android:lineHeight="24sp"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/title_enter_pin_2"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_vtb_auth"
+        tools:targetApi="p" />
+
+    <LinearLayout
+        android:id="@+id/entered_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_enter_pin_2">
+
+        <ImageView
+            android:id="@+id/circle_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/circle"
+            android:src="@drawable/circle_pin_view_grey" />
+
+        <ImageView
+            android:id="@+id/circle_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/circle"
+            android:src="@drawable/circle_pin_view_grey" />
+
+        <ImageView
+            android:id="@+id/circle_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/circle"
+            android:src="@drawable/circle_pin_view_grey" />
+
+        <ImageView
+            android:id="@+id/circle_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/circle"
+            android:src="@drawable/circle_pin_view_grey" />
+
+        <ImageView
+            android:id="@+id/circle_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/circle"
+            android:src="@drawable/circle_pin_view_grey" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/entered_pin_1"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/entered_pin"
+        app:layout_constraintEnd_toEndOf="@id/entered_pin"
+        app:layout_constraintStart_toStartOf="@id/entered_pin"
+        app:layout_constraintTop_toTopOf="@id/entered_pin">
+
+
+        <EditText
+            android:id="@+id/editText_enter_pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:cursorVisible="false"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="5"
+            android:visibility="visible"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

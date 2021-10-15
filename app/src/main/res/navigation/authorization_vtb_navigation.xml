@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authorization_vtb"
+    app:startDestination="@id/onBoardingFragment">
+
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.armenia_guide.ui.profile.ProfileFragment"
+        android:label="SignInToEmailTwoFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_loginViaEmailFragment"
+            app:destination="@id/loginViaEmailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEmailFragment"
+        android:name="com.armenia_guide.ui.email_confirmation.ConfirmEmailFragment"
+        android:label="ConfirmEmailFragment"
+        tools:layout="@layout/fragment_confirm_email">
+        <action
+            android:id="@+id/action_confirmEmailFragment_to_confirmEmailFocusInputFragment"
+            app:destination="@id/confirmEmailFocusInputFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.armenia_guide.ui.on_boarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/authorizationPersonalAreaFragment"
+        android:name="com.armenia_guide.ui.personal_area.AuthorizationPersonalAreaFragment"
+        android:label="fragment_authorization_personal_area"
+        tools:layout="@layout/fragment_authorization_personal_area">
+        <action
+            android:id="@+id/action_authorizationPersonalAreaFragment_to_resettingCodeFragment"
+            app:destination="@id/resettingCodeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment"
+            app:destination="@id/bluePersonalAreaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resettingCodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.ResettingCodeFragment"
+        android:label="fragment_resetting_code"
+        tools:layout="@layout/fragment_resetting_code" >
+        <action
+            android:id="@+id/action_resettingCodeFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/authorizationEnterPinFragment"
+        android:name="com.armenia_guide.ui.authorization.AuthorizationEnterPinFragment"
+        android:label="fragment_authorization_enter_pin"
+        tools:layout="@layout/fragment_authorization_enter_pin">
+        <action
+            android:id="@+id/action_authorizationEnterPinFragment_to_authorizationRepeatPinFragment"
+            app:destination="@id/authorizationRepeatPinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/authorizationRepeatPinFragment"
+        android:name="com.armenia_guide.ui.authorization.AuthorizationRepeatPinFragment"
+        android:label="AuthorizationRepeatPinFragment"
+        tools:layout="@layout/fragment_authorization_repeat_pin">
+        <action
+            android:id="@+id/action_authorizationRepeatPinFragment_to_authorizationPersonalAreaFragment"
+            app:destination="@id/authorizationPersonalAreaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.armenia_guide.ui.user_information.PersonalInformationFragment"
+        android:label="PersonalInformationFragment"
+        tools:layout="@layout/fragment_personal_information">
+        <action
+            android:id="@+id/action_personalInformationFragment_to_phoneNumberFragment"
+            app:destination="@id/phoneNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.armenia_guide.ui.user_information.PhoneNumberFragment"
+        android:label="PhoneNumberFragment"
+        tools:layout="@layout/fragment_phone_number">
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment"
+            app:destination="@id/legalAddressFragment" />
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment2"
+            app:destination="@id/legalAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/legalAddressFragment"
+        android:name="com.armenia_guide.ui.biometry_access.LegalAddressFragment"
+        android:label="LegalAddressFragment"
+        tools:layout="@layout/fragment_legal_address">
+        <action
+            android:id="@+id/action_legalAddressFragment_to_passportFragment"
+            app:destination="@id/passportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passportFragment"
+        android:name="com.armenia_guide.ui.biometry_access.PassportFragment"
+        android:label="PassportFragment"
+        tools:layout="@layout/fragment_passport">
+        <action
+            android:id="@+id/action_passportFragment_to_communicationFragment"
+            app:destination="@id/communicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/communicationFragment"
+        android:name="com.armenia_guide.ui.biometry_access.CommunicationFragment"
+        android:label="CommunicationFragment"
+        tools:layout="@layout/fragment_communication">
+        <action
+            android:id="@+id/action_communicationFragment_to_biometrySuccessFragment"
+            app:destination="@id/biometrySuccessFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_communicationFragment_to_biometryInvalidFragment"
+            app:destination="@id/biometryInvalidFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_communicationFragment_to_biometryRejectedFragment"
+            app:destination="@id/biometryRejectedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometrySuccessFragment"
+        android:name="com.armenia_guide.ui.biometry_access.PersonalInformationSuccessFragment"
+        android:label="BiometrySuccessFragment"
+        tools:layout="@layout/fragment_biometry_success">
+        <action
+            android:id="@+id/action_biometrySuccessFragment_to_biometryAccessVideoFragment"
+            app:destination="@id/biometryAccessVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometryInvalidFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryInvalidFragment"
+        android:label="BiometryInvalidFragment"
+        tools:layout="@layout/fragment_biometry_invalid" />
+    <fragment
+        android:id="@+id/biometryRejectedFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryRejectedFragment"
+        android:label="BiometryRejectedFragment"
+        tools:layout="@layout/fragment_biometry_rejected"/>
+    <fragment
+        android:id="@+id/biometryAccessVideoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryAccessVideoFragment"
+        android:label="BiometryAccessVideoFragment"
+        tools:layout="@layout/fragment_biometry_access_video">
+        <action
+            android:id="@+id/action_biometryAccessVideoFragment_to_biometryVideoFragment"
+            app:destination="@id/biometryVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometryVideoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.BiometryVideoFragment"
+        android:label="BiometryVideoFragment"
+        tools:layout="@layout/fragment_biometry_video">
+        <action
+            android:id="@+id/action_biometryVideoFragment_to_faceDetectVideoFragment"
+            app:destination="@id/faceDetectVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/faceDetectVideoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.face_detect.FaceDetectVideoFragment"
+        android:label="FaceDetectVideoFragment"
+        tools:layout="@layout/fragment_face_detect_video">
+        <action
+            android:id="@+id/action_faceDetectVideoFragment_to_detectVideoSubmitFragment"
+            app:destination="@id/detectVideoSubmitFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_faceDetectVideoFragment_to_faceDetectVideoFailureFragment"
+            app:destination="@id/faceDetectVideoFailureFragment" />
+        <action
+            android:id="@+id/action_faceDetectVideoFragment_to_biometryVideoFragment"
+            app:destination="@id/biometryVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_faceDetectVideoFragment_to_biometryAccessVideoFragment"
+            app:destination="@id/biometryAccessVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detectVideoSubmitFragment"
+        android:name="com.armenia_guide.ui.biometry_access.face_detect.FaceDetectVideoSubmitFragment"
+        android:label="DetectVideoSubmitFragment"
+        tools:layout="@layout/fragment_detect_video_submit">
+        <action
+            android:id="@+id/action_detectVideoSubmitFragment_to_faceDetectVideoFragment"
+            app:destination="@id/faceDetectVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+
+            />
+        <action
+            android:id="@+id/action_detectVideoSubmitFragment_to_faceDetectSuccessFragment"
+            app:destination="@id/faceDetectSuccessFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/passportPhotoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.PassportPhotoFragment"
+        android:label="PassportPhotoFragment"
+        tools:layout="@layout/fragment_passport_photo">
+        <action
+            android:id="@+id/action_passportPhotoFragment_to_detectPassportPhotoFragment"
+            app:destination="@id/detectPassportPhotoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detectPassportPhotoFragment"
+        android:name="com.armenia_guide.ui.biometry_access.passport_detect.DetectPassportPhotoFragment"
+        android:label="DetectPassportPhotoFragment"
+        tools:layout="@layout/fragment_detect_passport_photo">
+        <action
+            android:id="@+id/action_detectPassportPhotoFragment_to_detectPassportPhotoSubmitFragment"
+            app:destination="@id/detectPassportPhotoSubmitFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detectPassportPhotoSubmitFragment"
+        android:name="com.armenia_guide.ui.biometry_access.passport_detect.DetectPassportPhotoSubmitFragment"
+        android:label="DetectPassportPhotoSubmitFragment"
+        tools:layout="@layout/fragment_detect_passport_photo_submit">
+        <action
+            android:id="@+id/action_detectPassportPhotoSubmitFragment_to_detectPassportPhotoFragment"
+            app:destination="@id/detectPassportPhotoFragment" />
+        <action
+            android:id="@+id/action_detectPassportPhotoSubmitFragment_to_detectPassportSubmitFragment"
+            app:destination="@id/detectPassportSubmitFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/faceDetectSuccessFragment"
+        android:name="com.armenia_guide.ui.biometry_access.face_detect.FaceDetectSuccessFragment"
+        android:label="FaceDetectSuccessFragment"
+        tools:layout="@layout/fragment_face_detect_success">
+        <action
+            android:id="@+id/action_faceDetectSuccessFragment_to_passportPhotoFragment"
+            app:destination="@id/passportPhotoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/faceDetectVideoFailureFragment"
+        android:name="com.armenia_guide.ui.biometry_access.face_detect.FaceDetectVideoFailureFragment"
+        android:label="FaceDetectVideoFailureFragment"
+        tools:layout="@layout/fragment_face_detect_video_failure">
+        <action
+            android:id="@+id/action_faceDetectVideoFailureFragment_to_faceDetectVideoFragment"
+            app:destination="@id/faceDetectVideoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detectPassportSubmitFragment"
+        android:name="com.armenia_guide.ui.biometry_access.passport_detect.DetectPassportSubmitFragment"
+        android:label="DetectPassportSubmitFragment"
+        tools:layout="@layout/fragment_detect_passport_submit">
+        <action
+            android:id="@+id/action_detectPassportSubmitFragment_to_answerFragment"
+            app:destination="@id/answerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/answerFragment"
+        android:name="com.armenia_guide.ui.biometry_access.AnswerFragment"
+        android:label="AnswerFragment"
+        tools:layout="@layout/fragment_answer">
+        <action
+            android:id="@+id/action_answerFragment_to_contractFragment"
+            app:destination="@id/contractFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/contractFragment"
+        android:name="com.armenia_guide.ui.contract.ContractFragment"
+        android:label="ContractFragment"
+        tools:layout="@layout/fragment_contract">
+        <action
+            android:id="@+id/action_contractFragment_to_authorizationEnterPinFragment"
+            app:destination="@id/authorizationEnterPinFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.armenia_guide.ui.personal_area.PayFragment"
+        android:label="fragment_pay"
+        tools:layout="@layout/fragment_pay" />
+    <fragment
+        android:id="@+id/balanceUpFragment"
+        android:name="com.armenia_guide.ui.personal_area.balance_up.BalanceUpFragment"
+        android:label="fragment_balance_up"
+        tools:layout="@layout/fragment_balance_up" />
+    <fragment
+        android:id="@+id/bluePersonalAreaFragment"
+        android:name="com.armenia_guide.ui.personal_area.BluePersonalAreaFragment"
+        android:label="fragment_blue_personal_area"
+        tools:layout="@layout/fragment_blue_personal_area" >
+        <action
+            android:id="@+id/action_bluePersonalAreaFragment_to_balanceUpFragment"
+            app:destination="@id/balanceUpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_bluePersonalAreaFragment_to_payFragment"
+            app:destination="@id/payFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/searchedBarcodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.pay.SearchedBarcodeFragment"
+        android:label="fragment_searched_barcode"
+        tools:layout="@layout/fragment_searched_barcode" />
+    <fragment
+        android:id="@+id/loginViaEmailFragment"
+        android:name="com.armenia_guide.ui.login_and_register_by_email.LoginViaEmailFragment"
+        android:label="LoginViaEmailFragment"
+        tools:layout="@layout/fragment_login_via_email">
+        <action
+            android:id="@+id/action_loginViaEmailFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginViaEmailFragment_to_confirmEmailFragment"
+            app:destination="@id/confirmEmailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_loginViaEmailFragment_to_authorizationPersonalAreaFragment"
+            app:destination="@id/authorizationPersonalAreaFragment" />
+        <action
+            android:id="@+id/action_loginViaEmailFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.armenia_guide.ui.login_and_register_by_email.NewPasswordFragment"
+        android:label="NewPasswordFragment"
+        tools:layout="@layout/fragment_new_password">
+        <action
+            android:id="@+id/action_newPasswordFragment_to_loginViaEmailFragment"
+            app:destination="@id/loginViaEmailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEmailFocusInputFragment"
+        android:name="com.armenia_guide.ui.email_confirmation.ConfirmEmailFocusInputFragment"
+        android:label="ConfirmEmailFocusInputFragment"
+        tools:layout="@layout/fragment_confirm_email_focus_input">
+        <action
+            android:id="@+id/action_confirmEmailFocusInputFragment_to_questionnaireUserFragment"
+            app:destination="@id/userInformationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/userInformationFragment"
+        android:name="com.armenia_guide.ui.user_information.UserInformationBlankFragment"
+        android:label="UserInformationFragment"
+        tools:layout="@layout/fragment_user_information_blank">
+        <action
+            android:id="@+id/action_userInformationFragment_to_containerUserInformationFragment"
+            app:destination="@id/container_user_information"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/container_user_information"
+        android:name="com.armenia_guide.ui.user_information.UserInformationContainerFragment"
+        android:label="ContainerUserInformationFragment"
+        tools:layout="@layout/fragment_user_information_container"/>
+</navigation>
