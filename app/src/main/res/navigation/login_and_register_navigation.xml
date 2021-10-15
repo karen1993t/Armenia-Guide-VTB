@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_and_register_navigation"
+    app:startDestination="@id/registerUserFragment">
+
+    <fragment
+        android:id="@+id/registerUserFragment"
+        android:name="com.armenia_guide.ui.login_and_register_by_email.RegisterUserFragment"
+        android:label="RegisterUserFragment"
+        tools:layout="@layout/fragment_register_user">
+        <action
+            android:id="@+id/action_registerUserFragment_to_loginUserFragment"
+            app:destination="@id/loginUserFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.armenia_guide.ui.login_and_register_by_email.ResetPasswordFragment"
+        android:label="ResetPasswordFragment"
+        tools:layout="@layout/fragment_reset_password">
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_registerUserFragment"
+            app:destination="@id/registerUserFragment" />
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginUserFragment"
+            app:destination="@id/loginUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginUserFragment"
+        android:name="com.armenia_guide.ui.login_and_register_by_email.LoginUserFragment"
+        android:label="LoginUserFragment"
+        tools:layout="@layout/fragment_login_user">
+
+        <action
+            android:id="@+id/action_loginUserFragment_to_registerUserFragment"
+            app:destination="@id/registerUserFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_loginUserFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+
+    </fragment>
+</navigation>

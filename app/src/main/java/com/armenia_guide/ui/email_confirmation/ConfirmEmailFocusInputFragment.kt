@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentConfirmEmailFocusInputBinding
 import com.armenia_guide.databinding.FragmentDialogConfirmEmailBinding
+import com.armenia_guide.tools.KeyboardTools
 
 
 class ConfirmEmailFocusInputFragment : Fragment() {
@@ -66,5 +67,11 @@ class ConfirmEmailFocusInputFragment : Fragment() {
             findNavController().navigate(R.id.action_confirmEmailFocusInputFragment_to_questionnaireUserFragment)
             dialog.dismiss()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        KeyboardTools.showKeyboard(requireContext())
+
     }
 }

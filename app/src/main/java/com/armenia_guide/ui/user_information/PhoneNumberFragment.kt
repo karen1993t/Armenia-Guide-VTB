@@ -1,4 +1,4 @@
-package com.armenia_guide.ui.questionnaire_user
+package com.armenia_guide.ui.user_information
 
 import android.annotation.SuppressLint
 import android.os.Bundle

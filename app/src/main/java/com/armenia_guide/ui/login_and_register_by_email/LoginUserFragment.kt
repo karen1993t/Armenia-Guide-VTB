@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentLoginUserBinding
+import com.armenia_guide.tools.ConstantsTools
+import com.armenia_guide.tools.KeyboardTools
+import com.armenia_guide.view_models.RegisterAndLoginViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginUserFragment : Fragment(), View.OnClickListener {
+class LoginUserFragment : Fragment() {
     private val loginUserBinding by lazy { FragmentLoginUserBinding.inflate(layoutInflater) }
+    private val sharedViewModel: RegisterAndLoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,16 +26,10 @@ class LoginUserFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loginUserBinding.btnLoginUser.setOnClickListener(this)
-        loginUserBinding.textResetPassword.setOnClickListener(this)
-    }
-
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            loginUserBinding.btnLoginUser.id -> findNavController().navigate(R.id.action_loginViaEmailFragment_to_authorizationPersonalAreaFragment)
-            loginUserBinding.textResetPassword.id ->
-                findNavController().navigate(R.id.action_loginViaEmailFragment_to_resetPasswordFragment)
-
+        loginUserBinding.textResetPassword.setOnClickListener {
+            sharedViewModel.setPositionFragment(ConstantsTools.RESET_PASSWORD_POSITION)
         }
+
     }
+
 }

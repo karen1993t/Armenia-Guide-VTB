@@ -1,4 +1,4 @@
-package com.armenia_guide.ui.questionnaire_user
+package com.armenia_guide.ui.user_information
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,20 +8,16 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.MarginPageTransformer
-import androidx.viewpager2.widget.ViewPager2
-import com.armenia_guide.R
-import com.armenia_guide.adapters.ViewPagerAdapterOnBoarding
 import com.armenia_guide.adapters.ViewPagerAdapterUserInformation
-import com.armenia_guide.databinding.FragmentContainerQuestionnaireUserBinding
+import com.armenia_guide.databinding.FragmentUserInformationContainerBinding
 import com.armenia_guide.tools.ConstantsTools
 import com.armenia_guide.view_models.AuthorizationUserViewModel
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ContainerQuestionnaireUserFragment : Fragment() {
+class UserInformationContainerFragment : Fragment() {
     private val userInformationBinding by lazy {
-        FragmentContainerQuestionnaireUserBinding.inflate(
+        FragmentUserInformationContainerBinding.inflate(
             layoutInflater
         )
     }
@@ -57,7 +53,7 @@ class ContainerQuestionnaireUserFragment : Fragment() {
             })
 
 
-        requireActivity().onBackPressedDispatcher.addCallback(){
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
 
             if (viewPagerQuestionnaireUSer.currentItem !=
                 ConstantsTools.PERSONAL_INFORMATION_POSITION) viewPagerQuestionnaireUSer.currentItem -= 1

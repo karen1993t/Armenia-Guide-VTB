@@ -14,7 +14,7 @@
             android:id="@+id/title_user_information"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="16dp"
             android:fontFamily="@font/gotham_pro"
             android:lineHeight="24sp"
             android:lineSpacingExtra="5sp"

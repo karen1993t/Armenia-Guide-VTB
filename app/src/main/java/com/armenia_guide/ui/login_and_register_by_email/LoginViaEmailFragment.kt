@@ -2,20 +2,35 @@ package com.armenia_guide.ui.login_and_register_by_email
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentLoginViaEmailBinding
+import com.armenia_guide.tools.ConstantsTools
+import com.armenia_guide.view_models.RegisterAndLoginViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LoginViaEmailFragment : Fragment(), View.OnClickListener {
 
     private val loginViaEmailBinding by lazy { FragmentLoginViaEmailBinding.inflate(layoutInflater) }
-    private val registerFragment = RegisterUserFragment()
-    private val loginFragment = LoginUserFragment()
+    private val sharedViewModel: RegisterAndLoginViewModel by viewModel()
+
+    private lateinit var btnRegister: Button
+    private lateinit var btnLogin: Button
+    private lateinit var btnBack: ImageView
+
+    private lateinit var viewNav: FragmentContainerView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,65 +39,112 @@ class LoginViaEmailFragment : Fragment(), View.OnClickListener {
         return loginViaEmailBinding.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState == null)
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login_or_register, registerFragment)
-                .commit()
-
-        loginViaEmailBinding.btnLogin.setOnClickListener(this)
-        loginViaEmailBinding.btnRegister.setOnClickListener(this)
-        loginViaEmailBinding.btnClose.setOnClickListener(this)
-
-
-    }
-
-    @SuppressLint("UseCompatLoadingForDrawables")
-    override fun onClick(view: View?) {
-        val btnRegister = loginViaEmailBinding.btnRegister
-        val btnLogin = loginViaEmailBinding.btnLogin
-        val btnBack = loginViaEmailBinding.btnClose
-
+        viewNav = loginViaEmailBinding.containerLoginOrRegister
+        val statBackgroundButtonPressed =
+            resources.getDrawable(R.drawable.background_button_red, null)
+        val statBackgroundButtonDefault =
+            resources.getDrawable(R.drawable.background_button_white, null)
         val stateTextColorPressedLoginBtn = resources.getColor(R.color.white, null)
         val stateTextColorPressedRegisterBtn = resources.getColor(R.color.white, null)
         val stateTexColorDefaultBtn = resources.getColor(R.color.black, null)
 
-        when (view?.id) {
-            btnRegister.id -> {
-                btnRegister.apply {
-                    background =
-                        resources.getDrawable(R.drawable.background_button_red, null)
-                    setTextColor(stateTextColorPressedRegisterBtn)
-                }
-                btnLogin.apply {
-                    background =
-                        resources.getDrawable(R.drawable.background_button_white, null)
-                    setTextColor(stateTexColorDefaultBtn)
-                }
 
-                parentFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
-                    .replace(R.id.container_login_or_register, registerFragment)
-                    .commit()
-            }
+
+        btnRegister = loginViaEmailBinding.btnRegister
+        btnLogin = loginViaEmailBinding.btnLogin
+        btnBack = loginViaEmailBinding.btnClose
+
+        loginViaEmailBinding.btnLogin.setOnClickListener(this)
+        loginViaEmailBinding.btnRegister.setOnClickListener(this)
+        loginViaEmailBinding.btnClose.setOnClickListener(this)
+        Log.d("TAGS", "jjKK")
+
+
+        onBackPressed()
+
+        sharedViewModel.positionAuthorizationFragmentsLiveData.observe(viewLifecycleOwner,
+            { position ->
+
+                when (position) {
+                    ConstantsTools.REGISTER_USER_POSITION -> {
+                        btnRegister.setTextColor(stateTextColorPressedRegisterBtn)
+                        btnRegister.background = statBackgroundButtonPressed
+                        btnLogin.setTextColor(stateTexColorDefaultBtn)
+                        btnLogin.background = statBackgroundButtonDefault
+                        loginViaEmailBinding.titleLoginToEmail.text = "Вход через Email"
+
+                        when (Navigation.findNavController(viewNav).currentDestination?.id) {
+
+                            R.id.loginUserFragment -> Navigation.findNavController(viewNav)
+                                .navigate(R.id.action_loginUserFragment_to_registerUserFragment)
+
+                            R.id.resetPasswordFragment -> Navigation.findNavController(viewNav)
+                                .navigate(R.id.action_resetPasswordFragment_to_registerUserFragment)
+                        }
+
+
+                    }
+                    ConstantsTools.LOGIN_USER_POSITION -> {
+                        btnLogin.setTextColor(stateTextColorPressedLoginBtn)
+                        btnLogin.background = statBackgroundButtonPressed
+                        btnRegister.setTextColor(stateTexColorDefaultBtn)
+                        btnRegister.background = statBackgroundButtonDefault
+
+                        loginViaEmailBinding.titleLoginToEmail.text = "Вход через Email"
+
+                        when (Navigation.findNavController(viewNav).currentDestination?.id) {
+                            R.id.registerUserFragment -> Navigation.findNavController(viewNav)
+                                .navigate(R.id.action_registerUserFragment_to_loginUserFragment)
+
+                            R.id.resetPasswordFragment -> Navigation.findNavController(viewNav)
+                                .navigate(R.id.action_resetPasswordFragment_to_loginUserFragment)
+                        }
+                    }
+                    ConstantsTools.RESET_PASSWORD_POSITION -> {
+                        loginViaEmailBinding.titleLoginToEmail.text = "Сброс пароля"
+                        if (Navigation.findNavController(viewNav).currentDestination?.id != R.id.resetPasswordFragment)
+                            Navigation.findNavController(viewNav)
+                                .navigate(R.id.action_loginUserFragment_to_resetPasswordFragment)
+                    }
+                    ConstantsTools.NEW_PASSWORD_POSITION ->
+                        findNavController().navigate(R.id.action_loginViaEmailFragment_to_newPasswordFragment)
+                    ConstantsTools.EMAIL_CONFIRM_POSITION ->
+                        findNavController().navigate(R.id.action_loginViaEmailFragment_to_confirmEmailFragment)
+                }
+            })
+
+
+    }
+
+
+    override fun onClick(view: View?) {
+
+        when (view?.id) {
             btnLogin.id -> {
-                btnLogin.apply {
-                    background =
-                        resources.getDrawable(R.drawable.background_button_red, null)
-                    setTextColor(stateTextColorPressedLoginBtn)
-                }
-                btnRegister.apply {
-                    background =
-                        resources.getDrawable(R.drawable.background_button_white, null)
-                    setTextColor(stateTexColorDefaultBtn)
-                }
-                parentFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
-                    .replace(R.id.container_login_or_register, loginFragment)
-                    .commit()
+                sharedViewModel.setPositionFragment(ConstantsTools.LOGIN_USER_POSITION)
+
+
             }
-            btnBack.id -> findNavController().navigate(R.id.action_loginViaEmailFragment_to_profileFragment)
+            btnRegister.id -> {
+                sharedViewModel.setPositionFragment(ConstantsTools.REGISTER_USER_POSITION)
+
+            }
+        }
+
+
+    }
+
+
+
+    private fun onBackPressed() {
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().popBackStack()
+            sharedViewModel.setPositionFragment(ConstantsTools.REGISTER_USER_POSITION)
+
         }
     }
 }

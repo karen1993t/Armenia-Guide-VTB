@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/onBoardingFragment">
 
 
     <fragment
@@ -107,7 +107,7 @@
 
     <fragment
         android:id="@+id/personalInformationFragment"
-        android:name="com.armenia_guide.ui.questionnaire_user.PersonalInformationFragment"
+        android:name="com.armenia_guide.ui.user_information.PersonalInformationFragment"
         android:label="PersonalInformationFragment"
         tools:layout="@layout/fragment_personal_information">
         <action
@@ -116,7 +116,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneNumberFragment"
-        android:name="com.armenia_guide.ui.questionnaire_user.PhoneNumberFragment"
+        android:name="com.armenia_guide.ui.user_information.PhoneNumberFragment"
         android:label="PhoneNumberFragment"
         tools:layout="@layout/fragment_phone_number">
         <action
@@ -421,38 +421,23 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_loginViaEmailFragment_to_resetPasswordFragment"
-            app:destination="@id/resetPasswordFragment"
+            android:id="@+id/action_loginViaEmailFragment_to_confirmEmailFragment"
+            app:destination="@id/confirmEmailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_loginViaEmailFragment_to_confirmEmailFragment"
-            app:destination="@id/confirmEmailFragment" />
         <action
             android:id="@+id/action_loginViaEmailFragment_to_authorizationPersonalAreaFragment"
             app:destination="@id/authorizationPersonalAreaFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/resetPasswordFragment"
-        android:name="com.armenia_guide.ui.login_and_register_by_email.ResetPasswordFragment"
-        android:label="ResetPasswordFragment"
-        tools:layout="@layout/fragment_reset_password">
         <action
-            android:id="@+id/action_resetPasswordFragment_to_loginViaEmailFragment"
-            app:destination="@id/loginViaEmailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_resetPasswordFragment_to_newPasswordFragment"
+            android:id="@+id/action_loginViaEmailFragment_to_newPasswordFragment"
             app:destination="@id/newPasswordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+
     </fragment>
     <fragment
         android:id="@+id/newPasswordFragment"
@@ -474,28 +459,28 @@
         tools:layout="@layout/fragment_confirm_email_focus_input">
         <action
             android:id="@+id/action_confirmEmailFocusInputFragment_to_questionnaireUserFragment"
-            app:destination="@id/questionnaireUserFragment"
+            app:destination="@id/userInformationFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
-        android:id="@+id/questionnaireUserFragment"
-        android:name="com.armenia_guide.ui.questionnaire_user.QuestionnaireUserFragment"
-        android:label="QuestionnaireUserFragment"
-        tools:layout="@layout/fragment_questionnaire_user">
+        android:id="@+id/userInformationFragment"
+        android:name="com.armenia_guide.ui.user_information.UserInformationBlankFragment"
+        android:label="UserInformationFragment"
+        tools:layout="@layout/fragment_user_information_blank">
         <action
-            android:id="@+id/action_questionnaireUserFragment_to_containerQuestionnaireUserFragment"
-            app:destination="@id/containerQuestionnaireUserFragment"
+            android:id="@+id/action_userInformationFragment_to_containerUserInformationFragment"
+            app:destination="@id/container_user_information"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
-        android:id="@+id/containerQuestionnaireUserFragment"
-        android:name="com.armenia_guide.ui.questionnaire_user.ContainerQuestionnaireUserFragment"
-        android:label="ContainerQuestionnaireUserFragment"
-        tools:layout="@layout/fragment_container_questionnaire_user"/>
+        android:id="@+id/container_user_information"
+        android:name="com.armenia_guide.ui.user_information.UserInformationContainerFragment"
+        android:label="ContainerUserInformationFragment"
+        tools:layout="@layout/fragment_user_information_container"/>
 </navigation>

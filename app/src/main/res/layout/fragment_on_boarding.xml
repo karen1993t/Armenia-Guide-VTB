@@ -10,12 +10,12 @@
         android:id="@+id/btn_close"
         android:layout_width="44dp"
         android:layout_height="44dp"
-        android:background="@drawable/ic_btn_close_grey"
         android:layout_marginEnd="5dp"
+        android:background="@drawable/ic_btn_close_grey"
         android:clickable="true"
+        android:contentDescription="@string/description_btn_close"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/description_btn_close" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -23,9 +23,9 @@
         android:layout_marginHorizontal="23dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
         android:background="@drawable/background_container_on_boarding"
         android:elevation="20dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_get_started"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_on_boarding"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
         </androidx.viewpager2.widget.ViewPager2>
 
@@ -58,9 +58,9 @@
         android:textFontWeight="400"
         android:textSize="16sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="p" />
 
     <com.google.android.material.tabs.TabLayout

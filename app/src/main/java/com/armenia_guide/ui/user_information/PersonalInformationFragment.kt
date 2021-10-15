@@ -1,25 +1,15 @@
-package com.armenia_guide.ui.questionnaire_user
+package com.armenia_guide.ui.user_information
 
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentPersonalInformationBinding
 import com.armenia_guide.tools.ConstantsTools
-import com.armenia_guide.tools.CustomDateDialogTools
 import com.armenia_guide.view_models.AuthorizationUserViewModel
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

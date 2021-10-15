@@ -29,15 +29,11 @@ class ArmeniaGuideApplication : Application() {
             viewModel {
                 BiometryFaceAndPassportDetectViewModel()
             }
-
-
+            single {
+                RegisterAndLoginViewModel()
+            }
         }
 
-//        val moduleAuthorizationPin = module {
-//            viewModel {
-//                AuthorizationPinViewModel()
-//            }
-//        }
 
         val moduleSendData = module {
             single {
@@ -57,7 +53,7 @@ class ArmeniaGuideApplication : Application() {
             }
         }
 
-        startKoin (){
+        startKoin() {
             androidContext(applicationContext)
             modules(
                 moduleAuthorizationAndBiometry,

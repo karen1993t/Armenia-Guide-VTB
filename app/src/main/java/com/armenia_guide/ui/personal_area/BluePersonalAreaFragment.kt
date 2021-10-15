@@ -25,7 +25,7 @@ class BluePersonalAreaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        KeyboardTools.hideKeyboard(requireContext())
+        KeyboardTools.hideKeyboard()
     }
 
     override fun onCreateView(

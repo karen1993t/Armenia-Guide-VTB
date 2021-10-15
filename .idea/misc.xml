@@ -11,12 +11,15 @@
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
         <entry key="..\:/ArmenWorks/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/background_face_detect_success.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/check_box_selector.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_background_constraint_answer.xml" value="0.1287037037037037" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_background_passport_detect.xml" value="0.1" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_background_passport_detect_success.xml" value="0.1259259259259259" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_background_stop_video_button.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_background_video_capture_button.xml" value="0.1" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_background_video_capture_close_button.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_checkbox_checked.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_checkbox_unchecked.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.24322916666666666" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable-v24/ic_vtb_brand_card.xml" value="0.14010416666666667" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/background_alert_dialog.xml" value="0.1421875" />
@@ -28,6 +31,7 @@
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/background_face_detect.xml" value="0.16927083333333334" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/color_state_input_text.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/default_dot.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/default_dot_user_information.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/ic_apple.xml" value="0.1421875" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/ic_apple_gray.xml" value="0.1421875" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/ic_arrow_left_black.xml" value="0.13854166666666667" />
@@ -54,7 +58,9 @@
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/ic_vk_blue.xml" value="0.1421875" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/ic_vtb_brand_card.xml" value="0.14010416666666667" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/selected_dot.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/selected_dot_user_information.xml" value="0.8" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/tab_selector.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/drawable/tab_selector_user_information.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/activity_main.xml" value="0.132" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/bottom_sheet_add_card.xml" value="0.22708333333333333" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/bottom_sheet_citizen_ship.xml" value="0.36" />
@@ -81,7 +87,7 @@
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_blue_personal_area.xml" value="0.2" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_check_email.xml" value="0.268" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_communication.xml" value="0.24270833333333333" />
-        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_confirm_email.xml" value="0.268" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_confirm_email.xml" value="0.2" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_confirm_email_focus_input.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_container_questionnaire_user.xml" value="0.2234375" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_contract.xml" value="0.3" />
@@ -97,7 +103,7 @@
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_login.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_login_to_email.xml" value="0.268" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_login_user.xml" value="0.3516642547033285" />
-        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_login_via_email.xml" value="0.1" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_login_via_email.xml" value="0.3" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_new_password.xml" value="0.3" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_on_boarding.xml" value="0.2" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_passport_photo.xml" value="0.268" />
@@ -112,6 +118,7 @@
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_sign_in_to_email.xml" value="0.1" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_sign_in_to_email_two.xml" value="0.3752895752895753" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_submit_email.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/fragment_user_information_container.xml" value="1.3972602739726028" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/personal_area_recycler_row.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/recycler_row_country_phone_code.xml" value="0.3" />
         <entry key="..\:/Users/KAREN/AndroidStudioProjects/Armenia-Guide-VTB/app/src/main/res/layout/search_drop_down_item_country.xml" value="0.18888888888888888" />

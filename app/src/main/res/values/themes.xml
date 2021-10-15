@@ -13,8 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">
             @color/white
         </item>
-        <!-- status bar color-->
-        <item name="android:textColorPrimary">@color/black</item>
+
         <!-- icon color status bar -->
         <item name="android:windowLightStatusBar">true</item>
         <!--        <item name="android:colorControlActivated">@color/color_red</item>-->

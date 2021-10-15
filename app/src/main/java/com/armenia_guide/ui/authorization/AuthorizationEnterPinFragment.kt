@@ -84,6 +84,6 @@ class AuthorizationEnterPinFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         if (false.also { bindingAuthorizationEnterPin.editTextEnterPin.isFocusable = it }){
-            KeyboardTools.hideKeyboard(requireContext())}
+            KeyboardTools.hideKeyboard()}
     }
 }
