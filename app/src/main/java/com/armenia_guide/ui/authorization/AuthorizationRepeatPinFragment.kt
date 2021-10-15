@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentAuthorizationRepeatPinBinding
+import com.armenia_guide.tools.KeyboardTools
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -102,6 +103,11 @@ class AuthorizationRepeatPinFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback() {
          //   findNavController().navigate(R.id.action_authorizationRepeatPinFragment_to_authorizationEmailFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        KeyboardTools.hideKeyboard()
     }
 }
 

@@ -405,7 +405,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchedBarcodeFragment"
-        android:name="com.armenia_guide.ui.personal_area.SearchedBarcodeFragment"
+        android:name="com.armenia_guide.ui.personal_area.pay.SearchedBarcodeFragment"
         android:label="fragment_searched_barcode"
         tools:layout="@layout/fragment_searched_barcode" />
     <fragment

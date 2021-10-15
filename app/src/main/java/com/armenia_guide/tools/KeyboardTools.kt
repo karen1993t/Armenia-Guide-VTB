@@ -12,6 +12,6 @@ object KeyboardTools {
     }
 
     fun hideKeyboard() {
-        keyboard?.toggleSoftInput(InputMethodManager.RESULT_UNCHANGED_HIDDEN, 0)
+        keyboard?.toggleSoftInput(InputMethodManager.RESULT_UNCHANGED_HIDDEN,0)
     }
 }

@@ -1,4 +1,4 @@
-package com.armenia_guide.ui.personal_area
+package com.armenia_guide.ui.personal_area.pay
 
 import android.os.Bundle
 import android.view.LayoutInflater

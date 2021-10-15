@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.biometric.BiometricManager
@@ -14,30 +13,31 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.armenia_guide.R
 import com.armenia_guide.databinding.AlertDialogWrongPinBinding
 import com.armenia_guide.databinding.FragmentAuthorizationPersonalAreaBinding
-
+import com.armenia_guide.tools.KeyboardTools
+import com.armenia_guide.view_models.AuthorizationPinViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 import java.util.concurrent.Executor
 
 class AuthorizationPersonalAreaFragment : Fragment() {
 
-    private val bindingAuthorizationPersonalArea by lazy { FragmentAuthorizationPersonalAreaBinding.inflate(layoutInflater) }
+    private val bindingAuthorizationPersonalArea by lazy {
+        FragmentAuthorizationPersonalAreaBinding.inflate(
+            layoutInflater
+        )
+    }
     private val bindingAlertDialog by lazy { AlertDialogWrongPinBinding.inflate(layoutInflater) }
     private val viewModelPersonalArea: AuthorizationPinViewModel by viewModel()
     private var pinPersonalArea: String = ""
     private var pin2: String = ""
     private var counter: Int = 0
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if ( bindingAuthorizationPersonalArea.editTextPersonalArea.requestFocus()){
-            activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        }
+
     }
 
     override fun onCreateView(
@@ -50,17 +50,23 @@ class AuthorizationPersonalAreaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        KeyboardTools.showKeyboard(requireContext())
+
         viewModelPersonalArea.getPin2LiveData.observe(viewLifecycleOwner, {
             pin2 = it
         })
+        bindingAuthorizationPersonalArea.resetCode.setOnClickListener {
+        findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_resettingCodeFragment)}
 
         bindingAuthorizationPersonalArea.editTextPersonalArea.addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
+
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 pinPersonalArea = p0.toString()
             }
+
             override fun afterTextChanged(p0: Editable?) {
                 when (p0?.length) {
                     5 -> {
@@ -102,7 +108,7 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                                             R.string.attempts_left_0
                                         )
 
-                                   val dialog =  MaterialAlertDialogBuilder(
+                                    val dialog = MaterialAlertDialogBuilder(
                                         requireContext(),
                                         R.style.CutShapeTheme
                                     )
@@ -167,14 +173,20 @@ class AuthorizationPersonalAreaFragment : Fragment() {
                         override fun onAuthenticationSucceeded(
                             result: BiometricPrompt.AuthenticationResult
                         ) {
+
                             findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_bluePersonalAreaFragment)
+
                         }
-                        
+
                         override fun onAuthenticationError(
                             errorCode: Int, errString: CharSequence
                         ) {
                             super.onAuthenticationError(errorCode, errString)
-                            Toast.makeText(requireContext(),getString(R.string.error_detect),Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.error_detect),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     })
                 biometricPrompt.authenticate(promptInfo)
@@ -205,8 +217,13 @@ class AuthorizationPersonalAreaFragment : Fragment() {
         }
 
         requireActivity().onBackPressedDispatcher.addCallback() {
-           // findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_authorizationEmailFragment)
+            // findNavController().navigate(R.id.action_authorizationPersonalAreaFragment_to_authorizationEmailFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
     }
 
 }
