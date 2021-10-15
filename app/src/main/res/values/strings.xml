@@ -10,7 +10,7 @@
     <string name="text_sign_in_facebook">Войти через Facebook</string>
     <string name="description_icon_vkontakte">description_icon_vkontakte</string>
     <string name="text_sign_in_vkontakte">Войти через Вконтакте</string>
-     <string name="text_login_email">Войти через Email</string>
+    <string name="text_login_email">Войти через Email</string>
     <string name="hint_text_input_email">Введите email</string>
     <string name="text_or">или</string>
     <string name="text_btn_start">Начать</string>
@@ -232,6 +232,8 @@
     <string name="send_card_details_email">Мы вышлим реквизиты на emal адрес</string>
     <string name="title_details_card">Реквизиты карты</string>
     <string name="_10_transactions">Последние 10 транзакций</string>
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
     <string-array name="country_code">
         <item>+93</item>
         <item>+355</item>
