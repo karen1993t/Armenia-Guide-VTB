@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_auth_client"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginEnd="84dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineHeight="20dp"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/title_authorization_text"
+        android:textAppearance="@style/text_title"
+        android:textFontWeight="400"
+        app:layout_constraintBottom_toBottomOf="@id/btn_close"
+        app:layout_constraintEnd_toStartOf="@id/btn_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_close"
+
+        tools:targetApi="p" />
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="5dp"
+        android:contentDescription="@string/description_btn_close"
+        android:src="@drawable/ic_btn_close_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_logo_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="571dp"
+        android:background="@drawable/ic_img_logo_guide"
+        android:contentDescription="@string/description_icon_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_auth_client" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_sing_in_apple"
+        android:layout_width="345dp"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/background_sing_in_apple"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_logo_guide">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="description_icon_apple"
+            android:src="@drawable/ic_img_apple"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/headLine"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/gotham_pro"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/text_sing_in_apple"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="11dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
