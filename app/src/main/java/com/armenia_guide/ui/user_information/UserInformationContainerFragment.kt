@@ -7,59 +7,74 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.MarginPageTransformer
-import com.armenia_guide.adapters.ViewPagerAdapterUserInformation
 import com.armenia_guide.databinding.FragmentUserInformationContainerBinding
-import com.armenia_guide.tools.ConstantsTools
-import com.armenia_guide.view_models.AuthorizationUserViewModel
-import com.google.android.material.tabs.TabLayoutMediator
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.armenia_guide.tools.ConstantsTools.COMMUNICATION_WITH_THE_BANK
+import com.armenia_guide.tools.ConstantsTools.PERSONAL_INFORMATION_POSITION
+import com.armenia_guide.tools.ConstantsTools.PHONE_NUMBER_POSITION
+import com.armenia_guide.tools.ConstantsTools.USER_ADDRESS
+import com.armenia_guide.tools.ConstantsTools.USER_PASSPORT
+import com.armenia_guide.view_models.PositionTabLayoutViewModel
+import com.google.android.material.tabs.TabLayout
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class UserInformationContainerFragment : Fragment() {
-    private val userInformationBinding by lazy {
-        FragmentUserInformationContainerBinding.inflate(
-            layoutInflater
-        )
-    }
-    private val sharedViewModel: AuthorizationUserViewModel by viewModel()
+    private lateinit var bindingUserInformation: FragmentUserInformationContainerBinding
+    private val positionTabLayoutViewModel: PositionTabLayoutViewModel by sharedViewModel()
+    private lateinit var tabLayoutQuestionnaireUSer: TabLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return userInformationBinding.root
+        bindingUserInformation = FragmentUserInformationContainerBinding.inflate(layoutInflater)
+        tabLayoutQuestionnaireUSer = bindingUserInformation.tabLayoutUserInformation
+        tabLayoutFragments()
+        return bindingUserInformation.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterViewModel =
-            ViewPagerAdapterUserInformation(requireActivity().supportFragmentManager, lifecycle)
-      val  tabLayoutQuestionnaireUSer = userInformationBinding.tabLayoutUserInformation
-       val viewPagerQuestionnaireUSer = userInformationBinding.viewPagerOnUserInformation
+        positionTabLayoutViewModel.positionTabLayoutLiveData.observe(viewLifecycleOwner, {
+            when (it) {
+                PERSONAL_INFORMATION_POSITION -> {
+                    tabLayoutQuestionnaireUSer.getTabAt(PERSONAL_INFORMATION_POSITION)?.select()
+                }
+                PHONE_NUMBER_POSITION -> {
+                    tabLayoutQuestionnaireUSer.getTabAt(PHONE_NUMBER_POSITION)?.select()
+                }
+                USER_ADDRESS -> {
+                    tabLayoutQuestionnaireUSer.getTabAt(USER_ADDRESS)?.select()
+                }
+                USER_PASSPORT -> {
+                    tabLayoutQuestionnaireUSer.getTabAt(USER_PASSPORT)?.select()
+                }
+                COMMUNICATION_WITH_THE_BANK -> {
+                    tabLayoutQuestionnaireUSer.getTabAt(COMMUNICATION_WITH_THE_BANK)?.select()
+                }
+            }
+        })
 
-        viewPagerQuestionnaireUSer.apply {
-            isUserInputEnabled = false
-            adapter = adapterViewModel
-            TabLayoutMediator(tabLayoutQuestionnaireUSer, viewPagerQuestionnaireUSer) { _, _ ->
-            }.attach()
-            setPageTransformer(MarginPageTransformer(100))
+        onBackPressed()
+    }
+
+    private fun tabLayoutFragments() {
+        with(tabLayoutQuestionnaireUSer) {
+            addTab(newTab())
+            addTab(newTab())
+            addTab(newTab())
+            addTab(newTab())
+            addTab(newTab())
         }
+    }
 
-        sharedViewModel.itemCurrentPersonalInformationLiveData.observe(viewLifecycleOwner,
-            {
-                viewPagerQuestionnaireUSer.currentItem = it
-            })
-
-
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
-
-            if (viewPagerQuestionnaireUSer.currentItem !=
-                ConstantsTools.PERSONAL_INFORMATION_POSITION) viewPagerQuestionnaireUSer.currentItem -= 1
-            else {
+    private fun onBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (tabLayoutQuestionnaireUSer.selectedTabPosition != PERSONAL_INFORMATION_POSITION) {
+                tabLayoutQuestionnaireUSer.getTabAt(tabLayoutQuestionnaireUSer.selectedTabPosition - 1)
+            } else {
                 findNavController().popBackStack()
-                sharedViewModel.changeItemCurrentPersonalInformation(ConstantsTools.PERSONAL_INFORMATION_POSITION)
             }
         }
     }

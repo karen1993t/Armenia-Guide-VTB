@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/container_user_information">
+    app:startDestination="@id/userInformationFragment">
 
 
     <fragment
@@ -105,72 +105,37 @@
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
-    <fragment
-        android:id="@+id/personalInformationFragment"
-        android:name="com.armenia_guide.ui.user_information.PersonalInformationFragment"
-        android:label="PersonalInformationFragment"
-        tools:layout="@layout/fragment_personal_information">
-        <action
-            android:id="@+id/action_personalInformationFragment_to_phoneNumberFragment"
-            app:destination="@id/phoneNumberFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/phoneNumberFragment"
-        android:name="com.armenia_guide.ui.user_information.PhoneNumberFragment"
-        android:label="PhoneNumberFragment"
-        tools:layout="@layout/fragment_phone_number">
-        <action
-            android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment"
-            app:destination="@id/legalAddressFragment" />
-        <action
-            android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment2"
-            app:destination="@id/legalAddressFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/legalAddressFragment"
-        android:name="com.armenia_guide.ui.biometry_access.LegalAddressFragment"
-        android:label="LegalAddressFragment"
-        tools:layout="@layout/fragment_legal_address">
-        <action
-            android:id="@+id/action_legalAddressFragment_to_passportFragment"
-            app:destination="@id/passportFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/passportFragment"
-        android:name="com.armenia_guide.ui.biometry_access.PassportFragment"
-        android:label="PassportFragment"
-        tools:layout="@layout/fragment_passport">
-        <action
-            android:id="@+id/action_passportFragment_to_communicationFragment"
-            app:destination="@id/communicationFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/communicationFragment"
-        android:name="com.armenia_guide.ui.biometry_access.CommunicationFragment"
-        android:label="CommunicationFragment"
-        tools:layout="@layout/fragment_communication">
-        <action
-            android:id="@+id/action_communicationFragment_to_biometrySuccessFragment"
-            app:destination="@id/biometrySuccessFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_communicationFragment_to_biometryInvalidFragment"
-            app:destination="@id/biometryInvalidFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_communicationFragment_to_biometryRejectedFragment"
-            app:destination="@id/biometryRejectedFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
+
+
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/communicationFragment"-->
+<!--        android:name="com.armenia_guide.ui.user_information.CommunicationFragment"-->
+<!--        android:label="CommunicationFragment"-->
+<!--        tools:layout="@layout/fragment_communication">-->
+<!--        <action-->
+<!--            android:id="@+id/action_communicationFragment_to_biometrySuccessFragment"-->
+<!--            app:destination="@id/biometrySuccessFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_communicationFragment_to_biometryInvalidFragment"-->
+<!--            app:destination="@id/biometryInvalidFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_communicationFragment_to_biometryRejectedFragment"-->
+<!--            app:destination="@id/biometryRejectedFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
+<!--    </fragment>-->
     <fragment
         android:id="@+id/biometrySuccessFragment"
         android:name="com.armenia_guide.ui.biometry_access.PersonalInformationSuccessFragment"
@@ -478,4 +443,15 @@
         android:name="com.armenia_guide.ui.user_information.UserInformationContainerFragment"
         android:label="ContainerUserInformationFragment"
         tools:layout="@layout/fragment_user_information_container"/>
+    <fragment
+        android:id="@+id/searchCountryFragment"
+        android:name="com.armenia_guide.ui.user_information.SearchCountryFragment"
+        android:label="fragment_search_country"
+        tools:layout="@layout/fragment_search_country" />
+    <action android:id="@+id/action_global_userInformationFragment"
+        app:destination="@id/userInformationFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
 </navigation>

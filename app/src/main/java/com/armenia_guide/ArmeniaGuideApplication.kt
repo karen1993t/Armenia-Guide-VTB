@@ -53,9 +53,16 @@ class ArmeniaGuideApplication : Application() {
             }
         }
 
+        val modulePositionTabLayout = module {
+            viewModel {
+                PositionTabLayoutViewModel()
+            }
+        }
+
         startKoin() {
             androidContext(applicationContext)
             modules(
+                modulePositionTabLayout,
                 moduleAuthorizationAndBiometry,
 //                moduleAuthorizationPin,
                 moduleSendData,

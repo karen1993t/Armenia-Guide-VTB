@@ -11,18 +11,14 @@ import com.armenia_guide.databinding.FragmentUserInformationBlankBinding
 
 class UserInformationBlankFragment : Fragment() {
 
-    private val questionnaireUserBinding by lazy {
-        FragmentUserInformationBlankBinding.inflate(
-            layoutInflater
-        )
-    }
-
+    private lateinit var questionnaireUserBinding: FragmentUserInformationBlankBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        questionnaireUserBinding = FragmentUserInformationBlankBinding.inflate(layoutInflater)
         return questionnaireUserBinding.root
     }
 

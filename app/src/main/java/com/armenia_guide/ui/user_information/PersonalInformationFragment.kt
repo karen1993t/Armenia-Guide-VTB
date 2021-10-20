@@ -3,76 +3,92 @@ package com.armenia_guide.ui.user_information
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color.BLACK
+import android.graphics.Color.WHITE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.CompoundButton
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
+import com.armenia_guide.databinding.BottomSheetCitizenShipBinding
 import com.armenia_guide.databinding.FragmentPersonalInformationBinding
 import com.armenia_guide.tools.ConstantsTools
+import com.armenia_guide.tools.ConstantsTools.PERSONAL_INFORMATION_POSITION
 import com.armenia_guide.tools.CustomDateDialogTools
 import com.armenia_guide.view_models.AuthorizationUserViewModel
+import com.armenia_guide.view_models.PositionTabLayoutViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.tabs.TabLayout
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class PersonalInformationFragment : Fragment() {
-    private val showBindingPersonalInformation by lazy {
-        FragmentPersonalInformationBinding.inflate(
+    private lateinit var bindingPersonalInformation:FragmentPersonalInformationBinding
+
+    private val bindingBottomSheet: BottomSheetCitizenShipBinding by lazy {
+        BottomSheetCitizenShipBinding.inflate(
             layoutInflater
         )
     }
     private lateinit var arrayAdapterGender: ArrayAdapter<String>
     private lateinit var arrayAdapterCitizenShip: ArrayAdapter<String>
     private val sharedViewModel: AuthorizationUserViewModel by viewModel()
+    private val getPositionTabLayoutViewModel: PositionTabLayoutViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        bindingPersonalInformation = FragmentPersonalInformationBinding.inflate(layoutInflater)
 
-        return showBindingPersonalInformation.root
+        return bindingPersonalInformation.root
     }
 
     @SuppressLint("ResourceAsColor", "UseCompatLoadingForDrawables", "ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showBindingPersonalInformation.btnNext.setOnClickListener {
-            sharedViewModel.changeItemCurrentPersonalInformation(ConstantsTools.PHONE_NUMBER_POSITION)
+
+        bindingPersonalInformation.btnNext.setOnClickListener {
+            findNavController().navigate(R.id.action_personalInformationFragment_to_phoneNumberFragment)
         }
 
-        showBindingPersonalInformation.btnMale.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingPersonalInformation.btnMale.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
             if (compoundButton.isChecked) {
-                showBindingPersonalInformation.btnMale.background =
+                bindingPersonalInformation.btnMale.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
+                bindingPersonalInformation.btnMale.setTextColor(WHITE)
+
             } else {
-                showBindingPersonalInformation.btnMale.background =
+                bindingPersonalInformation.btnMale.background =
                     resources.getDrawable(R.drawable.background_button_white, null)
+                bindingPersonalInformation.btnMale.setTextColor(BLACK)
             }
         }
 
-        showBindingPersonalInformation.btnFemale.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingPersonalInformation.btnFemale.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
             if (compoundButton.isChecked) {
-                showBindingPersonalInformation.btnFemale.background =
+                bindingPersonalInformation.btnFemale.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
+                bindingPersonalInformation.btnFemale.setTextColor(WHITE)
+
             } else {
-                showBindingPersonalInformation.btnFemale.background =
+                bindingPersonalInformation.btnFemale.background =
                     resources.getDrawable(R.drawable.background_button_white, null)
+                bindingPersonalInformation.btnFemale.setTextColor(BLACK)
+
             }
         }
 
         //Date Of Birth user (Open Date Picker Dialog)
-        showBindingPersonalInformation.editUserDateOfBirth.setOnClickListener {
-            showBindingPersonalInformation.editUserDateOfBirth.also {
+        bindingPersonalInformation.editUserDateOfBirth.setOnClickListener {
+            bindingPersonalInformation.editUserDateOfBirth.also {
                 CustomDateDialogTools.createDateDialog(
                     requireContext(),
                     ConstantsTools.FORMAT_DATE,
@@ -81,20 +97,19 @@ class PersonalInformationFragment : Fragment() {
             }
         }
 
-        val bottomSheetView = showBindingPersonalInformation.includeBottomSheetCitizenShip
-        val bottomSheetRoot = showBindingPersonalInformation.includeBottomSheetCitizenShip.root
+        val bottomSheetView = bindingPersonalInformation.includeBottomSheetCitizenShip
+        val bottomSheetRoot = bindingPersonalInformation.includeBottomSheetCitizenShip.root
         val bottomSheetCitizenShip = BottomSheetBehavior.from(bottomSheetRoot)
         val showKeyboard: InputMethodManager =
             requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         var selectedItemSearchCitizenShip: String
 
-        showBindingPersonalInformation.editCitizenShip.setOnClickListener {
+        bindingPersonalInformation.editCitizenShip.setOnClickListener {
             // Show bottom_sheet
             bottomSheetCitizenShip.state = BottomSheetBehavior.STATE_EXPANDED
 
-            val tab = view.findViewById<TabLayout>(R.id.tab_layout_user_information)
+            // val tab = view.findViewById<TabLayout>(R.id.tab_layout_user_information)
 
-           // tab.visibility = GONE
 
             bottomSheetView.searchEditUserCitizenShip.requestFocus()
 
@@ -105,18 +120,28 @@ class PersonalInformationFragment : Fragment() {
                 AdapterView.OnItemClickListener { parent, _,
                                                   position, _ ->
                     selectedItemSearchCitizenShip = parent.getItemAtPosition(position).toString()
-                    showBindingPersonalInformation.editCitizenShip.setText(
+                    bindingPersonalInformation.editCitizenShip.setText(
                         selectedItemSearchCitizenShip
                     )
                     // close keyboard
                     showKeyboard.toggleSoftInput(InputMethodManager.RESULT_HIDDEN, 0)
 
                     bottomSheetCitizenShip.state = BottomSheetBehavior.STATE_COLLAPSED
-                 //   tab.isVisible=true
+                    //   tab.isVisible=true
                 }
+
+
+//
+//        bindingBottomSheet.imgSearch.setOnClickListener {
+//            bindingBottomSheet.imgSearch.isVisible = false
+//            bindingBottomSheet.searchTextInputLayoutCitizenShip.isVisible = true
+//            bindingBottomSheet.searchEditUserCitizenShip.requestFocus()
+//
+//        }
+
+
         }
 
-    }
 //    }
 //
 //    @SuppressLint("UseCompatLoadingForDrawables")
@@ -313,4 +338,10 @@ class PersonalInformationFragment : Fragment() {
 //        sharedViewModel.setGender(showBindingPersonalInformation.editUserGender.text.toString())
 //        sharedViewModel.setCitizenShip(showBindingPersonalInformation.editUserCitizenShip.text.toString())
 //    }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getPositionTabLayoutViewModel.sendPositionTabLayout(PERSONAL_INFORMATION_POSITION)
+    }
 }

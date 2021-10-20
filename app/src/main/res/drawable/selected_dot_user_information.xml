@@ -8,9 +8,7 @@
             android:thickness="4dp"
             android:useLevel="false">
             <solid android:color="@color/color_grey_pin_view" />
-            <stroke
-                android:width="0.1dp"
-                android:color="@color/black" />
+
         </shape>
     </item>
 </layer-list>
