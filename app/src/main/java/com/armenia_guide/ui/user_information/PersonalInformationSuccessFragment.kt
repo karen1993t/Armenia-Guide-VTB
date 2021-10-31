@@ -1,4 +1,4 @@
-package com.armenia_guide.ui.biometry_access
+package com.armenia_guide.ui.user_information
 
 import android.os.Bundle
 import android.view.LayoutInflater

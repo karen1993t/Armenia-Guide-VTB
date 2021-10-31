@@ -82,7 +82,7 @@
     <string name="hint_text_communication_with_the_bank">Связать с банком</string>
     <string name="description_ic_biometry_success">description_ic_biometry_success</string>
     <string name="text_title_biometry_success">Анкета успешно заполнена</string>
-    <string name="text_description_biometry_success">Следующий шаг: Биометрия</string>
+    <string name="text_description_biometry_success">Следующий шаг: Фото паспорта</string>
     <string name="description_ic_biometry_invalid">description_ic_biometry_invalid</string>
     <string name="title_text_biometry_invalid">Вы ввели неверные данные</string>
     <string name="text_title_biometry_rejected">Сожелеем,\nбанк отклонил вашу заяавку</string>
@@ -140,7 +140,7 @@
 
     <string name="description_icon_check">description_icon_check</string>
     <string name="regular_expression">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ</string>
-    <string name="text_retake_button">Перснять</string>
+    <string name="text_retake_button">Переснять</string>
     <string name="text_submit_button">Готово</string>
     <string name="description_button_back">description_button_back</string>
     <string name="title_detect_passport_photo">Фото паспорта</string>
@@ -157,8 +157,8 @@
     <string name="text_face_detect_failure_btn_later">Позже</string>
     <string name="text_title_face_detect_failure">Вас плохо видно</string>
     <string name="text_description_face_detect_failure">Не удалось снять видео</string>
-    <string name="text_title_detect_passport_submit">Благодарим за пройденную авторизацию!</string>
-    <string name="text_description_detect_passport_submit">Данные уже в обработке</string>
+    <string name="text_title_detect_passport_submit">Снимок паспорта успешно проделан</string>
+    <string name="text_description_detect_passport_submit">Следующий шаг: Биометрия</string>
     <string name="icon_vtb_brand_card">icon_vtb_brand_card</string>
     <string name="text_title_answer">Поздравляем!</string>
     <string name="text_description_answer">Вы успешно прошли проверку</string>
@@ -239,6 +239,13 @@
     <string name="sms">СМС</string>
     <string name="data_in_progress">Данные в обработке</string>
     <string name="title_in_progress">В ближайжее время мы сообщим \nо результатах проверки</string>
+    <string name="questionnaire_is_incorrect_1">Анкета \nзаполнена некорректно</string>
+    <string name="questionnaire_is_incorrect_2">Исправьте ошибки и отправьте повторно</string>
+    <string name="edit_questionnaire">Редактировать анкету</string>
+    <string name="img_photo">Фото паспорта</string>
+    <string name="title_repeat_fragment_1">Плохое качество снимка</string>
+    <string name="title_repeat_fragment_2">Убедитесь, что на фотографии отчетливо видно данные</string>
+    <string name="repeat_btn">Повторить</string>
     <string-array name="country_code">
         <item>+93</item>
         <item>+355</item>

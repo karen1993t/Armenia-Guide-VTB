@@ -138,7 +138,7 @@
 <!--    </fragment>-->
     <fragment
         android:id="@+id/biometrySuccessFragment"
-        android:name="com.armenia_guide.ui.biometry_access.PersonalInformationSuccessFragment"
+        android:name="com.armenia_guide.ui.user_information.PersonalInformationSuccessFragment"
         android:label="BiometrySuccessFragment"
         tools:layout="@layout/fragment_biometry_success">
         <action

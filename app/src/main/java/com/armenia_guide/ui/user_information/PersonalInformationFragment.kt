@@ -115,6 +115,7 @@ class PersonalInformationFragment : Fragment() {
 
             // show KeyBoard
             showKeyboard.toggleSoftInput(InputMethodManager.RESULT_SHOWN, 0)
+
             // Click item
             bottomSheetView.searchEditUserCitizenShip.onItemClickListener =
                 AdapterView.OnItemClickListener { parent, _,
@@ -142,67 +143,14 @@ class PersonalInformationFragment : Fragment() {
 
         }
 
-//    }
-//
-//    @SuppressLint("UseCompatLoadingForDrawables")
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        val genderList = resources.getStringArray(R.array.gender)
-//        val citizenShipList = resources.getStringArray(R.array.citizen_ship)
-//
-//        val bottomSheetRoot = showBindingPersonalInformation.includeBottomSheetCitizenShip.root
-//        val bottomSheetView = showBindingPersonalInformation.includeBottomSheetCitizenShip
-//        val bottomSheetCitizenShip = BottomSheetBehavior.from(bottomSheetRoot)
-//        var selectedItemSearchCitizenShip: String
-//
-//        // adapter for Gender
-//        arrayAdapterGender =
-//            ArrayAdapter(
-//                requireContext(),
-//                R.layout.drop_down_item_gender,
-//                R.id.text_view_drop_down,
-//                genderList
-//            )
-//        // adapter for Citizen Ship
-//        arrayAdapterCitizenShip = ArrayAdapter(
-//            requireContext(),
-//            R.layout.drop_down_item_search,
-//            R.id.text_view_drop_down,
-//            citizenShipList
-//        )
-//        showBindingPersonalInformation.editUserGender.setAdapter(arrayAdapterGender)
-//        bottomSheetView.searchEditUserCitizenShip.setAdapter(arrayAdapterCitizenShip)
+
 //
 //        isCheckedInputTexts()
 //
 //
 
 
-//        // show List Gender Type
 //
-//        showBindingPersonalInformation.editUserGender.setOnClickListener {
-//            // close keyboard
-//            showKeyboard.hideSoftInputFromWindow(
-//                showBindingPersonalInformation.editUserGender.windowToken,
-//                InputMethodManager.HIDE_NOT_ALWAYS
-//            )
-//            showBindingPersonalInformation.editUserGender.showDropDown()
-//        }
-//
-//
-//
-//
-//        showBindingPersonalInformation.btnNext.setOnClickListener {
-//            isCheckedInputTextsAndNext()
-//
-//        }
-//
-//        showBindingPersonalInformation.btnClose.setOnClickListener {
-////            Navigation.findNavController(it)
-////                .navigate(R.id.action_personalInformationFragment_to_biometryAccessFragment)
-//        }
-//    }
 //
 //    private fun isCheckedInputTextsAndNext() {
 //        val errorText = resources.getString(R.string.text_error_input_edit_text)
