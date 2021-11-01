@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.biometry_access.passport_detect.PhotoPassportBlankFragment">
 
     <ImageView
         android:id="@+id/btn_close"
@@ -61,7 +62,7 @@
             android:gravity="center_vertical"
             android:lineHeight="30sp"
             android:lineSpacingExtra="6sp"
-            android:text="@string/text_title_questionnaire_user"
+            android:text="@string/passport"
             android:textColor="@color/color_red"
             android:textFontWeight="700"
             android:textSize="25sp"
@@ -98,8 +99,8 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="24dp"
             android:max="60"
-            android:progress="0"
-            android:secondaryProgress="20"
+            android:progress="20"
+            android:secondaryProgress="40"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_description_questionnaire_user" />
@@ -162,13 +163,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="18dp"
-            android:background="@mipmap/ic_questionnaire"
+            android:background="@mipmap/ic_photo_detect"
             android:contentDescription="@string/description_icon_questionnaire"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/position_passport" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -180,7 +180,7 @@
         android:background="@drawable/background_button_red"
         android:gravity="center_vertical|center_horizontal"
         android:lineSpacingExtra="5sp"
-        android:text="Оформить"
+        android:text="@string/text_button_start"
         android:textAllCaps="false"
         android:textAppearance="@style/text_appearance"
         android:textColor="@color/white"

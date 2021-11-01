@@ -26,7 +26,7 @@ class PersonalInformationSuccessFragment : Fragment() {
 
         showBiometrySuccess?.btnNext?.setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(R.id.action_biometrySuccessFragment_to_biometryAccessVideoFragment)
+                .navigate(R.id.action_biometrySuccessFragment_to_photoPassportBlankFragment)
         }
     }
 

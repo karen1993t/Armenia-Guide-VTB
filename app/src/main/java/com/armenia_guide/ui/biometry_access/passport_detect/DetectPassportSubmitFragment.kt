@@ -29,7 +29,7 @@ class DetectPassportSubmitFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindingDetectPassportSubmit.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_detectPassportSubmitFragment_to_answerFragment)
+            findNavController().navigate(R.id.action_detectPassportSubmitFragment_to_faceDetectBlankFragment)
         }
     }
 }

@@ -35,14 +35,15 @@ import java.util.concurrent.Executors
 typealias PassportDetectListener = (isPassportDetect: Boolean) -> Unit
 
 @KoinApiExtension
-class DetectPassportPhotoFragment : Fragment(), KoinComponent {
-    private var showDetectPassportBinding: FragmentDetectPassportPhotoBinding? = null
+open class DetectPassportPhotoFragment : Fragment(), KoinComponent {
+    private lateinit var showDetectPassportBinding: FragmentDetectPassportPhotoBinding
     private lateinit var currentVideoPath: String
     private lateinit var uri: Uri
     private val sharedViewModel: BiometryFaceAndPassportDetectViewModel by activityViewModels()
     private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var passportPhotoFile: File
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,9 +56,10 @@ class DetectPassportPhotoFragment : Fragment(), KoinComponent {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         showDetectPassportBinding = FragmentDetectPassportPhotoBinding.inflate(inflater)
-        return showDetectPassportBinding?.root
+
+        return showDetectPassportBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,17 +85,12 @@ class DetectPassportPhotoFragment : Fragment(), KoinComponent {
                 Manifest.permission.CAMERA,
             )
         )
-        showDetectPassportBinding?.cameraCaptureButton?.setOnClickListener {
-            takePhoto()
-        }
-        showDetectPassportBinding?.btnBack?.setOnClickListener {
+
+        showDetectPassportBinding.btnBack.setOnClickListener {
 //            Navigation.findNavController(view)
 //                .navigate(R.id.action_detectPassportPhoto_to_passportPhotoFragment)
         }
-        showDetectPassportBinding?.btnClose?.setOnClickListener {
-//            Navigation.findNavController(view)
-//                .navigate(R.id.action_detectPassportPhoto_to_showVtbCardThreeStepsFragment)
-        }
+
 
     }
 
@@ -107,7 +104,7 @@ class DetectPassportPhotoFragment : Fragment(), KoinComponent {
 
             val preview = Preview.Builder().build().also {
                 it.setSurfaceProvider(
-                    showDetectPassportBinding?.scanFacePreviewView?.surfaceProvider
+                    showDetectPassportBinding.scanFacePreviewView.surfaceProvider
                 )
             }
 
@@ -118,21 +115,16 @@ class DetectPassportPhotoFragment : Fragment(), KoinComponent {
                     it.setAnalyzer(cameraExecutor, PassportDetectAnalyzer { isPassportDetect ->
 
                         if (isPassportDetect) {
-                            showDetectPassportBinding?.cameraCaptureButton?.visibility =
+                            showDetectPassportBinding.boxGreen.visibility =
                                 View.VISIBLE
-                            showDetectPassportBinding?.passportDetectBox?.background =
-                                resources.getDrawable(
-                                    R.drawable.ic_background_passport_detect_success,
-                                    null
-                                )
+
+                            showDetectPassportBinding.cameraCaptureButton.setOnClickListener {
+                                takePhoto()
+                            }
+
                         } else {
-                            showDetectPassportBinding?.cameraCaptureButton?.visibility =
+                            showDetectPassportBinding.boxGreen.visibility =
                                 View.GONE
-                            showDetectPassportBinding?.passportDetectBox?.background =
-                                resources.getDrawable(
-                                    R.drawable.ic_background_passport_detect,
-                                    null
-                                )
                         }
 
                     })
@@ -176,7 +168,7 @@ class DetectPassportPhotoFragment : Fragment(), KoinComponent {
                         BuildConfig.APPLICATION_ID + ".provider", passportPhotoFile
                     )
                     sharedViewModel.setUriPassportPhoto(uri)
-                    showDetectPassportBinding?.root?.let { view ->
+                    showDetectPassportBinding.root.let { view ->
                         Navigation.findNavController(view)
                             .navigate(R.id.action_detectPassportPhotoFragment_to_detectPassportPhotoSubmitFragment)
                     }
@@ -206,8 +198,4 @@ class DetectPassportPhotoFragment : Fragment(), KoinComponent {
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        showDetectPassportBinding = null
-    }
 }

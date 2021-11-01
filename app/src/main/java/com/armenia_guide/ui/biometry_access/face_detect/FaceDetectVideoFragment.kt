@@ -134,9 +134,9 @@ class FaceDetectVideoFragment : Fragment(), View.OnClickListener {
 
                 )
         )
-        showBindingCamera.cameraCaptureButton.setOnClickListener(this)
+
         showBindingCamera.btnBack.setOnClickListener(this)
-        showBindingCamera.btnClose.setOnClickListener(this)
+
 
 
     }
@@ -226,7 +226,7 @@ class FaceDetectVideoFragment : Fragment(), View.OnClickListener {
 
 
                         } catch (e: Exception) {
-                            findNavController().navigate(R.id.action_faceDetectVideoFragment_to_faceDetectVideoFailureFragment)
+//                            findNavController().navigate(R.id.action_faceDetectVideoFragment_to_)
                         }
                     }
 
@@ -235,7 +235,7 @@ class FaceDetectVideoFragment : Fragment(), View.OnClickListener {
                         message: String,
                         cause: Throwable?
                     ) {
-                        findNavController().navigate(R.id.action_faceDetectVideoFragment_to_faceDetectVideoFailureFragment)
+                    //    findNavController().navigate(R.id.action_faceDetectVideoFragment_to_faceDetectVideoFailureFragment)
 
                     }
                 })
@@ -260,30 +260,27 @@ class FaceDetectVideoFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View?) {
 
         when (view) {
-            showBindingCamera.cameraCaptureButton -> {
-                when (isRecording) {
-                    false -> {
-                        takeVideo()
-                        showBindingCamera.cameraCaptureButton.background =
-                            resources.getDrawable(R.drawable.ic_background_stop_video_button, null)
-                        isRecording = true
-                    }
-                    true -> {
-                        videoCaptureTakeVideo.stopRecording()
-                        showBindingCamera.cameraCaptureButton.background =
-                            resources.getDrawable(
-                                R.drawable.ic_background_video_capture_button,
-                                null
-                            )
-                        isRecording = false
-                    }
-                }
-            }
+//            showBindingCamera.cameraCaptureButton -> {
+//                when (isRecording) {
+//                    false -> {
+//                        takeVideo()
+//                        showBindingCamera.cameraCaptureButton.background =
+//                            resources.getDrawable(R.drawable.ic_background_stop_video_button, null)
+//                        isRecording = true
+//                    }
+//                    true -> {
+//                        videoCaptureTakeVideo.stopRecording()
+////                        showBindingCamera.cameraCaptureButton.background =
+////                            resources.getDrawable(
+////                                R.drawable.ic_background_video_capture_button,
+////                                null
+////                            )
+//                        isRecording = false
+//                    }
+//                }
+//            }
             showBindingCamera.btnBack -> showBindingCamera.root.let {
-                findNavController().navigate(R.id.action_faceDetectVideoFragment_to_biometryVideoFragment)
-            }
-            showBindingCamera.btnClose -> showBindingCamera.root.let {
-                findNavController().navigate(R.id.action_faceDetectVideoFragment_to_biometryAccessVideoFragment)
+                findNavController().navigate(R.id.action_faceDetectVideoFragment_to_faceDetectBlankFragment)
             }
         }
     }

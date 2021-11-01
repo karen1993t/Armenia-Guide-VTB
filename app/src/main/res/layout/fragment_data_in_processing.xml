@@ -70,7 +70,7 @@
         android:fontFamily="@font/gotham_pro"
         android:gravity="center_vertical|center_horizontal"
         android:lineSpacingExtra="5sp"
-        android:text="@string/continue_reset"
+        android:text="@string/to_main"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textFontWeight="400"

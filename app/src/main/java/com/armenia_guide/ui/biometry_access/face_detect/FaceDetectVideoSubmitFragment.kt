@@ -47,7 +47,7 @@ class FaceDetectVideoSubmitFragment : Fragment(), View.OnClickListener {
         when (view) {
             showBindingSubmit?.btnSubmit -> showBindingSubmit?.root?.let {
                 Navigation.findNavController(it)
-                    .navigate(R.id.action_detectVideoSubmitFragment_to_faceDetectSuccessFragment)
+                    .navigate(R.id.action_detectVideoSubmitFragment_to_checkBiometricsFragment)
             }
             showBindingSubmit?.btnRetake -> showBindingSubmit?.root?.let {
                 Navigation.findNavController(it)

@@ -37,7 +37,7 @@
         android:id="@+id/button_alert"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:text="@string/continue_reset"
+        android:text="@string/to_main"
         android:textColor="@color/color_red"
         android:fontFamily="@font/s_f_pro"
         android:textAllCaps="false"

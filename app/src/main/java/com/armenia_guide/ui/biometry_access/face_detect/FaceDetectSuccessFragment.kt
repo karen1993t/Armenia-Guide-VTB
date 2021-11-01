@@ -28,7 +28,7 @@ class FaceDetectSuccessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindingFaceDetectVideoSuccess.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_faceDetectSuccessFragment_to_passportPhotoFragment)
+            findNavController().navigate(R.id.action_faceDetectSuccessFragment_to_answerFragment)
         }
     }
 }

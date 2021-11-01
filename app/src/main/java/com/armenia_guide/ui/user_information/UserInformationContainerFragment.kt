@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentUserInformationContainerBinding
 import com.armenia_guide.tools.ConstantsTools.COMMUNICATION_WITH_THE_BANK
 import com.armenia_guide.tools.ConstantsTools.PERSONAL_INFORMATION_POSITION
@@ -57,6 +58,8 @@ class UserInformationContainerFragment : Fragment() {
         })
 
         onBackPressed()
+
+
     }
 
     private fun tabLayoutFragments() {

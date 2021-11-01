@@ -31,9 +31,6 @@ class FaceDetectVideoFailureFragment : Fragment() {
         bindingFaceDetectFailure.btnRetake.setOnClickListener {
             findNavController().navigate(R.id.action_faceDetectVideoFailureFragment_to_faceDetectVideoFragment)
         }
-        bindingFaceDetectFailure.btnLater.setOnClickListener {
-            Snackbar.make(requireContext(), view, "Later Biometry....", Snackbar.LENGTH_SHORT)
-                .show()
-        }
+
     }
 }

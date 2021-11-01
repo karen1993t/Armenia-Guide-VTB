@@ -151,8 +151,8 @@
     <string name="title_passport_photo">Подготовьте ваш паспорт</string>
     <string name="text_info_passport_photo">Сделайте фото первых двух страниц</string>
     <string name="description_face_detect_box">description_face_detect_box</string>
-    <string name="text_title_face_detect_video_success">Успешно</string>
-    <string name="text_description_face_detect_video_success">Следующий шаг: Фото паспорта</string>
+    <string name="text_title_face_detect_video_success">Заявка заполнена успешно</string>
+    <string name="text_description_face_detect_video_success">В ближайжее время мы сообщим о результатах проверки</string>
     <string name="text_face_detect_failure_btn_retake">Повторить</string>
     <string name="text_face_detect_failure_btn_later">Позже</string>
     <string name="text_title_face_detect_failure">Вас плохо видно</string>
@@ -225,7 +225,7 @@
     <string name="error_message_input_card_cvc">Введите CVC карты</string>
     <string name="reset_pin_and_repeat">Сбросте код и повторите попитьку</string>
     <string name="enter_personal_area_blocked">Вход в личный кабинет \nВТБ &amp; Armenia Guide заблокирован</string>
-    <string name="continue_reset">На главную</string>
+    <string name="to_main">На главную</string>
     <string name="reset_code">Сброс кода</string>
     <string name="btn_reset_code">Сбросить код</string>
     <string name="we_send_email">Мы отправили вам письмо с ссылкой для сброса кода</string>
@@ -246,6 +246,9 @@
     <string name="title_repeat_fragment_1">Плохое качество снимка</string>
     <string name="title_repeat_fragment_2">Убедитесь, что на фотографии отчетливо видно данные</string>
     <string name="repeat_btn">Повторить</string>
+    <string name="passport">Паспорт</string>
+    <string name="check_biometric">Проверка биометрии</string>
+    <string name="biometric">Биометрия</string>
     <string-array name="country_code">
         <item>+93</item>
         <item>+355</item>

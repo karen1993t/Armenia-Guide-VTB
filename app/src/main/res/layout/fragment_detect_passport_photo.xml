@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray">
+   >
+    <androidx.camera.view.PreviewView
+        android:id="@+id/scan_face_preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.armenia_guide.ui.biometry_access.passport_detect.RectanglePassportDetect
+        android:id="@+id/box_white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="1dp"
-        android:layout_marginVertical="1dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/passport_detect_box"
-        app:layout_constraintEnd_toEndOf="@id/passport_detect_box"
-        app:layout_constraintStart_toStartOf="@id/passport_detect_box"
-        app:layout_constraintTop_toTopOf="@id/passport_detect_box">
+        />
+    <com.armenia_guide.ui.biometry_access.passport_detect.RectanglePassportDetectSuccess
+        android:id="@+id/box_green"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
 
-        <androidx.camera.view.PreviewView
-            android:id="@+id/scan_face_preview_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
+        />
 
 
     <TextView
@@ -50,20 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/passport_detect_box"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="170dp"
-        android:background="@drawable/ic_background_passport_detect"
-        android:contentDescription="@string/description_background_detect_box"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_detect_passport"
-        app:layout_goneMarginBottom="24dp" />
 
     <ImageButton
         android:id="@+id/camera_capture_button"
