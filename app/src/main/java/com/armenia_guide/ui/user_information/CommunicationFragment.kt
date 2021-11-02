@@ -8,49 +8,52 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentCommunicationBinding
-import com.armenia_guide.tools.ConstantsTools
-import com.armenia_guide.view_models.PositionTabLayoutViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import com.armenia_guide.tools.ConstantsTools.COMMUNICATION_WITH_THE_BANK
+import com.armenia_guide.tools.TabLayoutUserInformation
 
 class CommunicationFragment : Fragment() {
+
     private lateinit var bindingCommunication: FragmentCommunicationBinding
-    private val getPositionTabLayoutViewModel: PositionTabLayoutViewModel by sharedViewModel()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         bindingCommunication = FragmentCommunicationBinding.inflate(layoutInflater)
+
+        TabLayoutUserInformation.tabLayoutFragments(bindingCommunication.tabLayoutUserInformation)
+
         return bindingCommunication.root
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bindingCommunication.tabLayoutUserInformation.getTabAt(COMMUNICATION_WITH_THE_BANK)
+            ?.select()
 
-       checkerEmail1()
-       checkerEmail2()
-
+        checkerEmail1()
+        checkerEmail2()
 
         bindingCommunication.btnNext.setOnClickListener {
-//            Navigation.findNavController(view)
-//                .navigate(R.id.action_global_dataInProcessingFragment)
+            findNavController().navigate(R.id.action_communicationFragment_to_dataInProcessingFragment)
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
-        getPositionTabLayoutViewModel.sendPositionTabLayout(ConstantsTools.COMMUNICATION_WITH_THE_BANK)
+        bindingCommunication.btnClose.setOnClickListener {
+            findNavController().navigate(R.id.profileFragment)
+        }
     }
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private fun checkerEmail1(){
+    private fun checkerEmail1() {
 
-        bindingCommunication.btnEmail.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingCommunication.btnEmail.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingCommunication.btnEmail.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
@@ -63,7 +66,7 @@ class CommunicationFragment : Fragment() {
             }
         }
 
-        bindingCommunication.btnEmailRus.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingCommunication.btnEmailRus.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingCommunication.btnEmailRus.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
@@ -75,13 +78,12 @@ class CommunicationFragment : Fragment() {
                 bindingCommunication.btnEmailRus.setTextColor(Color.BLACK)
             }
         }
-
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private fun checkerEmail2(){
+    private fun checkerEmail2() {
 
-        bindingCommunication.btnEmail2.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingCommunication.btnEmail2.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingCommunication.btnEmail2.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
@@ -94,7 +96,7 @@ class CommunicationFragment : Fragment() {
             }
         }
 
-        bindingCommunication.btnEmailRus2.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingCommunication.btnEmailRus2.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingCommunication.btnEmailRus2.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
@@ -107,7 +109,7 @@ class CommunicationFragment : Fragment() {
             }
         }
 
-        bindingCommunication.btnSms.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingCommunication.btnSms.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingCommunication.btnSms.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
@@ -119,7 +121,5 @@ class CommunicationFragment : Fragment() {
                 bindingCommunication.btnSms.setTextColor(Color.BLACK)
             }
         }
-
     }
-
 }

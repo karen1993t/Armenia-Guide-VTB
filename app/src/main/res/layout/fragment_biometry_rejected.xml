@@ -90,7 +90,7 @@
         android:gravity="center_horizontal|center_vertical"
         android:lineHeight="20sp"
         android:lineSpacingExtra="5sp"
-        android:text="@string/text_button_to_home"
+        android:text="@string/to_main"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textFontWeight="400"

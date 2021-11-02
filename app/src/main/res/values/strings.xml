@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Armenia Guide Vtb</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="code">Код</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_btn_close">description_btn_close</string>
     <string name="description_icon_logo">description_icon_logo</string>
@@ -18,7 +18,7 @@
     <string name="description_icon_mc">description_icon_mc</string>
     <string name="text_title_email_confirm">Откройте свою виртуальную карту за 5 минут</string>
     <string name="description_icon_email">description_icon_email</string>
-    <string name="get_started">Оформить</string>
+    <string name="checkout">Оформить</string>
     <string name="title_on_boarding_fragment_1">Виртуальная карта, которая тебе понравится</string>
     <string name="card_vtb">card_vtb</string>
     <string name="title_on_boarding_fragment_2_1">Мгновенное оформление</string>
@@ -50,6 +50,7 @@
     <string name="description_icon_information">description_icon_information</string>
 
     <string name="icon_close_gray">icon_close_gray</string>
+
 
     <string name="title_fill_in_the_form">Заполните анкету</string>
     <string name="description_fill_in_the_form">Приготовьте паспорт</string>
@@ -87,7 +88,6 @@
     <string name="title_text_biometry_invalid">Вы ввели неверные данные</string>
     <string name="text_title_biometry_rejected">Сожелеем,\nбанк отклонил вашу заяавку</string>
     <string name="text_button_support">Поддержка</string>
-    <string name="text_button_to_home">На главную</string>
     <string name="text_description_biometry_rejected"><u>Правила отказа</u></string>
     <string name="description_icon_video_biometry">description_icon_video_biometry</string>
     <string name="text_title_video_biometry">Снимите видео</string>
@@ -196,7 +196,6 @@
     <string name="title_confirm_email">Подтверждение почты</string>
     <string name="text_description_confirm_Email">Подтвердите вашу почту для того, чтобы подключить его к вашей учетной записи для её безопасного хранения.</string>
     <string name="text_button_confirm">Подтвердить</string>
-    <string name="text_button_next_to_home">На главную</string>
     <string name="title_send_message_reset_password">Мы отправили вам письмо со ссылкой для восстановления пароля</string>
     <string name="description_message">description_message</string>
     <string name="text_button_start">Начать</string>
@@ -249,6 +248,11 @@
     <string name="passport">Паспорт</string>
     <string name="check_biometric">Проверка биометрии</string>
     <string name="biometric">Биометрия</string>
+    <string name="gender">Пол</string>
+    <string name="data_birth">Дата рождения</string>
+    <string name="data_birth_1">Выберите дату</string>
+    <string name="citizenship">Гражданство</string>
+    <string name="russian_federation">Российская Федерация</string>
     <string-array name="country_code">
         <item>+93</item>
         <item>+355</item>

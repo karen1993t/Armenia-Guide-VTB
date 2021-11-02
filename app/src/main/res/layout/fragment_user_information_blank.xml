@@ -180,7 +180,7 @@
         android:background="@drawable/background_button_red"
         android:gravity="center_vertical|center_horizontal"
         android:lineSpacingExtra="5sp"
-        android:text="Оформить"
+        android:text="@string/checkout"
         android:textAllCaps="false"
         android:textAppearance="@style/text_appearance"
         android:textColor="@color/white"

@@ -18,17 +18,21 @@ class UserInformationBlankFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         questionnaireUserBinding = FragmentUserInformationBlankBinding.inflate(layoutInflater)
+
         return questionnaireUserBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         questionnaireUserBinding.btnStart.setOnClickListener {
-            findNavController().navigate(R.id.action_userInformationFragment_to_containerUserInformationFragment)
+            findNavController().navigate(R.id.action_userInformationFragment_to_personalInformationFragment2)
+        }
+
+        questionnaireUserBinding.btnClose.setOnClickListener {
+            findNavController().navigate(R.id.profileFragment)
         }
     }
 }

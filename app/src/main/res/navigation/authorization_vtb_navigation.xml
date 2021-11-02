@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/userInformationFragment">
+    app:startDestination="@id/personalInformationFragment">
 
 
     <fragment
@@ -36,15 +36,7 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.armenia_guide.ui.on_boarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding">
-        <action
-            android:id="@+id/action_onBoardingFragment_to_profileFragment"
-            app:destination="@id/profileFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
+        tools:layout="@layout/fragment_on_boarding"/>
 
 
     <fragment
@@ -354,28 +346,10 @@
         android:label="UserInformationFragment"
         tools:layout="@layout/fragment_user_information_blank">
         <action
-            android:id="@+id/action_userInformationFragment_to_containerUserInformationFragment"
-            app:destination="@id/container_user_information"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            android:id="@+id/action_userInformationFragment_to_personalInformationFragment2"
+            app:destination="@id/personalInformationFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/container_user_information"
-        android:name="com.armenia_guide.ui.user_information.UserInformationContainerFragment"
-        android:label="ContainerUserInformationFragment"
-        tools:layout="@layout/fragment_user_information_container">
-        <action
-            android:id="@+id/action_container_user_information_to_phoneNumberFragment2"
-            app:destination="@id/phoneNumberFragment2" />
-    </fragment>
-    <action android:id="@+id/action_global_userInformationFragment"
-        app:destination="@id/userInformationFragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right"/>
+
     <fragment
         android:id="@+id/photoPassportBlankFragment"
         android:name="com.armenia_guide.ui.biometry_access.passport_detect.PhotoPassportBlankFragment"
@@ -385,11 +359,16 @@
             android:id="@+id/action_photoPassportBlankFragment_to_detectPassportPhotoFragment"
             app:destination="@id/detectPassportPhotoFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/phoneNumberFragment2"
+        android:id="@+id/phoneNumberFragment"
         android:name="com.armenia_guide.ui.user_information.PhoneNumberFragment"
         android:label="PhoneNumberFragment"
-        tools:layout="@layout/fragment_phone_number"/>
+        tools:layout="@layout/fragment_phone_number">
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment"
+            app:destination="@id/legalAddressFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dataInProcessingFragment"
         android:name="com.armenia_guide.ui.user_information.DataInProcessingFragment"
@@ -410,9 +389,7 @@
         android:name="com.armenia_guide.ui.user_information.QuestionnaireIsIncorrectFragment"
         android:label="fragment_questionnaire_is_incorrect"
         tools:layout="@layout/fragment_questionnaire_is_incorrect" >
-        <action
-            android:id="@+id/action_questionnaireIsIncorrectFragment_to_container_user_information"
-            app:destination="@id/container_user_information" />
+
     </fragment>
     <fragment
         android:id="@+id/repeatPhotoFragment"
@@ -452,5 +429,49 @@
             android:id="@+id/action_faceDetectSuccessFragment_to_answerFragment"
             app:destination="@id/answerFragment" />
     </fragment>
-    <action android:id="@+id/action_global_dataInProcessingFragment" app:destination="@id/dataInProcessingFragment" />
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.armenia_guide.ui.user_information.PersonalInformationFragment"
+        android:label="PersonalInformationFragment"
+        tools:layout="@layout/fragment_personal_information">
+        <action
+            android:id="@+id/action_personalInformationFragment_to_phoneNumberFragment"
+            app:destination="@id/phoneNumberFragment" />
+        <action
+            android:id="@+id/action_personalInformationFragment_to_citizenShipFragment"
+            app:destination="@id/citizenShipFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/legalAddressFragment"
+        android:name="com.armenia_guide.ui.user_information.LegalAddressFragment"
+        android:label="LegalAddressFragment"
+        tools:layout="@layout/fragment_legal_address">
+        <action
+            android:id="@+id/action_legalAddressFragment_to_passportFragment"
+            app:destination="@id/passportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passportFragment"
+        android:name="com.armenia_guide.ui.user_information.PassportFragment"
+        android:label="PassportFragment"
+        tools:layout="@layout/fragment_passport">
+        <action
+            android:id="@+id/action_passportFragment_to_communicationFragment"
+            app:destination="@id/communicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/communicationFragment"
+        android:name="com.armenia_guide.ui.user_information.CommunicationFragment"
+        android:label="CommunicationFragment"
+        tools:layout="@layout/fragment_communication">
+        <action
+            android:id="@+id/action_communicationFragment_to_dataInProcessingFragment"
+            app:destination="@id/dataInProcessingFragment" />
+    </fragment>
+    <action android:id="@+id/action_global_profileFragment" app:destination="@id/profileFragment" />
+    <fragment
+        android:id="@+id/citizenShipFragment"
+        android:name="com.armenia_guide.ui.user_information.CitizenShipFragment"
+        android:label="fragment_citizen_ship"
+        tools:layout="@layout/fragment_citizen_ship" />
 </navigation>

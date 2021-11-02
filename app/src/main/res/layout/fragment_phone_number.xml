@@ -9,6 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_btn_close_grey"
+            android:clickable="true"
+            android:contentDescription="@string/description_btn_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/title_phone_number"
             android:layout_width="0dp"
@@ -21,10 +31,11 @@
             android:textColor="@color/black"
             android:textFontWeight="700"
             android:textSize="20sp"
+            android:layout_marginTop="12dp"
             android:textStyle="normal"
             android:translationY="-2.43sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_close"
             tools:targetApi="p" />
 
         <TextView
@@ -127,11 +138,25 @@
             android:textFontWeight="400"
             android:textSize="16sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="14.95dp"
+            app:layout_constraintBottom_toTopOf="@id/tab_layout_user_information"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="TouchTargetSizeCheck"
             tools:targetApi="p" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_user_information"
+            android:layout_width="52dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="14.95dp"
+            android:layout_marginBottom="31.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabBackground="@drawable/tab_selector_user_information"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include

@@ -57,7 +57,7 @@ class OnBoardingFragment : Fragment() {
 
 
         bindingOnBoarding.btnGetStarted.setOnClickListener {
-            findNavController().navigate(R.id.action_onBoardingFragment_to_profileFragment)
+            findNavController().navigate(R.id.profileFragment)
         }
     }
 }

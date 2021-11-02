@@ -9,32 +9,27 @@ import androidx.navigation.Navigation
 import com.armenia_guide.R
 import com.armenia_guide.databinding.FragmentBiometrySuccessBinding
 
-
 class PersonalInformationSuccessFragment : Fragment() {
-    private var showBiometrySuccess: FragmentBiometrySuccessBinding? = null
+
+    private lateinit var bindingBiometrySuccess: FragmentBiometrySuccessBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        showBiometrySuccess = FragmentBiometrySuccessBinding.inflate(inflater, container, false)
-        return showBiometrySuccess?.root
+    ): View {
+
+        bindingBiometrySuccess = FragmentBiometrySuccessBinding.inflate(layoutInflater)
+
+        return bindingBiometrySuccess.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showBiometrySuccess?.btnNext?.setOnClickListener {
+        bindingBiometrySuccess.btnNext.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_biometrySuccessFragment_to_photoPassportBlankFragment)
         }
     }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        showBiometrySuccess = null
-    }
-
-
 }

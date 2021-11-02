@@ -1,6 +1,5 @@
 package com.armenia_guide.ui.user_information
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,39 +14,37 @@ import com.armenia_guide.R
 import com.armenia_guide.adapters.CountryCodeAdapterImpl
 import com.armenia_guide.databinding.FragmentPhoneNumberBinding
 import com.armenia_guide.tools.ConstantsTools
+import com.armenia_guide.tools.TabLayoutUserInformation
 import com.armenia_guide.ui.biometry_access.entity.CountryPhoneNumberCodeModel
 import com.armenia_guide.view_models.AuthorizationUserViewModel
-import com.armenia_guide.view_models.PositionTabLayoutViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PhoneNumberFragment : Fragment() {
-    private val showBindingPhoneNumber by lazy { FragmentPhoneNumberBinding.inflate(layoutInflater) }
+
+    private lateinit var bindingPhoneNumber:FragmentPhoneNumberBinding
     private val sharedVieModel: AuthorizationUserViewModel by viewModel()
     private var isSelectedCountryPhoneCode = false
     private var selectedCountryPhoneCode = ""
     private var inputPhoneNumber = ""
-    private val getPositionTabLayoutViewModel: PositionTabLayoutViewModel by sharedViewModel()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return showBindingPhoneNumber.root
+        bindingPhoneNumber = FragmentPhoneNumberBinding.inflate(layoutInflater)
+
+        TabLayoutUserInformation.tabLayoutFragments(bindingPhoneNumber.tabLayoutUserInformation)
+
+        return bindingPhoneNumber.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-      //  val  tabLayoutQuestionnaireUSer = showBindingPhoneNumber.tabLayoutUserInformation
-       // var tabPosition = tabLayoutQuestionnaireUSer.selectedTabPosition
-//        getPositionTabLayoutViewModel.positionTabLayoutLiveData.observe(viewLifecycleOwner,{
-//            tabPosition = it
-//        })
+        bindingPhoneNumber.tabLayoutUserInformation.getTabAt(ConstantsTools.PHONE_NUMBER_POSITION)
+            ?.select()
 
         val errorText = requireContext().resources.getString(R.string.text_error_input_edit_text)
 
@@ -62,56 +59,59 @@ class PhoneNumberFragment : Fragment() {
 
         })
 
-        showBindingPhoneNumber.btnNext.setOnClickListener {
+        bindingPhoneNumber.btnNext.setOnClickListener {
 //            if (showBindingPhoneNumber.editInputPhoneNumberCode.text.toString().isEmpty()) {
 //                showBindingPhoneNumber.editInputPhoneNumberCode.error = errorText
 //            } else {
 //                showBindingPhoneNumber.editInputPhoneNumberCode.error = null
-                sendData()
-                findNavController().navigate(R.id.action_phoneNumberFragment_to_legalAddressFragment)
-               // sharedVieModel.changeItemCurrentPersonalInformation(ConstantsTools.USER_ADDRESS)
-          //  }
+            sendData()
+            findNavController().navigate(R.id.action_phoneNumberFragment_to_legalAddressFragment)
+            // sharedVieModel.changeItemCurrentPersonalInformation(ConstantsTools.USER_ADDRESS)
+            //  }
         }
 
-        showBindingPhoneNumber.editInputPhoneNumberCode.setOnClickListener {
+        bindingPhoneNumber.btnClose.setOnClickListener {
+            findNavController().navigate(R.id.profileFragment)
+        }
+
+        bindingPhoneNumber.editInputPhoneNumberCode.setOnClickListener {
             sharedVieModel.getListCountryPhoneNumber()
-
         }
-
 
         /** create bottom sheet search country phone number code **/
         val bottomSheetIncludeSearchCountryCode =
-            showBindingPhoneNumber.includeBottomSheetSearchCountryCode
+            bindingPhoneNumber.includeBottomSheetSearchCountryCode
         val bottomSheetRootSearchCountryCode = bottomSheetIncludeSearchCountryCode.root
         val bottomSheetSearchCountryCode =
             BottomSheetBehavior.from(bottomSheetRootSearchCountryCode)
 
 
-       // val bottomSheetInclude = showBindingPhoneNumber.includeBottomSheetPhoneNumber
+         val bottomSheetInclude = bindingPhoneNumber.includeBottomSheetSearchCountryCode
 
 
-//        bottomSheetIncludeSearchCountryCode.btnDoneSelectedCountryPhoneCode.setOnClickListener {
-//            if (isSelectedCountryPhoneCode && selectedCountryPhoneCode.isNotEmpty()) {
-//              //  bottomSheetInclude.editInputPhoneNumberCode.setText(selectedCountryPhoneCode)
-//               // bottomSheetSearchCountryCode.state = BottomSheetBehavior.STATE_COLLAPSED
-//
-//            } else Toast.makeText(
-//                requireContext(),
-//                "Пожалуйста выберите код страны",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//
-//        }
+        bottomSheetIncludeSearchCountryCode.btnDoneSelectedCountryPhoneCode.setOnClickListener {
+            if (isSelectedCountryPhoneCode && selectedCountryPhoneCode.isNotEmpty()) {
+              //  bottomSheetInclude.editInputPhoneNumberCode.setText(selectedCountryPhoneCode)
+               // bottomSheetSearchCountryCode.state = BottomSheetBehavior.STATE_COLLAPSED
+
+            } else Toast.makeText(
+                requireContext(),
+                "Пожалуйста выберите код страны",
+                Toast.LENGTH_SHORT
+            ).show()
+
+        }
         bottomSheetIncludeSearchCountryCode.btnCancel.setOnClickListener {
             bottomSheetSearchCountryCode.state = BottomSheetBehavior.STATE_COLLAPSED
         }
-        /** open bottom sheet search country phone number and input phone number **/
-        showBindingPhoneNumber.editInputPhoneNumberCode.setOnClickListener {
 
+        /** open bottom sheet search country phone number and input phone number **/
+        bindingPhoneNumber.editInputPhoneNumberCode.setOnClickListener {
             bottomSheetSearchCountryCode.state = BottomSheetBehavior.STATE_EXPANDED
             buildRecyclerView()
         }
     }
+
 
 //    @SuppressLint("SetTextI18n")
 //    private fun createBottomSheetDialog() {
@@ -162,7 +162,7 @@ class PhoneNumberFragment : Fragment() {
 
     private fun buildRecyclerView() {
         val countryCodeRecycler =
-            showBindingPhoneNumber.includeBottomSheetSearchCountryCode.recyclerCountryPhoneCode
+            bindingPhoneNumber.includeBottomSheetSearchCountryCode.recyclerCountryPhoneCode
 
         sharedVieModel.listCountryPhoneNumberCode.observe(
             viewLifecycleOwner,
@@ -174,7 +174,7 @@ class PhoneNumberFragment : Fragment() {
                 countryCodeRecycler.layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-                showBindingPhoneNumber.includeBottomSheetSearchCountryCode.searchEditCountryPhoneCode.addTextChangedListener(
+                bindingPhoneNumber.includeBottomSheetSearchCountryCode.searchEditCountryPhoneCode.addTextChangedListener(
                     object : TextWatcher {
                         override fun beforeTextChanged(
                             s: CharSequence?,
@@ -196,7 +196,6 @@ class PhoneNumberFragment : Fragment() {
                             filter(s.toString(), listCountryPhoneNumber, myAdapter)
                         }
                     })
-
             })
     }
 
@@ -215,27 +214,22 @@ class PhoneNumberFragment : Fragment() {
     }
 
     private fun phoneNumberTextWatcher() {
-        showBindingPhoneNumber.editInputPhoneNumberCode.addTextChangedListener(object : TextWatcher {
+        bindingPhoneNumber.editInputPhoneNumberCode.addTextChangedListener(object :
+            TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (showBindingPhoneNumber.editInputPhoneNumberCode.text.toString().isNotEmpty()) {
-                    showBindingPhoneNumber.editInputPhoneNumberCode.error = null
+                if (bindingPhoneNumber.editInputPhoneNumberCode.text.toString().isNotEmpty()) {
+                    bindingPhoneNumber.editInputPhoneNumberCode.error = null
                 }
             }
-
             override fun afterTextChanged(s: Editable?) {
             }
         })
     }
 
     private fun sendData() {
-        sharedVieModel.setPhoneNumber(showBindingPhoneNumber.editInputPhoneNumberCode.text.toString())
-    }
-
-    override fun onResume() {
-        super.onResume()
-        getPositionTabLayoutViewModel.sendPositionTabLayout(ConstantsTools.PHONE_NUMBER_POSITION)
+        sharedVieModel.setPhoneNumber(bindingPhoneNumber.editInputPhoneNumberCode.text.toString())
     }
 }
