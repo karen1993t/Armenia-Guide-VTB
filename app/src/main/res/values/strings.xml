@@ -93,7 +93,6 @@
     <string name="text_title_video_biometry">Снимите видео</string>
     <string name="text_description_video_biometry">Найдите освещенное место</string>
     <string name="text_btn_go_to_biometry">Перейти к биометрии</string>
-    <string name="text_error_input_edit_text">Поле ввода не должно быть пустым</string>
     <string name="title_auth_personal_area">Привет, Анастасия!</string>
     <string name="enter_with_face_id">Войти через FaceID</string>
     <string name="text_title_auth_profile">Профиль</string>
@@ -252,7 +251,13 @@
     <string name="data_birth">Дата рождения</string>
     <string name="data_birth_1">Выберите дату</string>
     <string name="citizenship">Гражданство</string>
-    <string name="russian_federation">Российская Федерация</string>
+    <string name="select_citizenship">Выберите гражданство</string>
+    <string name="check_country">Выберите страну</string>
+    <string name="check_city">Выберите город</string>
+    <string-array name="countries">
+        <item>Российская Федерация</item>
+        <item>Армения</item>
+    </string-array>
     <string-array name="country_code">
         <item>+93</item>
         <item>+355</item>

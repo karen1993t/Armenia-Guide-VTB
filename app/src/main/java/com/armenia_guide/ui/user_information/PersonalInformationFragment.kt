@@ -1,22 +1,22 @@
 package com.armenia_guide.ui.user_information
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color.BLACK
 import android.graphics.Color.WHITE
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.armenia_guide.R
-
 import com.armenia_guide.databinding.FragmentPersonalInformationBinding
 import com.armenia_guide.tools.ConstantsTools
+import com.armenia_guide.tools.ConstantsTools.ERROR_EDIT_TEXT
 import com.armenia_guide.tools.ConstantsTools.PERSONAL_INFORMATION_POSITION
 import com.armenia_guide.tools.CustomDateDialogTools
 import com.armenia_guide.tools.TabLayoutUserInformation
@@ -27,15 +27,18 @@ class PersonalInformationFragment : Fragment() {
 
     private lateinit var bindingPersonalInformation: FragmentPersonalInformationBinding
 
-//    private val bindingBottomSheet: BottomSheetCitizenShipBinding by lazy {
-//        BottomSheetCitizenShipBinding.inflate(
-//            layoutInflater
-//        )
-//    }
-
+    private lateinit var citizenShip: String
+    private lateinit var name: String
+    private lateinit var lastName: String
+    private lateinit var dataBirth: String
+    private var gender: String = ""
+    private var checkerName = false
+    private var checkerLastName = false
+    private var checkerBirthData = false
+    private var checkerCitizenShip = false
     private lateinit var arrayAdapterGender: ArrayAdapter<String>
-    private lateinit var arrayAdapterCitizenShip: ArrayAdapter<String>
     private val sharedViewModel: AuthorizationUserViewModel by viewModel()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,216 +50,207 @@ class PersonalInformationFragment : Fragment() {
 
         TabLayoutUserInformation.tabLayoutFragments(bindingPersonalInformation.tabLayoutUserInformation)
 
+        checkerGender()
+
         return bindingPersonalInformation.root
     }
 
-    @SuppressLint("ResourceAsColor", "ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         bindingPersonalInformation.tabLayoutUserInformation.getTabAt(PERSONAL_INFORMATION_POSITION)
             ?.select()
 
-//        bindingPersonalInformation.btnNext.setOnClickListener {
-//            findNavController().navigate(R.id.action_personalInformationFragment_to_phoneNumberFragment)
-//
-//        }
-
         bindingPersonalInformation.btnClose.setOnClickListener {
             findNavController().navigate(R.id.profileFragment)
         }
 
-        checkerGender()
 
         dataBirth()
-
-
-        val showKeyboard: InputMethodManager =
-            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-
-        var selectedItemSearchCitizenShip: String
-
-        bindingPersonalInformation.editCitizenShip.setOnClickListener {
-            // Show bottom_sheet
-
-            findNavController().navigate(R.id.action_personalInformationFragment_to_citizenShipFragment)
-//            bottomSheetView.searchEditUserCitizenShip.requestFocus()
-//
-//            // show KeyBoard
-//            showKeyboard.toggleSoftInput(InputMethodManager.RESULT_SHOWN, 0)
-//
-//            // Click item
-//            bottomSheetView.searchEditUserCitizenShip.onItemClickListener =
-//                AdapterView.OnItemClickListener { parent, _,
-//                                                  position, _ ->
-//                    selectedItemSearchCitizenShip = parent.getItemAtPosition(position).toString()
-//                    bindingPersonalInformation.editCitizenShip.setText(
-//                        selectedItemSearchCitizenShip
-//                    )
-//                    // close keyboard
-//                    showKeyboard.toggleSoftInput(InputMethodManager.RESULT_HIDDEN, 0)
-//
-//                    bottomSheetCitizenShip.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
-
-
-//
-//        bindingBottomSheet.imgSearch.setOnClickListener {
-//            bindingBottomSheet.imgSearch.isVisible = false
-//            bindingBottomSheet.searchTextInputLayoutCitizenShip.isVisible = true
-//            bindingBottomSheet.searchEditUserCitizenShip.requestFocus()
-//
-//        }
-//        }
+        citizenShip()
+        isCheckedInputTexts()
+        checkerAndClick()
     }
 
-//
-//        isCheckedInputTexts()
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun checkerAndClick() {
 
-//    private fun isCheckedInputTextsAndNext() {
-//        val errorText = resources.getString(R.string.text_error_input_edit_text)
-//        when {
-//
-//            bindingPersonalInformation.editUserFirstName.text.toString()
-//                .isEmpty() -> {
-//                bindingPersonalInformation.textInputLayoutFirstName.isErrorEnabled = true
-//                bindingPersonalInformation.textInputLayoutFirstName.error =
-//                    errorText
-//            }
-//            bindingPersonalInformation.editUserLastName.text.toString().isEmpty() -> {
-//                bindingPersonalInformation.textInputLayoutLastName.isErrorEnabled = true
-//                bindingPersonalInformation.textInputLayoutLastName.error = errorText
-//            }
-//            bindingPersonalInformation.editUserDateOfBirth.text.toString().isEmpty() -> {
-//                bindingPersonalInformation.textInputLayoutDateOfBirth.isErrorEnabled =
-//                    true
-//                bindingPersonalInformation.textInputLayoutDateOfBirth.error = errorText
-//            }
+        bindingPersonalInformation.btnNext.setOnClickListener {
+            when {
+                checkerName && checkerLastName && checkerBirthData && checkerCitizenShip -> {
 
-//            bindingPersonalInformation.editCitizenShip.text.toString().isEmpty() -> {
-//                bindingPersonalInformation.textInputLayoutCitizenShip.isErrorEnabled =
-//                    true
-//                bindingPersonalInformation.textInputLayoutCitizenShip.error = errorText
-//            }
-//            else -> bindingPersonalInformation.root.let {
-//                sendData()
-//                findNavController()
-//                    .navigate(R.id.action_personalInformationFragment_to_phoneNumberFragment)
-//            }
-//        }
-//    }
-//
-//    private fun isCheckedInputTexts() {
-//        showBindingPersonalInformation.editUserFirstName.addTextChangedListener(object :
-//            TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                when {
-//                    showBindingPersonalInformation.editUserFirstName.text.toString()
-//                        .isNotEmpty() -> showBindingPersonalInformation.textInputLayoutFirstName.isErrorEnabled =
-//                        false
-//                }
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//        })
-//        showBindingPersonalInformation.editUserSurname.addTextChangedListener(object :
-//            TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                when {
-//                    showBindingPersonalInformation.editUserSurname.text.toString()
-//                        .isNotEmpty() -> showBindingPersonalInformation.textInputLayoutSurname.isErrorEnabled =
-//                        false
-//                }
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//
-//            }
-//
-//        })
-//        showBindingPersonalInformation.editUserDateOfBirth.addTextChangedListener(object :
-//            TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                when {
-//                    showBindingPersonalInformation.editUserDateOfBirth.text.toString()
-//                        .isNotEmpty() -> showBindingPersonalInformation.textInputLayoutDateOfBirth.isErrorEnabled =
-//                        false
-//                }
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//
-//        })
-//        showBindingPersonalInformation.editUserGender.addTextChangedListener(object :
-//            TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                when {
-//                    showBindingPersonalInformation.editUserGender.text.toString()
-//                        .isNotEmpty() -> showBindingPersonalInformation.textInputLayoutGender.isErrorEnabled =
-//                        false
-//                }
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//
-//        })
-//        showBindingPersonalInformation.editUserCitizenShip.addTextChangedListener(object :
-//            TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//
-//                when {
-//                    showBindingPersonalInformation.editUserCitizenShip.text.toString()
-//                        .isNotEmpty() -> showBindingPersonalInformation.textInputLayoutCitizenShip.isErrorEnabled =
-//                        false
-//                }
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//        })
-//    }
-//
-
-
-    private fun sendData() {
-        sharedViewModel.setFirstName(bindingPersonalInformation.editUserFirstName.text.toString())
-        sharedViewModel.setSurName(bindingPersonalInformation.editUserLastName.text.toString())
-        sharedViewModel.setDateOfBirth(bindingPersonalInformation.editUserDateOfBirth.text.toString())
-        sharedViewModel.setCitizenShip(bindingPersonalInformation.editCitizenShip.text.toString())
-        if (bindingPersonalInformation.btnMale.isChecked) {
-            sharedViewModel.setGender(bindingPersonalInformation.btnMale.text.toString())
-        } else {
-            sharedViewModel.setGender(bindingPersonalInformation.btnFemale.text.toString())
+                    sendData()
+                    findNavController()
+                        .navigate(R.id.action_personalInformationFragment_to_phoneNumberFragment)
+                }
+                !checkerName -> {
+                    bindingPersonalInformation.textInputLayoutFirstName.error =
+                        ERROR_EDIT_TEXT
+                }
+                !checkerLastName -> {
+                    bindingPersonalInformation.textInputLayoutLastName.error =
+                        ERROR_EDIT_TEXT
+                }
+                !checkerBirthData -> {
+                    bindingPersonalInformation.textInputLayoutDateOfBirth.error =
+                        ERROR_EDIT_TEXT
+                }
+                !checkerCitizenShip -> {
+                    bindingPersonalInformation.textInputLayoutCitizenShip.error =
+                        ERROR_EDIT_TEXT
+                }
+            }
         }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
+    private fun checkerIsEmpty() {
+        if (checkerName && checkerLastName && checkerBirthData && checkerCitizenShip) {
+            bindingPersonalInformation.btnNext.background =
+                resources.getDrawable(R.drawable.background_button_red, null)
+        }
+        else{
+            bindingPersonalInformation.btnNext.background =
+                resources.getDrawable(R.drawable.background_button_gray, null)
+        }
+    }
+
+    private fun citizenShip() {
+        val getCitizenShip = resources.getStringArray(R.array.countries)
+        arrayAdapterGender =
+            ArrayAdapter(requireContext(), R.layout.drop_down_item_country, getCitizenShip)
+        bindingPersonalInformation.editCitizenShip.setAdapter(arrayAdapterGender)
+
+        bindingPersonalInformation.editCitizenShip.setOnClickListener {
+            bindingPersonalInformation.editCitizenShip.showDropDown()
+        }
+
+        bindingPersonalInformation.editCitizenShip.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                citizenShip = p0.toString()
+                if (!bindingPersonalInformation.editCitizenShip.text.isNullOrEmpty()) {
+                    bindingPersonalInformation.textInputLayoutCitizenShip.isErrorEnabled = false
+                    bindingPersonalInformation.textInputLayoutCitizenShip.error = null
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+        })
+    }
+
+    private fun isCheckedInputTexts() {
+
+        bindingPersonalInformation.editUserFirstName.addTextChangedListener(object :
+            TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                name = p0.toString()
+                when {
+                    bindingPersonalInformation.editUserFirstName.text.isNullOrEmpty() -> {
+                        bindingPersonalInformation.textInputLayoutFirstName.error =  ERROR_EDIT_TEXT
+                    }
+                    else -> {
+                        bindingPersonalInformation.textInputLayoutFirstName.error = null
+                        checkerName = true
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                checkerIsEmpty()
+            }
+        })
+
+        bindingPersonalInformation.editUserLastName.addTextChangedListener(object :
+            TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                lastName = p0.toString()
+                when {
+                    bindingPersonalInformation.editUserLastName.text.isNullOrEmpty() -> {
+                        bindingPersonalInformation.textInputLayoutLastName.error =  ERROR_EDIT_TEXT
+                    }
+                    else -> {
+                        bindingPersonalInformation.textInputLayoutLastName.error = null
+                        checkerLastName = true
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                checkerIsEmpty()
+            }
+        })
+
+        bindingPersonalInformation.editUserDateOfBirth.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                dataBirth = p0.toString()
+                when {
+                    bindingPersonalInformation.editUserDateOfBirth.text.isNullOrEmpty() -> {
+                        bindingPersonalInformation.textInputLayoutDateOfBirth.error =  ERROR_EDIT_TEXT
+                    }
+                    else -> {
+                        bindingPersonalInformation.textInputLayoutDateOfBirth.error = null
+                        checkerBirthData = true
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                checkerIsEmpty()
+            }
+        })
+
+        bindingPersonalInformation.editCitizenShip.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                citizenShip = p0.toString()
+                when {
+                    bindingPersonalInformation.editCitizenShip.text.isNullOrEmpty() -> {
+                        bindingPersonalInformation.textInputLayoutCitizenShip.error =  ERROR_EDIT_TEXT
+                    }
+                    else -> {
+                        bindingPersonalInformation.textInputLayoutCitizenShip.error = null
+                        checkerCitizenShip = true
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                checkerIsEmpty()
+            }
+        })
+    }
+
+    private fun sendData() {
+        sharedViewModel.setFirstName(name)
+        sharedViewModel.setSurName(lastName)
+        sharedViewModel.setDateOfBirth(dataBirth)
+        sharedViewModel.setCitizenShip(citizenShip)
+        sharedViewModel.setGender(gender)
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun checkerGender() {
-        bindingPersonalInformation.btnMale.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingPersonalInformation.btnMale.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingPersonalInformation.btnMale.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
                 bindingPersonalInformation.btnMale.setTextColor(WHITE)
-
+                gender = bindingPersonalInformation.btnMale.text.toString()
             } else {
                 bindingPersonalInformation.btnMale.background =
                     resources.getDrawable(R.drawable.background_button_white, null)
@@ -264,12 +258,12 @@ class PersonalInformationFragment : Fragment() {
             }
         }
 
-        bindingPersonalInformation.btnFemale.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
+        bindingPersonalInformation.btnFemale.setOnCheckedChangeListener { compoundButton: CompoundButton, _: Boolean ->
             if (compoundButton.isChecked) {
                 bindingPersonalInformation.btnFemale.background =
                     resources.getDrawable(R.drawable.background_button_red, null)
                 bindingPersonalInformation.btnFemale.setTextColor(WHITE)
-
+                gender = bindingPersonalInformation.btnFemale.text.toString()
             } else {
                 bindingPersonalInformation.btnFemale.background =
                     resources.getDrawable(R.drawable.background_button_white, null)

@@ -34,14 +34,14 @@ class CountryCodeAdapterImpl(
         holder.countryName.text = currentList.country
         holder.phoneCode.text = currentList.codePhoneNumber
 
-        if (position == selectedItemPos) {
-            holder.countryName.setTextAppearance(R.style.SelectedTextAppearanceCountryName)
-            holder.phoneCode.setTextAppearance(R.style.SelectedTextAppearancePhoneCode)
-            viewModel.setCountryPhoneCode(currentList.codePhoneNumber, true)
-        } else {
-            holder.countryName.setTextAppearance(R.style.DefaultTextAppearanceCountryName)
-            holder.phoneCode.setTextAppearance(R.style.DefaultTextAppearancePhoneCode)
-        }
+//        if (position == selectedItemPos) {
+//            holder.countryName.setTextAppearance(R.style.SelectedTextAppearanceCountryName)
+//            holder.phoneCode.setTextAppearance(R.style.SelectedTextAppearancePhoneCode)
+//            viewModel.setCountryPhoneCode(currentList.codePhoneNumber, true)
+//        } else {
+//            holder.countryName.setTextAppearance(R.style.DefaultTextAppearanceCountryName)
+//            holder.phoneCode.setTextAppearance(R.style.DefaultTextAppearancePhoneCode)
+//        }
     }
 
     override fun getItemCount(): Int {

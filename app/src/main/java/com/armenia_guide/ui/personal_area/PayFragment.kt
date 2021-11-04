@@ -2,32 +2,20 @@ package com.armenia_guide.ui.personal_area
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Color.GREEN
-import android.graphics.Paint
-import android.icu.lang.UCharacter.IndicPositionalCategory.*
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity.TOP
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.armenia_guide.R
 import com.armenia_guide.analyzer.BarcodeAnalyzer
 import com.armenia_guide.databinding.FragmentPayBinding
 import com.armenia_guide.view_models.SendBarcodeViewModel
@@ -44,7 +32,7 @@ class PayFragment : Fragment() {
     }
     private lateinit var cameraExecutor: ExecutorService
     private var processingBarcode = AtomicBoolean(false)
-    val viewModel:SendBarcodeViewModel by viewModel()
+    val viewModel: SendBarcodeViewModel by viewModel()
 
 
     override fun onCreateView(
@@ -58,7 +46,7 @@ class PayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       // bindingPay.surfaceView.background.colorFilter
+        // bindingPay.surfaceView.background.colorFilter
 
         val requestPermissions =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {}
@@ -95,11 +83,13 @@ class PayFragment : Fragment() {
                 .also {
                     it.setAnalyzer(cameraExecutor, BarcodeAnalyzer() { barcode ->
 
-                        if (processingBarcode.compareAndSet(false, true)) {
-                          // CustomRectangleCutoutView(requireContext()).framePaint.color = GREEN
-
-                           // findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
+                        if (barcode.isNotEmpty()) {
+                            bindingPay.boxSuccess.visibility = View.VISIBLE
+                            Toast.makeText(requireContext(), barcode, Toast.LENGTH_SHORT).show()
+                            // findNavController().navigate(R.id.action_payFragment_to_searchedBarcodeFragment)
                             viewModel.sendBarcode(barcode)
+                        } else {
+                            bindingPay.boxSuccess.visibility = View.GONE
                         }
                     })
                 }
@@ -113,7 +103,6 @@ class PayFragment : Fragment() {
             }
         }, ContextCompat.getMainExecutor(requireContext()))
     }
-
 
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {

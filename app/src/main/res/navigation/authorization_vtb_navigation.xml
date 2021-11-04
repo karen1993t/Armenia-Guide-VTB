@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/authorization_vtb"
-    app:startDestination="@id/personalInformationFragment">
+    app:startDestination="@id/bluePersonalAreaFragment">
 
 
     <fragment
@@ -368,6 +368,9 @@
         <action
             android:id="@+id/action_phoneNumberFragment_to_legalAddressFragment"
             app:destination="@id/legalAddressFragment" />
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_citizenShipFragment"
+            app:destination="@id/citizenShipFragment" />
     </fragment>
     <fragment
         android:id="@+id/dataInProcessingFragment"
@@ -383,6 +386,9 @@
         <action
             android:id="@+id/action_dataInProcessingFragment_to_biometryRejectedFragment"
             app:destination="@id/biometryRejectedFragment" />
+        <action
+            android:id="@+id/action_dataInProcessingFragment_to_questionnaireIsIncorrectFragment2"
+            app:destination="@id/questionnaireIsIncorrectFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionnaireIsIncorrectFragment"
@@ -437,9 +443,6 @@
         <action
             android:id="@+id/action_personalInformationFragment_to_phoneNumberFragment"
             app:destination="@id/phoneNumberFragment" />
-        <action
-            android:id="@+id/action_personalInformationFragment_to_citizenShipFragment"
-            app:destination="@id/citizenShipFragment" />
     </fragment>
     <fragment
         android:id="@+id/legalAddressFragment"
@@ -471,7 +474,7 @@
     <action android:id="@+id/action_global_profileFragment" app:destination="@id/profileFragment" />
     <fragment
         android:id="@+id/citizenShipFragment"
-        android:name="com.armenia_guide.ui.user_information.CitizenShipFragment"
+        android:name="com.armenia_guide.ui.user_information.CountryAndPhoneNumberFragment"
         android:label="fragment_citizen_ship"
-        tools:layout="@layout/fragment_citizen_ship" />
+        tools:layout="@layout/fragment_country_and_phone_number" />
 </navigation>

@@ -4,17 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.personal_area.PayFragment"
-   >
+    tools:context=".ui.personal_area.PayFragment">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/fragment_scan_barcode_preview_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
+
     <com.armenia_guide.ui.personal_area.CustomRectangleCutoutView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.armenia_guide.ui.personal_area.pay.RectangleBarcodeScannerSuccess
+        android:id="@+id/box_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/top_up_card"

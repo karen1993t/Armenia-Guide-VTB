@@ -1,5 +1,8 @@
 package com.armenia_guide.tools
 
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.armenia_guide.R
+
 object ConstantsTools {
     /** Format DatePicker **/
     const val FORMAT_DATE = "dd.MM.yyyy"
@@ -18,5 +21,8 @@ object ConstantsTools {
     const val RESET_PASSWORD_POSITION = 2
     const val NEW_PASSWORD_POSITION = 3
     const val EMAIL_CONFIRM_POSITION = 4
+
+    /** EditText empty  error  **/
+    const val ERROR_EDIT_TEXT = "Поле ввода не должно быть пустым"
 
 }

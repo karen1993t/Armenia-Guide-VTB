@@ -159,8 +159,5 @@
             app:tabIndicatorHeight="0dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
-        android:id="@+id/include_bottomSheet_search_country_code"
-        layout="@layout/bottom_sheet_search_country_phone_number_code" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

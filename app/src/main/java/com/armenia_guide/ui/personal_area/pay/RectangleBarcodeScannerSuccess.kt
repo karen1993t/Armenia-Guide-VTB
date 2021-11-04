@@ -1,6 +1,4 @@
-package com.armenia_guide.ui.personal_area
-
-
+package com.armenia_guide.ui.personal_area.pay
 
 import android.content.Context
 import android.content.res.Resources
@@ -11,8 +9,7 @@ import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
 
-
-class CustomRectangleCutoutView @JvmOverloads constructor(
+class RectangleBarcodeScannerSuccess @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -42,9 +39,9 @@ class CustomRectangleCutoutView @JvmOverloads constructor(
         setARGB(80, 0, 0, 0)
     }
 
-     private val framePaint = Paint().apply {
+    private val framePaint = Paint().apply {
         isAntiAlias = true
-        color = Color.WHITE
+        color = Color.GREEN
         strokeWidth = frameStrokeWidth
 
         style = Paint.Style.STROKE
